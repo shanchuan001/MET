@@ -1,0 +1,56 @@
+{
+    "创建房间": {
+        "recognition": "OCR",
+        "expected": "创建房间",
+        "expanded roi": [
+            1134,
+            97,
+            131,
+            74
+        ]
+        "action": "Click",
+        "next": [
+            "关房门"
+        ]
+    },
+    "关房门": {
+        "recognition": "TemplateMatch",
+        "template": "公开.png",
+        "expanded roi": [
+            423,
+            217,
+            200,
+            45
+        ]
+        "action": "Click",
+        "next": [
+            "确定"
+        ]
+    }
+    "确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "expanded roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "next": "自动出击"
+    }
+    "自动出击": {
+        "recognition": "TemplateMatch",
+        "template": "未自动出击.png",
+        "expanded roi": [
+            782,
+            640,
+            116,
+            62
+        ]
+        "next": [
+            "助战选择"
+        ]
+    }
+    "助战选择": {
+        "recognition": "TemplateMatch",
+    }

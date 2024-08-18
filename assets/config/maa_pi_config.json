@@ -1,0 +1,11 @@
+{
+    "controller": {
+        "name": "桌面端",
+        "type": "Win32"
+    },
+    "win32": {
+        "hwnd": "0000000000120efc"
+    },
+    "resource": "B 服",
+    "task": []
+}

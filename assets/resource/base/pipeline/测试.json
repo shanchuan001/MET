@@ -1,0 +1,42 @@
+{
+    "a": {
+        "next": [
+            "幻象",
+            "1",
+            "出击2",
+            "3"
+        ]
+    },
+    "出击2": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "action": "Click",
+        "times_limit": 3,
+        "is_sub": true
+    },
+    "1": {
+        "recognition": "TemplateMatch",
+        "template": "多人1.png",
+        "action": "Click",
+        "times_limit": 3,
+        "is_sub": true
+    },
+    "幻象": {
+        "recognition": "OCR",
+        "expected": "aasd",
+        "action": "Click",
+        "expanded roi": [
+            11,
+            84,
+            120,
+            57
+        ],
+        "timeout": 2000
+    },
+    "3": {
+        "recognition": "OCR",
+        "expected": "幻象",
+        "action": "Click",
+        "timeout": 3000
+    }
+}

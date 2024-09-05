@@ -1,0 +1,283 @@
+{
+    "主页出击": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "action": "Click",
+        "expanded roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "timeout": 2000,
+        "timeout_next": "stopapp",
+        "next": "排除干扰_导览"
+    },
+    "主页出击1": {
+        "next": "主页出击"
+    },
+    "返回主页": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "roi": [
+            114,
+            21,
+            46,
+            37
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "主页出击1",
+        "timeout_next": "主页出击"
+    },
+    "排除干扰_导览": {
+        "recognition": "OCR",
+        "expected": "导览",
+        "action": "Click",
+        "roi": [
+            11,
+            84,
+            120,
+            57
+        ],
+        "timeout": 2000,
+        "timeout_next": "返回主页",
+        "next": "光机1"
+    },
+    "光机1": {
+        "recognition": "TemplateMatch",
+        "template": "多人2.png",
+        "action": "Click",
+        "roi": [
+            1040,
+            96,
+            100,
+            50
+        ],
+        "timeout": 2000,
+        "timeout_next": "stopapp",
+        "next": "光机2"
+    },
+    "光机2": {
+        "recognition": "OCR",
+        "expected": "机偶",
+        "action": "Click",
+        "expanded roi": [
+            1009,
+            460,
+            110,
+            60
+        ],
+        "timeout": 2000,
+        "timeout_next": "返回主页",
+        "next": "光机3"
+    },
+    "光机3": {
+        "recognition": "TemplateMatch",
+        "template": "光机.png",
+        "action": "Click",
+        "timeout": 2000,
+        "timeout_next": "返回主页",
+        "next": "光机4"
+    },
+    "光机4": {
+        "recognition": "OCR",
+        "roi": [
+            600,
+            167,
+            509,
+            147
+        ],
+        "expected": "神使",
+        "action": "Click",
+        "timeout": 2000,
+        "timeout_next": "返回主页",
+        "next": "创建房间"
+    },
+    "创建房间": {
+        "recognition": "OCR",
+        "expected": "创建房间",
+        "action": "Click",
+        "timeout": 2000,
+        "next": "确定",
+        "timeout_next": "返回主页"
+    },
+    "关房门": {
+        "recognition": "TemplateMatch",
+        "template": "公开.png",
+        "expanded roi": [
+            423,
+            217,
+            200,
+            45
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "确定",
+        "timeout_next": "返回主页"
+    },
+    "确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "expanded roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "post_delay": 1400,
+        "next": "出击"
+    },
+    "出击": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "expanded roi": [
+            1077,
+            636,
+            71,
+            66
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "助战选择",
+        "timeout_next": "等待"
+    },
+    "准备": {
+        "recognition": "OCR",
+        "expected": "准备",
+        "expanded roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "自动出击"
+    },
+    "自动出击": {
+        "recognition": "TemplateMatch",
+        "template": "未自动出击.png",
+        "expanded roi": [
+            782,
+            640,
+            116,
+            62
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "出击"
+    },
+    "助战选择": {
+        "recognition": "TemplateMatch",
+        "template": "暗王.png",
+        "action": "Click",
+        "timeout": 2000,
+        "next": [
+            "准备"
+        ]
+    },
+    "blue": {
+        "recognition": "TemplateMatch",
+        "template": "大蓝瓶.png",
+        "action": "Swipe",
+        "begin": [
+            574,
+            287,
+            1,
+            1
+        ],
+        "end": [
+            574,
+            287,
+            1,
+            1
+        ],
+        "duration:": 10000,
+        "timeout": 2000,
+        "next": "使用",
+        "timeout_next": "stopapp"
+    },
+    "使用": {
+        "recognition": "OCR",
+        "expected": "使用",
+        "expanded roi": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "点击",
+        "timeout_next": "stopapp"
+    },
+    "点击": {
+        "DirectHit": true,
+        "action": "Click",
+        "timeout": 2000,
+        "next": "出击",
+        "timeout_next": "stopapp"
+    },
+    "等待": {
+        "pre_wait_freezes": 10000,
+        "next": [
+            "创建房间",
+            "blue",
+            "stopapp"
+        ]
+    },
+    "stopapp": {
+        "action": "StopApp",
+        "package": "com.bilibili.yjzs.bili",
+        "next": "start"
+    },
+    "start": {
+        "action": "StartApp",
+        "package": "com.bilibili.yjzs.bili/com.gsc.unityasdemo.PrivacyActivity",
+        "post_delay": 15000,
+        "next": "进入"
+    },
+    "进入": {
+        "recognition": "TemplateMatch",
+        "template": "进入.png",
+        "roi": [
+            529,
+            565,
+            224,
+            39
+        ],
+        "pre_delay": 1000,
+        "action": "Click",
+        "timeout": 35000,
+        "next": [
+            "退出房间",
+            "关闭页面1"
+        ],
+        "timeout_next": "stopapp",
+        "post_delay": 10000
+    },
+    "退出房间": {
+        "template": "取消.png",
+        "roi": [
+            399,
+            453,
+            194,
+            69
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "next": "关闭页面1",
+        "timeout_next": "stopapp"
+    },
+    "关闭页面1": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "timeout": 3000,
+        "action": "Click",
+        "next": "关闭页面1",
+        "timeout_next": "主页出击"
+    }
+}

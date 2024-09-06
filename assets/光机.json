@@ -1,0 +1,101 @@
+{
+    "光机": {
+        "next": [
+            "建房",
+            "光机3",
+            "光机2",
+            "光机1",
+            "光机0",
+            "回主页",
+            "等待"
+        ]
+    },
+    "建房": {
+        "recognition": "TemplateMatch",
+        "template": "创建房间.png",
+        "timeout": 3000,
+        "is_sub": true,
+        "next": [
+            "自动出击",
+            "出击",
+            "确定",
+            "蓝瓶",
+            "助战选择",
+            "建房0"
+        ]
+    },
+    "自动出击": {
+        "recognition": "TemplateMatch",
+        "template": "自动出击.png",
+        "action": "Click",
+        "timeout": 3000,
+        "is_sub": true
+    },
+    "出击": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "timeout": 3000,
+        "is_sub": true
+    },
+    "确定": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "action": "Click",
+        "timeout": 3000,
+        "is_sub": true
+    },
+    "蓝瓶": {
+        "recognition": "TemplateMatch",
+        "template": "大蓝瓶.png",
+        "action": "Swipe",
+        "begin": [
+            574,
+            287,
+            1,
+            1
+        ],
+        "end": [
+            574,
+            287,
+            1,
+            1
+        ],
+        "duration:": 10000,
+        "timeout": 3000,
+        "next": "使用",
+        "is_sub": true
+    },
+    "使用": {
+        "recognition": "TemplateMatch",
+        "template": "使用.png",
+        "action": "Click",
+        "timeout": 3000,
+        "next": "点击"
+    },
+    "点击": {
+        "DirectHit": true,
+        "action": "Click"
+    },
+    "助战选择": {
+        "recognition": "TemplateMatch",
+        "template": "暗王.png",
+        "action": "Click",
+        "timeout": 3000,
+        "is_sub": true
+    },
+    "建房0": {
+        "recognition": "TemplateMatch",
+        "template": "创建房间.png",
+        "action": "Click",
+        "timeout": 3000,
+        "next": "卡死检测_建房"
+    },
+    "卡死检测_建房": {
+        "recognition": "TemplateMatch",
+        "template": "关房门.png",
+        "timeout": 3000,
+        "inverse": true,
+        "next": "stopapp"
+    }
+}

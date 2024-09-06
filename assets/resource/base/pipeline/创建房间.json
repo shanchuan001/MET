@@ -9,7 +9,8 @@
             119,
             54
         ],
-        "timeout": 2000,
+        "timeout": 3000,
+        "post_delay": 1400,
         "timeout_next": "stopapp",
         "next": "排除干扰_导览"
     },
@@ -26,7 +27,8 @@
             37
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
+        "post_delay": 1400,
         "next": "主页出击1",
         "timeout_next": "主页出击"
     },
@@ -40,7 +42,7 @@
             120,
             57
         ],
-        "timeout": 2000,
+        "timeout": 4000,
         "timeout_next": "返回主页",
         "next": "光机1"
     },
@@ -54,7 +56,7 @@
             100,
             50
         ],
-        "timeout": 2000,
+        "timeout": 4000,
         "timeout_next": "stopapp",
         "next": "光机2"
     },
@@ -68,7 +70,7 @@
             110,
             60
         ],
-        "timeout": 2000,
+        "timeout": 4000,
         "timeout_next": "返回主页",
         "next": "光机3"
     },
@@ -76,7 +78,7 @@
         "recognition": "TemplateMatch",
         "template": "光机.png",
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "timeout_next": "返回主页",
         "next": "光机4"
     },
@@ -90,7 +92,7 @@
         ],
         "expected": "神使",
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "timeout_next": "返回主页",
         "next": "创建房间"
     },
@@ -98,7 +100,7 @@
         "recognition": "OCR",
         "expected": "创建房间",
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "确定",
         "timeout_next": "返回主页"
     },
@@ -112,7 +114,7 @@
             45
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "确定",
         "timeout_next": "返回主页"
     },
@@ -126,7 +128,7 @@
             0
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "post_delay": 1400,
         "next": "出击"
     },
@@ -140,7 +142,7 @@
             66
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "助战选择",
         "timeout_next": "等待"
     },
@@ -154,7 +156,7 @@
             0
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "自动出击"
     },
     "自动出击": {
@@ -167,14 +169,14 @@
             62
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "出击"
     },
     "助战选择": {
         "recognition": "TemplateMatch",
         "template": "暗王.png",
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": [
             "准备"
         ]
@@ -182,44 +184,48 @@
     "blue": {
         "recognition": "TemplateMatch",
         "template": "大蓝瓶.png",
-        "action": "Swipe",
-        "begin": [
-            574,
-            287,
-            1,
-            1
+        "next": [
+            "使用",
+            "blue0"
         ],
-        "end": [
-            574,
-            287,
-            1,
-            1
-        ],
-        "duration:": 10000,
-        "timeout": 2000,
-        "next": "使用",
+        "timeout": 15000,
         "timeout_next": "stopapp"
+    },
+    "blue0": {
+        "recognition": "TemplateMatch",
+        "template": "大蓝瓶.png",
+        "action": "Click",
+        "pre_delay": 50,
+        "post_delay": 200,
+        "timeout": 4000,
+        "is_sub": true
     },
     "使用": {
         "recognition": "OCR",
-        "expected": "使用",
-        "expanded roi": [
-            0,
-            0,
-            0,
-            0
+        "expected": "9",
+        "roi": [
+            603,
+            400,
+            43,
+            50
         ],
+        "timeout": 4000,
+        "next": "使用0",
+        "timeout_next": "stopapp"
+    },
+    "使用0": {
+        "recognition": "OCR",
+        "expected": "使用",
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 4000,
         "next": "点击",
         "timeout_next": "stopapp"
     },
     "点击": {
-        "DirectHit": true,
+        "pre_delay": 1200,
         "action": "Click",
-        "timeout": 2000,
-        "next": "出击",
-        "timeout_next": "stopapp"
+        "timeout": 4000,
+        "next": "出击"
     },
     "等待": {
         "pre_wait_freezes": 10000,
@@ -237,27 +243,24 @@
     "start": {
         "action": "StartApp",
         "package": "com.bilibili.yjzs.bili/com.gsc.unityasdemo.PrivacyActivity",
-        "post_delay": 15000,
-        "next": "进入"
+        "post_delay": 60000,
+        "next": [
+            "进入",
+            "stopapp"
+        ]
     },
     "进入": {
         "recognition": "TemplateMatch",
         "template": "进入.png",
-        "roi": [
-            529,
-            565,
-            224,
-            39
-        ],
-        "pre_delay": 1000,
+        "pre_delay": 1500,
         "action": "Click",
-        "timeout": 35000,
+        "timeout": 5000,
+        "timeout_next": "stopapp",
+        "post_delay": 10000,
         "next": [
             "退出房间",
             "关闭页面1"
-        ],
-        "timeout_next": "stopapp",
-        "post_delay": 10000
+        ]
     },
     "退出房间": {
         "template": "取消.png",
@@ -268,7 +271,7 @@
             69
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 3000,
         "next": "关闭页面1",
         "timeout_next": "stopapp"
     },

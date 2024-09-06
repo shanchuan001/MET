@@ -7,6 +7,12 @@
             "3"
         ]
     },
+    "b": {
+        "next": [
+            "幻象",
+            "3"
+        ]
+    },
     "出击2": {
         "recognition": "TemplateMatch",
         "template": "主页出击.png",
@@ -31,12 +37,29 @@
             120,
             57
         ],
-        "timeout": 2000
+        "timeout": 20000
     },
     "3": {
         "recognition": "OCR",
         "expected": "幻象",
         "action": "Click",
-        "timeout": 3000
+        "timeout": 30000
+    },
+    "滑动": {
+        "recognition": "DirectHit",
+        "action": "Swipe",
+        "duration:": 10000,
+        "begin": [
+            590,
+            276,
+            1,
+            1
+        ],
+        "end": [
+            590,
+            276,
+            1,
+            1
+        ]
     }
 }

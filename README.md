@@ -37,9 +37,3 @@ MET是用于缓解悠久之树严重的挂机刷本压力而制作出的自动�
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
 
-感谢以下开发者对本项目作出的贡献:
-
-<a href="[https://github.com/shanchuan001/MET/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=shanchuan001/MET/&max=1000" />
-</a>
-

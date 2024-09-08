@@ -1,17 +1,10 @@
 {
-    "机偶": {
-        "next": [
-            "返回主页",
-            "主页出击"
-        ],
-        "timeout_next": "stopapp",
-        "timeout": 3000
-    },
     "主页出击": {
         "recognition": "TemplateMatch",
         "template": "主页出击.png",
         "action": "Click",
-        "expanded roi": [
+        "pre_delay": 500,
+        "roi": [
             1031,
             325,
             119,
@@ -52,9 +45,23 @@
         ],
         "timeout": 4000,
         "timeout_next": "返回主页",
-        "next": "光机1"
+        "next": "多人2"
     },
-    "光机1": {
+    "多人1": {
+        "recognition": "TemplateMatch",
+        "template": "多人1.png",
+        "action": "Click",
+        "roi": [
+            874,
+            81,
+            126,
+            68
+        ],
+        "timeout": 4000,
+        "timeout_next": "stopapp",
+        "next": "二级菜单"
+    },
+    "多人2": {
         "recognition": "TemplateMatch",
         "template": "多人2.png",
         "action": "Click",
@@ -66,39 +73,40 @@
         ],
         "timeout": 4000,
         "timeout_next": "stopapp",
-        "next": "光机2"
+        "next": "二级菜单"
     },
-    "光机2": {
-        "recognition": "OCR",
-        "expected": "机偶",
+    "二级菜单": {
+        "recognition": "TemplateMatch",
+        "template": "机偶.png",
         "action": "Click",
-        "expanded roi": [
-            1009,
-            460,
-            110,
-            60
+        "post_delay": 1000,
+        "roi": [
+            13,
+            420,
+            1260,
+            121
         ],
         "timeout": 4000,
         "timeout_next": "返回主页",
-        "next": "光机3"
+        "next": "三级菜单"
     },
-    "光机3": {
+    "三级菜单": {
         "recognition": "TemplateMatch",
         "template": "光机.png",
         "action": "Click",
         "timeout": 4000,
         "timeout_next": "返回主页",
-        "next": "光机4"
+        "next": "四级菜单"
     },
-    "光机4": {
-        "recognition": "OCR",
+    "四级菜单": {
+        "recognition": "TemplateMatch",
+        "template": "神使.png",
         "roi": [
-            600,
-            167,
-            509,
-            147
+            602,
+            257,
+            666,
+            70
         ],
-        "expected": "神使",
         "action": "Click",
         "timeout": 4000,
         "timeout_next": "返回主页",
@@ -205,14 +213,20 @@
     "自动出击": {
         "recognition": "TemplateMatch",
         "template": "未自动出击.png",
-        "expanded roi": [
+        "roi": [
             782,
             640,
             116,
             62
         ],
-        "pre_delay": 500,
+        "pre_delay": 1200,
         "action": "Click",
+        "target": [
+            812,
+            663,
+            166,
+            18
+        ],
         "timeout": 4000,
         "next": "出击",
         "timeout_next": "stopapp"
@@ -258,6 +272,7 @@
         "timeout_next": "stopapp"
     },
     "点击": {
+        "recognition": "TemplateMatch",
         "template": "补体力点击.png",
         "roi": [
             617,
@@ -268,7 +283,8 @@
         "pre_delay": 1200,
         "action": "Click",
         "timeout": 4000,
-        "next": "出击"
+        "next": "出击",
+        "timeout_next": "stopapp"
     },
     "等待": {
         "pre_wait_freezes": 10000,

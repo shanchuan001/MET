@@ -123,12 +123,6 @@
     "关房门": {
         "recognition": "TemplateMatch",
         "template": "公开.png",
-        "expanded roi": [
-            423,
-            217,
-            200,
-            45
-        ],
         "action": "Click",
         "timeout": 4000,
         "next": "确定",
@@ -137,14 +131,9 @@
     "确定": {
         "recognition": "OCR",
         "expected": "确定",
-        "expanded roi": [
-            0,
-            0,
-            0,
-            0
-        ],
         "action": "Click",
         "timeout": 4000,
+        "pre_delay": 500,
         "post_delay": 1400,
         "next": "出击",
         "timeout_next": "stopapp"

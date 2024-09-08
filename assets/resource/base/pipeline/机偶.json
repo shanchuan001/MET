@@ -1,4 +1,12 @@
 {
+    "机偶": {
+        "next": [
+            "返回主页",
+            "主页出击"
+        ],
+        "timeout_next": "stopapp",
+        "timeout": 3000
+    },
     "主页出击": {
         "recognition": "TemplateMatch",
         "template": "主页出击.png",
@@ -21,10 +29,10 @@
         "recognition": "TemplateMatch",
         "template": "返回主页.png",
         "roi": [
-            114,
-            21,
-            46,
-            37
+            1,
+            0,
+            285,
+            97
         ],
         "action": "Click",
         "timeout": 4000,
@@ -102,7 +110,7 @@
         "action": "Click",
         "timeout": 4000,
         "next": "确定",
-        "timeout_next": "返回主页"
+        "timeout_next": "stopapp"
     },
     "关房门": {
         "recognition": "TemplateMatch",
@@ -116,7 +124,7 @@
         "action": "Click",
         "timeout": 4000,
         "next": "确定",
-        "timeout_next": "返回主页"
+        "timeout_next": "stopapp"
     },
     "确定": {
         "recognition": "OCR",
@@ -130,7 +138,8 @@
         "action": "Click",
         "timeout": 4000,
         "post_delay": 1400,
-        "next": "出击"
+        "next": "出击",
+        "timeout_next": "stopapp"
     },
     "出击": {
         "recognition": "TemplateMatch",
@@ -143,21 +152,55 @@
         ],
         "action": "Click",
         "timeout": 4000,
-        "next": "助战选择",
+        "post_delay": 1000,
+        "next": [
+            "属性选择",
+            "blue"
+        ],
         "timeout_next": "等待"
+    },
+    "属性选择": {
+        "recognition": "TemplateMatch",
+        "template": "暗.png",
+        "action": "Click",
+        "timeout": 4000,
+        "post_delay": 700,
+        "next": [
+            "编队选择",
+            "助战选择"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "编队选择": {
+        "recognition": "OCR",
+        "expected": "准备",
+        "roi": [
+            1153,
+            583,
+            86,
+            48
+        ],
+        "action": "Click",
+        "target": [
+            1148,
+            177,
+            24,
+            24
+        ],
+        "pre_delay": 500,
+        "timeout": 4000,
+        "next": [
+            "准备"
+        ],
+        "timeout_next": "stopapp"
     },
     "准备": {
         "recognition": "OCR",
         "expected": "准备",
-        "expanded roi": [
-            0,
-            0,
-            0,
-            0
-        ],
         "action": "Click",
         "timeout": 4000,
-        "next": "自动出击"
+        "next": "自动出击",
+        "timeout_next": "stopapp"
     },
     "自动出击": {
         "recognition": "TemplateMatch",
@@ -168,52 +211,45 @@
             116,
             62
         ],
+        "pre_delay": 500,
         "action": "Click",
         "timeout": 4000,
-        "next": "出击"
+        "next": "出击",
+        "timeout_next": "stopapp"
     },
     "助战选择": {
         "recognition": "TemplateMatch",
         "template": "暗王.png",
         "action": "Click",
+        "post_delay": 1000,
         "timeout": 4000,
         "next": [
-            "准备"
-        ]
+            "属性选择"
+        ],
+        "timeout_next": "stopapp"
     },
     "blue": {
         "recognition": "TemplateMatch",
         "template": "大蓝瓶.png",
-        "next": [
-            "使用",
-            "blue0"
+        "action": "Swipe",
+        "begin": [
+            590,
+            276,
+            1,
+            1
         ],
-        "timeout": 15000,
+        "end": [
+            590,
+            276,
+            1,
+            1
+        ],
+        "duration": 3000,
+        "timeout": 5000,
+        "next": "使用",
         "timeout_next": "stopapp"
-    },
-    "blue0": {
-        "recognition": "TemplateMatch",
-        "template": "大蓝瓶.png",
-        "action": "Click",
-        "pre_delay": 50,
-        "post_delay": 200,
-        "timeout": 4000,
-        "is_sub": true
     },
     "使用": {
-        "recognition": "OCR",
-        "expected": "9",
-        "roi": [
-            603,
-            400,
-            43,
-            50
-        ],
-        "timeout": 4000,
-        "next": "使用0",
-        "timeout_next": "stopapp"
-    },
-    "使用0": {
         "recognition": "OCR",
         "expected": "使用",
         "action": "Click",
@@ -222,6 +258,13 @@
         "timeout_next": "stopapp"
     },
     "点击": {
+        "template": "补体力点击.png",
+        "roi": [
+            617,
+            303,
+            60,
+            47
+        ],
         "pre_delay": 1200,
         "action": "Click",
         "timeout": 4000,
@@ -273,7 +316,7 @@
         "action": "Click",
         "timeout": 3000,
         "next": "关闭页面1",
-        "timeout_next": "stopapp"
+        "timeout_next": "主页出击"
     },
     "关闭页面1": {
         "recognition": "TemplateMatch",

@@ -408,98 +408,18 @@
         "助战虚数体(请通过好友星标把要借的虚数体恒定在助战页面的前四位)": {
             "cases": [
                 {
-                    "name": "水方",
+                    "name": "老王",
                     "param": {
                         "助战选择": {
-                            "template": "水方.png"
+                            "expected": "15"
                         }
                     }
                 },
                 {
-                    "name": "水王",
+                    "name": "方阵",
                     "param": {
                         "助战选择": {
-                            "template": "水王.png"
-                        }
-                    }
-                },
-                {
-                    "name": "火方",
-                    "param": {
-                        "助战选择": {
-                            "template": "火方.png"
-                        }
-                    }
-                },
-                {
-                    "name": "火王",
-                    "param": {
-                        "助战选择": {
-                            "template": "火王.png"
-                        }
-                    }
-                },
-                {
-                    "name": "风方",
-                    "param": {
-                        "助战选择": {
-                            "template": "风方.png"
-                        }
-                    }
-                },
-                {
-                    "name": "风王",
-                    "param": {
-                        "助战选择": {
-                            "template": "风王.png"
-                        }
-                    }
-                },
-                {
-                    "name": "土方",
-                    "param": {
-                        "助战选择": {
-                            "template": "土方.png"
-                        }
-                    }
-                },
-                {
-                    "name": "土王",
-                    "param": {
-                        "助战选择": {
-                            "template": "土王.png"
-                        }
-                    }
-                },
-                {
-                    "name": "光方",
-                    "param": {
-                        "助战选择": {
-                            "template": "光方.png"
-                        }
-                    }
-                },
-                {
-                    "name": "光王",
-                    "param": {
-                        "助战选择": {
-                            "template": "光王.png"
-                        }
-                    }
-                },
-                {
-                    "name": "暗方",
-                    "param": {
-                        "助战选择": {
-                            "template": "暗方.png"
-                        }
-                    }
-                },
-                {
-                    "name": "暗王",
-                    "param": {
-                        "助战选择": {
-                            "template": "暗王.png"
+                            "expected": "13"
                         }
                     }
                 }

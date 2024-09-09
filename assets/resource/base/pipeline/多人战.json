@@ -160,6 +160,12 @@
         "recognition": "TemplateMatch",
         "template": "暗.png",
         "action": "Click",
+        "roi": [
+            38,
+            118,
+            102,
+            443
+        ],
         "timeout": 4000,
         "post_delay": 700,
         "next": [
@@ -221,8 +227,14 @@
         "timeout_next": "stopapp"
     },
     "助战选择": {
-        "recognition": "TemplateMatch",
-        "template": "暗王.png",
+        "recognition": "OCR",
+        "expected": "15",
+        "roi": [
+            175,
+            386,
+            1009,
+            52
+        ],
         "action": "Click",
         "post_delay": 1000,
         "timeout": 4000,
@@ -291,44 +303,83 @@
     "start": {
         "action": "StartApp",
         "package": "com.bilibili.yjzs.bili/com.gsc.unityasdemo.PrivacyActivity",
-        "post_delay": 60000,
+        "post_delay": 15000,
+        "timeout": 50000,
         "next": [
             "进入",
-            "stopapp"
-        ]
+            "重试"
+        ],
+        "timeout_next": "stopapp"
     },
     "进入": {
         "recognition": "TemplateMatch",
         "template": "进入.png",
         "pre_delay": 1500,
         "action": "Click",
-        "timeout": 5000,
-        "timeout_next": "stopapp",
-        "post_delay": 10000,
+        "timeout": 30000,
+        "post_delay": 500,
+        "next": "等待进入"
+    },
+    "等待进入": {
+        "recognition": "TemplateMatch",
+        "template": "标识.png",
+        "inverse": true,
+        "post_delay": 5000,
         "next": [
+            "主页出击",
             "退出房间",
-            "关闭页面1"
+            "领取物资",
+            "关闭页面1",
+            "点击空白处关闭"
         ]
     },
+    "重试": {
+        "recognition": "TemplateMatch",
+        "template": "重试.png",
+        "roi": [
+            358,
+            350,
+            582,
+            270
+        ],
+        "next": "stopapp"
+    },
+    "领取物资": {
+        "recognition": "TemplateMatch",
+        "template": "获得物资.png",
+        "roi": [
+            468,
+            89,
+            354,
+            139
+        ],
+        "action": "Click",
+        "is_sub": true
+    },
+    "点击空白处关闭": {
+        "recognition": "OCR",
+        "expected": "点击空白处",
+        "action": "Click",
+        "is_sub": true
+    },
     "退出房间": {
+        "recognition": "TemplateMatch",
         "template": "取消.png",
         "roi": [
-            399,
-            453,
-            194,
-            69
+            389,
+            385,
+            521,
+            192
         ],
         "action": "Click",
         "timeout": 3000,
-        "next": "关闭页面1",
-        "timeout_next": "主页出击"
+        "is_sub": true
     },
     "关闭页面1": {
         "recognition": "TemplateMatch",
         "template": "x.png",
         "timeout": 3000,
         "action": "Click",
-        "next": "关闭页面1",
-        "timeout_next": "主页出击"
+        "is_sub": true
     }
 }

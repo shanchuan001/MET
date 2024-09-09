@@ -297,12 +297,12 @@
     },
     "stopapp": {
         "action": "StopApp",
-        "package": "com.bilibili.yjzs.bili",
+        "package": "com.orlesh.yjzs",
         "next": "start"
     },
     "start": {
         "action": "StartApp",
-        "package": "com.bilibili.yjzs.bili/com.gsc.unityasdemo.PrivacyActivity",
+        "package": "com.orlesh.yjzs/com.orlesh.sdkdemo.PrivateActivity",
         "post_delay": 15000,
         "timeout": 50000,
         "next": [

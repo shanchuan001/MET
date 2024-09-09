@@ -20,6 +20,13 @@
             "path": [
                 "{PROJECT_DIR}/resource/base"
             ]
+        },
+        {
+            "name": "B服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/bilibili"
+            ]
         }
     ],
     "task": [
@@ -33,6 +40,10 @@
                 "助战虚数体(请通过好友星标把要借的虚数体恒定在助战页面的前四位)",
                 "是否允许他人加入房间"
             ]
+        },
+        {
+            "name": "启动测试",
+            "entry": "stopapp"
         }
     ],
     "option": {

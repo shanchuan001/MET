@@ -1,0 +1,8 @@
+{
+    "stopapp": {
+        "package": "com.bilibili.yjzs.bili"
+    },
+    "start": {
+        "package": "com.bilibili.yjzs.bili/com.gsc.unityasdemo.PrivacyActivity"
+    }
+}

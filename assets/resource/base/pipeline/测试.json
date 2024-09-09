@@ -30,5 +30,11 @@
         "next": [
             "2"
         ]
+    },
+    "3": {
+        "action": "StartApp",
+        "package": "com.orlesh.yjzs/com.orlesh.sdkdemo.PrivateActivity",
+        "post_delay": 15000,
+        "timeout": 50000
     }
 }

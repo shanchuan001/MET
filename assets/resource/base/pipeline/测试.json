@@ -1,18 +1,9 @@
 {
     "1": {
-        "recognition": "TemplateMatch",
-        "template": "火.png",
-        "roi": [
-            38,
-            118,
-            102,
-            443
-        ],
-        "action": "Click",
-        "timeout": 4000,
         "post_delay": 100,
         "next": [
-            "1"
+            "2",
+            "4"
         ]
     },
     "2": {
@@ -25,16 +16,25 @@
             52
         ],
         "action": "Click",
-        "post_delay": 1000,
-        "timeout": 4000,
-        "next": [
-            "2"
-        ]
+        "post_delay": 100
     },
     "3": {
         "action": "StartApp",
         "package": "com.orlesh.yjzs/com.orlesh.sdkdemo.PrivateActivity",
         "post_delay": 15000,
         "timeout": 50000
+    },
+    "4": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "timeout": 4000,
+        "next": "1",
+        "times_limit": 3,
+        "runout_next": "5"
+    },
+    "5": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "next": "1"
     }
 }

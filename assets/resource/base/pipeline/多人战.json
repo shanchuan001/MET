@@ -43,6 +43,7 @@
             120,
             57
         ],
+        "post_delay": 800,
         "timeout": 4000,
         "timeout_next": "返回主页",
         "next": "多人2"
@@ -120,6 +121,175 @@
         "next": "确定",
         "timeout_next": "stopapp"
     },
+    "加入房间": {
+        "recognition": "TemplateMatch",
+        "template": "加入房间.png",
+        "roi": [
+            1062,
+            561,
+            216,
+            122
+        ],
+        "action": "Click",
+        "timeout": 120000,
+        "next": [
+            "加入房间_准备",
+            "未找到_计数1"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数1": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数2"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数2": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数3"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数3": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数4"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数4": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数5"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数5": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数6"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数6": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数7"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数7": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数8"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数8": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "加入房间_准备",
+            "未找到_计数9"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
+    "未找到_计数9": {
+        "recognition": "OCR",
+        "expected": "继续",
+        "roi": [
+            380,
+            443,
+            506,
+            90
+        ],
+        "action": "Click",
+        "next": [
+            "停止"
+        ],
+        "timeout": 120000,
+        "timeout_next": "stopapp"
+    },
     "关房门": {
         "recognition": "TemplateMatch",
         "template": "公开.png",
@@ -141,20 +311,248 @@
     "出击": {
         "recognition": "TemplateMatch",
         "template": "出击.png",
-        "expanded roi": [
-            1077,
-            636,
-            71,
-            66
-        ],
         "action": "Click",
         "timeout": 4000,
-        "post_delay": 1000,
+        "pre_delay": 700,
+        "post_delay": 700,
         "next": [
             "属性选择",
             "blue"
         ],
         "timeout_next": "等待"
+    },
+    "加入房间_准备": {
+        "recognition": "TemplateMatch",
+        "template": "加入房间_准备.png",
+        "next": [
+            "属性选择",
+            "识别发车",
+            "加入房间",
+            "blue"
+        ],
+        "action": "Click",
+        "pre_delay": 700,
+        "post_delay": 1000,
+        "timeout": 20000,
+        "timeout_next": "识别准备_跳车"
+    },
+    "识别发车": {
+        "recognition": "OCR",
+        "expected": "取消准备",
+        "timeout": 20000,
+        "roi": [
+            1047,
+            643,
+            219,
+            53
+        ],
+        "inverse": true,
+        "next": [
+            "识别进入房间(next为等待战斗完成)"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "识别进入房间(next为等待战斗完成)": {
+        "recognition": "TemplateMatch",
+        "template": "设置.png",
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "timeout": 10000,
+        "next": [
+            "等待战斗完成"
+        ],
+        "timeout_next": "战斗超时综合识别"
+    },
+    "等待战斗完成": {
+        "recognition": "TemplateMatch",
+        "template": "设置.png",
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "timeout": 10000,
+        "inverse": true,
+        "next": [
+            "战斗确认"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "战斗超时综合识别": {
+        "timeout": 4000,
+        "next": [
+            "阵亡",
+            "超时跳车0"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "阵亡": {
+        "recognition": "TemplateMatch",
+        "template": "取消.png",
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "战斗超时综合识别"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "战斗确认": {
+        "recognition": "TemplateMatch",
+        "template": "继续.png",
+        "timeout": 4000,
+        "action": "Click",
+        "pre_delay": 1000,
+        "post_delay": 2000,
+        "next": [
+            "加入房间_准备"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "超时跳车0": {
+        "recognition": "TemplateMatch",
+        "template": "AUTO.png",
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "超时跳车1"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "超时跳车1": {
+        "recognition": "TemplateMatch",
+        "template": "设置.png",
+        "timeout": 4000,
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "action": "Click",
+        "next": [
+            "超时跳车2"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "超时跳车2": {
+        "recognition": "TemplateMatch",
+        "template": "战斗撤退.png",
+        "roi": [
+            399,
+            419,
+            508,
+            116
+        ],
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "超时跳车3"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "超时跳车3": {
+        "recognition": "TemplateMatch",
+        "template": "确定",
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "超时跳车4"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "超时跳车4": {
+        "recognition": "OCR",
+        "expected": "点击",
+        "roi": [
+            521,
+            606,
+            238,
+            105
+        ],
+        "timeout": 4000,
+        "post_delay": 2500,
+        "action": "Click",
+        "next": [
+            "加入房间"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "识别准备_跳车": {
+        "recognition": "OCR",
+        "expected": "取消准备",
+        "roi": [
+            1024,
+            620,
+            256,
+            99
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": [
+            "不在加入"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "不在加入": {
+        "recognition": "TemplateMatch",
+        "template": "不再自动加入.png",
+        "roi": [
+            204,
+            563,
+            424,
+            154
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "post_delay": 2000,
+        "next": [
+            "退出房间0"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "退出房间0": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "roi": [
+            0,
+            0,
+            232,
+            65
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": [
+            "退出房间"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "退出房间": {
+        "recognition": "OCR",
+        "expected": "退出",
+        "roi": [
+            348,
+            414,
+            596,
+            132
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "post_delay": 1800,
+        "next": [
+            "加入房间"
+        ],
+        "timeout_next": "stopapp"
     },
     "属性选择": {
         "recognition": "TemplateMatch",
@@ -166,8 +564,9 @@
             102,
             443
         ],
+        "pre_delay": 800,
         "timeout": 4000,
-        "post_delay": 700,
+        "post_delay": 200,
         "next": [
             "编队选择",
             "助战选择"
@@ -178,10 +577,10 @@
         "recognition": "OCR",
         "expected": "准备",
         "roi": [
-            1153,
-            583,
-            86,
-            48
+            1004,
+            561,
+            276,
+            102
         ],
         "action": "Click",
         "target": [
@@ -193,15 +592,34 @@
         "pre_delay": 500,
         "timeout": 4000,
         "next": [
+            "自动战斗",
+            "准备"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "自动战斗": {
+        "recognition": "TemplateMatch",
+        "template": "未自动战斗.png",
+        "action": "Click",
+        "pre_delay": 300,
+        "target": [
+            474,
+            611,
+            44,
+            8
+        ],
+        "timeout": 4000,
+        "next": [
             "准备"
         ],
         "timeout_next": "stopapp"
     },
     "准备": {
-        "recognition": "OCR",
-        "expected": "准备",
+        "recognition": "TemplateMatch",
+        "template": "准备.png",
         "action": "Click",
         "timeout": 4000,
+        "post_delay": 800,
         "next": "自动出击",
         "timeout_next": "stopapp"
     },
@@ -214,7 +632,7 @@
             116,
             62
         ],
-        "pre_delay": 1200,
+        "pre_delay": 1800,
         "action": "Click",
         "target": [
             812,
@@ -327,7 +745,7 @@
         "post_delay": 5000,
         "next": [
             "主页出击",
-            "退出房间",
+            "取消",
             "领取物资",
             "关闭页面1",
             "点击空白处关闭"
@@ -362,7 +780,7 @@
         "action": "Click",
         "is_sub": true
     },
-    "退出房间": {
+    "取消": {
         "recognition": "TemplateMatch",
         "template": "取消.png",
         "roi": [
@@ -381,5 +799,8 @@
         "timeout": 3000,
         "action": "Click",
         "is_sub": true
+    },
+    "停止": {
+        "action": "DoNothing"
     }
 }

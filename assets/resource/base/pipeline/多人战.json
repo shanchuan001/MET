@@ -28,10 +28,13 @@
             97
         ],
         "action": "Click",
-        "timeout": 4000,
+        "timeout": 2000,
         "post_delay": 1400,
         "next": "主页出击1",
-        "timeout_next": "主页出击"
+        "timeout_next": [
+            "主页出击",
+            "stopapp"
+        ]
     },
     "排除干扰_导览": {
         "recognition": "OCR",
@@ -331,7 +334,7 @@
             "blue"
         ],
         "action": "Click",
-        "pre_delay": 700,
+        "pre_delay": 300,
         "post_delay": 1000,
         "timeout": 20000,
         "timeout_next": "识别准备_跳车"
@@ -353,13 +356,13 @@
         "timeout_next": "stopapp"
     },
     "识别进入房间(next为等待战斗完成)": {
-        "recognition": "TemplateMatch",
-        "template": "设置.png",
+        "recognition": "OCR",
+        "expected": "回合",
         "roi": [
-            1141,
             0,
-            138,
-            104
+            6,
+            237,
+            44
         ],
         "timeout": 10000,
         "next": [
@@ -369,15 +372,14 @@
     },
     "等待战斗完成": {
         "recognition": "TemplateMatch",
-        "template": "设置.png",
+        "template": "继续.png",
         "roi": [
-            1141,
-            0,
-            138,
-            104
+            938,
+            621,
+            341,
+            98
         ],
         "timeout": 10000,
-        "inverse": true,
         "next": [
             "战斗确认"
         ],
@@ -404,6 +406,12 @@
     "战斗确认": {
         "recognition": "TemplateMatch",
         "template": "继续.png",
+        "roi": [
+            938,
+            621,
+            341,
+            98
+        ],
         "timeout": 4000,
         "action": "Click",
         "pre_delay": 1000,
@@ -422,7 +430,7 @@
             138,
             104
         ],
-        "timeout": 4000,
+        "timeout": 15000,
         "action": "Click",
         "next": [
             "超时跳车1"
@@ -441,7 +449,8 @@
         ],
         "action": "Click",
         "next": [
-            "超时跳车2"
+            "超时跳车2",
+            "超时跳车0"
         ],
         "timeout_next": "stopapp"
     },
@@ -457,17 +466,26 @@
         "timeout": 4000,
         "action": "Click",
         "next": [
-            "超时跳车3"
+            "超时跳车3",
+            "超时跳车0"
         ],
         "timeout_next": "stopapp"
     },
     "超时跳车3": {
-        "recognition": "TemplateMatch",
-        "template": "确定",
+        "recognition": "OCR",
+        "expected": "确定",
         "timeout": 4000,
+        "roi": [
+            380,
+            441,
+            500,
+            81
+        ],
+        "post_delay": 1000,
         "action": "Click",
         "next": [
-            "超时跳车4"
+            "超时跳车4",
+            "超时跳车0"
         ],
         "timeout_next": "stopapp"
     },
@@ -500,11 +518,11 @@
         "action": "Click",
         "timeout": 4000,
         "next": [
-            "不在加入"
+            "不再加入0"
         ],
         "timeout_next": "stopapp"
     },
-    "不在加入": {
+    "不再加入0": {
         "recognition": "TemplateMatch",
         "template": "不再自动加入.png",
         "roi": [
@@ -515,7 +533,24 @@
         ],
         "action": "Click",
         "timeout": 4000,
-        "post_delay": 2000,
+        "post_delay": 0,
+        "next": [
+            "不再加入"
+        ],
+        "timeout_next": "stopapp"
+    },
+    "不再加入": {
+        "recognition": "TemplateMatch",
+        "template": "不再自动加入.png",
+        "roi": [
+            204,
+            563,
+            424,
+            154
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "post_delay": 300,
         "next": [
             "退出房间0"
         ],
@@ -589,7 +624,7 @@
             24,
             24
         ],
-        "pre_delay": 500,
+        "pre_delay": 200,
         "timeout": 4000,
         "next": [
             "自动战斗",
@@ -619,7 +654,7 @@
         "template": "准备.png",
         "action": "Click",
         "timeout": 4000,
-        "post_delay": 800,
+        "post_delay": 1000,
         "next": "自动出击",
         "timeout_next": "stopapp"
     },
@@ -654,7 +689,7 @@
             52
         ],
         "action": "Click",
-        "post_delay": 1000,
+        "post_delay": 850,
         "timeout": 4000,
         "next": [
             "属性选择"

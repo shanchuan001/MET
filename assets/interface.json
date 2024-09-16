@@ -31,7 +31,17 @@
     ],
     "task": [
         {
-            "name": "多人战",
+            "name": "自动助战任务",
+            "entry": "助战任务开始",
+            "option": [
+                "出战队伍属性",
+                "出战队伍序号",
+                "助战虚数体(请通过好友星标把要借的虚数体恒定在助战页面的前四位)",
+                "是否无限刷助战币"
+            ]
+        },
+        {
+            "name": "自动多人战",
             "entry": "返回主页",
             "option": [
                 "要打的关卡",
@@ -42,7 +52,7 @@
             ]
         },
         {
-            "name": "多人战-蹭车模式",
+            "name": "自动多人战-蹭车模式",
             "entry": "返回主页",
             "option": [
                 "要打的关卡",
@@ -55,11 +65,64 @@
         }
     ],
     "option": {
+        "是否无限刷助战币": {
+            "cases": [
+                {
+                    "name": "自动识别任务是否完成(包括每日和每周)",
+                    "pipeline_override": {
+                        "编队选择后的识别": {
+                            "next": [
+                                "自动战斗",
+                                "出击_助战"
+                            ]
+                        },
+                        "自动战斗": {
+                            "next": "出击_助战"
+                        },
+                        "战斗确认": {
+                            "next": "返回主页_助战1"
+                        },
+                        "超时跳车4": {
+                            "next": "返回主页_助战1"
+                        },
+                        "等待进入": {
+                            "next": "助战任务开始"
+                        }
+                    }
+                },
+                {
+                    "name": "不识别,一直重复",
+                    "pipeline_override": {
+                        "编队选择后的识别": {
+                            "next": [
+                                "自动战斗",
+                                "出击_助战"
+                            ]
+                        },
+                        "自动战斗": {
+                            "next": "出击_助战"
+                        },
+                        "助战任务开始": {
+                            "next": "助战任务"
+                        },
+                        "战斗确认": {
+                            "next": "返回主页_助战1"
+                        },
+                        "超时跳车4": {
+                            "next": "返回主页_助战1"
+                        },
+                        "等待进入": {
+                            "next": "助战任务开始"
+                        }
+                    }
+                }
+            ]
+        },
         "每把时间大于多少更换房间": {
             "cases": [
                 {
                     "name": "1分钟",
-                    "param": {
+                    "pipeline_override": {
                         "准备": {
                             "next": "加入房间_准备"
                         },
@@ -78,7 +141,7 @@
                 },
                 {
                     "name": "2分钟",
-                    "param": {
+                    "pipeline_override": {
                         "准备": {
                             "next": "加入房间_准备"
                         },
@@ -97,7 +160,7 @@
                 },
                 {
                     "name": "3分钟",
-                    "param": {
+                    "pipeline_override": {
                         "准备": {
                             "next": "加入房间_准备"
                         },
@@ -116,7 +179,7 @@
                 },
                 {
                     "name": "4分钟",
-                    "param": {
+                    "pipeline_override": {
                         "准备": {
                             "next": "加入房间_准备"
                         },
@@ -135,7 +198,7 @@
                 },
                 {
                     "name": "5分钟",
-                    "param": {
+                    "pipeline_override": {
                         "准备": {
                             "next": "加入房间_准备"
                         },
@@ -158,7 +221,7 @@
             "cases": [
                 {
                     "name": "3分钟",
-                    "param": {
+                    "pipeline_override": {
                         "未找到_计数2": {
                             "next": [
                                 "停止"
@@ -168,7 +231,7 @@
                 },
                 {
                     "name": "5分钟",
-                    "param": {
+                    "pipeline_override": {
                         "未找到_计数4": {
                             "next": [
                                 "停止"
@@ -178,7 +241,7 @@
                 },
                 {
                     "name": "10分钟",
-                    "param": {
+                    "pipeline_override": {
                         "未找到_计数9": {
                             "next": [
                                 "停止"
@@ -188,7 +251,7 @@
                 },
                 {
                     "name": "无限制",
-                    "param": {
+                    "pipeline_override": {
                         "未找到_计数1": {
                             "next": [
                                 "加入房间"
@@ -202,7 +265,7 @@
             "cases": [
                 {
                     "name": "是",
-                    "param": {
+                    "pipeline_override": {
                         "创建房间": {
                             "next": "确定"
                         }
@@ -210,7 +273,7 @@
                 },
                 {
                     "name": "否",
-                    "param": {
+                    "pipeline_override": {
                         "创建房间": {
                             "next": "关房门"
                         }
@@ -222,7 +285,7 @@
             "cases": [
                 {
                     "name": "火机",
-                    "param": {
+                    "pipeline_override": {
                         "三级菜单": {
                             "template": "火机.png"
                         }
@@ -230,7 +293,7 @@
                 },
                 {
                     "name": "火龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -241,7 +304,7 @@
                 },
                 {
                     "name": "火幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -258,7 +321,7 @@
                 },
                 {
                     "name": "水龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -269,7 +332,7 @@
                 },
                 {
                     "name": "水幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -286,7 +349,7 @@
                 },
                 {
                     "name": "土机",
-                    "param": {
+                    "pipeline_override": {
                         "三级菜单": {
                             "template": "土机.png"
                         }
@@ -294,7 +357,7 @@
                 },
                 {
                     "name": "土龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -305,7 +368,7 @@
                 },
                 {
                     "name": "土幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -322,7 +385,7 @@
                 },
                 {
                     "name": "风机",
-                    "param": {
+                    "pipeline_override": {
                         "三级菜单": {
                             "template": "风机.png"
                         }
@@ -330,7 +393,7 @@
                 },
                 {
                     "name": "风龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -341,7 +404,7 @@
                 },
                 {
                     "name": "风幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -358,7 +421,7 @@
                 },
                 {
                     "name": "光机",
-                    "param": {
+                    "pipeline_override": {
                         "三级菜单": {
                             "template": "光机.png"
                         }
@@ -366,7 +429,7 @@
                 },
                 {
                     "name": "光龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -377,7 +440,7 @@
                 },
                 {
                     "name": "光幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -394,7 +457,7 @@
                 },
                 {
                     "name": "暗机",
-                    "param": {
+                    "pipeline_override": {
                         "三级菜单": {
                             "template": "暗机.png"
                         }
@@ -402,7 +465,7 @@
                 },
                 {
                     "name": "暗龙",
-                    "param": {
+                    "pipeline_override": {
                         "二级菜单": {
                             "template": "特异点.png"
                         },
@@ -413,7 +476,7 @@
                 },
                 {
                     "name": "暗幻",
-                    "param": {
+                    "pipeline_override": {
                         "排除干扰_导览": {
                             "next": "多人1"
                         },
@@ -434,7 +497,7 @@
             "cases": [
                 {
                     "name": "队伍1",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1148,
@@ -447,7 +510,7 @@
                 },
                 {
                     "name": "队伍2",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1146,
@@ -460,7 +523,7 @@
                 },
                 {
                     "name": "队伍3",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1148,
@@ -473,7 +536,7 @@
                 },
                 {
                     "name": "队伍4",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1150,
@@ -486,7 +549,7 @@
                 },
                 {
                     "name": "队伍5",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1149,
@@ -499,7 +562,7 @@
                 },
                 {
                     "name": "队伍6",
-                    "param": {
+                    "pipeline_override": {
                         "编队选择": {
                             "target": [
                                 1146,
@@ -512,7 +575,7 @@
                 },
                 {
                     "name": "游戏默认",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "next": [
                                 "准备",
@@ -527,7 +590,7 @@
             "cases": [
                 {
                     "name": "水",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "水.png"
                         }
@@ -535,7 +598,7 @@
                 },
                 {
                     "name": "火",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "火.png"
                         }
@@ -543,7 +606,7 @@
                 },
                 {
                     "name": "风",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "风.png"
                         }
@@ -551,7 +614,7 @@
                 },
                 {
                     "name": "土",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "土.png"
                         }
@@ -559,7 +622,7 @@
                 },
                 {
                     "name": "光",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "光.png"
                         }
@@ -567,7 +630,7 @@
                 },
                 {
                     "name": "暗",
-                    "param": {
+                    "pipeline_override": {
                         "属性选择": {
                             "template": "暗.png"
                         }
@@ -579,7 +642,7 @@
             "cases": [
                 {
                     "name": "老王",
-                    "param": {
+                    "pipeline_override": {
                         "助战选择": {
                             "expected": "15"
                         }
@@ -587,7 +650,7 @@
                 },
                 {
                     "name": "方阵",
-                    "param": {
+                    "pipeline_override": {
                         "助战选择": {
                             "expected": "13"
                         }

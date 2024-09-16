@@ -37,7 +37,7 @@ MET功能:
 # 下载地址
 [点此下载](https://github.com/shanchuan001/MET/releases)
 
-**请下载"MET-win-x86_64-with-gui"版**
+**请下载"MET-win-x86_64"版**
 
 # 更新日志
 **9月16日更新**  **v1.1.3**

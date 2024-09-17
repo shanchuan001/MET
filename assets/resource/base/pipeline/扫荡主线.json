@@ -1,0 +1,300 @@
+{
+    "主线扫荡开始": {
+        "next": "zx识别是否在主页",
+        "interrupt": "zx返回主页_主线",
+        "timeout": 3000,
+        "post_delay": 500,
+        "on_error": "stopapp"
+    },
+    "zx识别是否在主页": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "next": "zx识别主线",
+        "post_delay": 500,
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx返回主页_主线": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "post_delay": 500,
+        "action": "Click"
+    },
+    "zx识别主线": {
+        "recognition": "OCR",
+        "expected": "主线",
+        "roi": [
+            12,
+            85,
+            1262,
+            59
+        ],
+        "next": "zx识别第一部",
+        "action": "Click",
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx识别第一部": {
+        "recognition": "OCR",
+        "expected": "第一",
+        "roi": [
+            56,
+            152,
+            97,
+            37
+        ],
+        "next": "zx识别第一章",
+        "interrupt": "向左滑动",
+        "action": "Click",
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx识别第一章": {
+        "recognition": "TemplateMatch",
+        "template": "第一章.png",
+        "next": "zx点击难度",
+        "post_delay": 500,
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "向左滑动": {
+        "recognition": "OCR",
+        "expected": "主线",
+        "roi": [
+            12,
+            85,
+            1262,
+            59
+        ],
+        "begin": [
+            61,
+            466,
+            1,
+            1
+        ],
+        "end": [
+            1167,
+            466,
+            1,
+            1
+        ],
+        "post_delay": 700,
+        "duration": 500,
+        "action": "Swipe",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx点击难度": {
+        "recognition": "OCR",
+        "expected": "困难",
+        "roi": [
+            20,
+            630,
+            237,
+            36
+        ],
+        "post_delay": 500,
+        "next": "检测补体0",
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测补体0": {
+        "recognition": "TemplateMatch",
+        "template": "补体力按钮.png",
+        "roi": [
+            1219,
+            23,
+            46,
+            49
+        ],
+        "next": [
+            "检测补体1(使用)",
+            "检测补体2(超出)"
+        ],
+        "action": "Click",
+        "interrupt": [
+            "大红瓶",
+            "小红瓶"
+        ],
+        "timeout": 3000,
+        "on_error": "停止"
+    },
+    "大红瓶": {
+        "recognition": "TemplateMatch",
+        "template": "大红瓶.png",
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "小红瓶": {
+        "recognition": "TemplateMatch",
+        "template": "小红瓶.png",
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测补体1(使用)": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "next": "补体力后的点击",
+        "action": "Click",
+        "target": [
+            781,
+            408,
+            40,
+            28
+        ],
+        "post_delay": 200,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测补体2(超出)": {
+        "recognition": "OCR",
+        "expected": "9",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "next": "zx一键扫荡",
+        "action": "Click",
+        "target": [
+            1187,
+            111,
+            19,
+            14
+        ],
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "补体力后的点击": {
+        "recognition": "TemplateMatch",
+        "template": "补体力点击.png",
+        "roi": [
+            617,
+            303,
+            60,
+            47
+        ],
+        "post_delay": 700,
+        "action": "Click",
+        "next": "zx一键扫荡",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "zx一键扫荡": {
+        "recognition": "OCR",
+        "expected": "一键",
+        "roi": [
+            1132,
+            615,
+            131,
+            68
+        ],
+        "next": [
+            "检测是否为全部完成",
+            "zx扫荡"
+        ],
+        "action": "Click",
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测是否为全部完成": {
+        "recognition": "ColorMatch",
+        "upper": [
+            133,
+            133,
+            133
+        ],
+        "lower": [
+            129,
+            129,
+            129
+        ],
+        "roi": [
+            1057,
+            584,
+            29,
+            29
+        ],
+        "next": "zx叉",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx扫荡": {
+        "recognition": "OCR",
+        "expected": "扫荡",
+        "roi": [
+            963,
+            564,
+            102,
+            72
+        ],
+        "next": "zx扫荡完成",
+        "action": "Click",
+        "timeout": 25000,
+        "on_error": "stopapp"
+    },
+    "zx叉": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "next": "zx下一章",
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx扫荡完成": {
+        "recognition": "OCR",
+        "expected": "确",
+        "roi": [
+            817,
+            637,
+            153,
+            76
+        ],
+        "next": [
+            "zx识别结束",
+            "zx下一章"
+        ],
+        "post_delay": 500,
+        "pre_delay": 800,
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "zx识别结束": {
+        "recognition": "OCR",
+        "expected": "第十章",
+        "roi": [
+            555,
+            618,
+            168,
+            62
+        ],
+        "next": "停止",
+        "timeout": 3000
+    },
+    "zx下一章": {
+        "recognition": "TemplateMatch",
+        "template": "主线下一章.png",
+        "next": "检测补体0",
+        "action": "Click",
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    }
+}

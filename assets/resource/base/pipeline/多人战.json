@@ -963,7 +963,7 @@
             60,
             47
         ],
-        "pre_delay": 1200,
+        "pre_delay": 700,
         "action": "Click",
         "timeout": 4000,
         "on_error": "stopapp"

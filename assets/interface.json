@@ -1,11 +1,11 @@
 {
     "controller": [
         {
-            "name": "安卓端",
+            "name": "安卓端(模拟器选这个)",
             "type": "Adb"
         },
         {
-            "name": "桌面端",
+            "name": "桌面端(没测试过)",
             "type": "Win32",
             "win32": {
                 "method": "Search",
@@ -31,7 +31,14 @@
     ],
     "task": [
         {
-            "name": "自动助战任务",
+            "name": "自动主线扫荡",
+            "entry": "主线扫荡开始",
+            "option": [
+                "扫荡关卡"
+            ]
+        },
+        {
+            "name": "自动助战任务(此任务会领取每日奖励,所以请放到主线扫荡后,自动多人战前)",
             "entry": "助战任务开始",
             "option": [
                 "出战队伍属性",
@@ -65,6 +72,25 @@
         }
     ],
     "option": {
+        "扫荡关卡": {
+            "cases": [
+                {
+                    "name": "困难",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "极难",
+                    "pipeline_override": {
+                        "zx点击难度": {
+                            "expected": "极难"
+                        },
+                        "zx识别结束": {
+                            "expected": "第六章"
+                        }
+                    }
+                }
+            ]
+        },
         "是否无限刷助战币": {
             "cases": [
                 {

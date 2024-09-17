@@ -1,0 +1,55 @@
+{
+    "等待被邀请": {
+        "next": "yq检测是否在主页",
+        "interrupt": [
+            "返回主页0",
+            "退出"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "yq检测是否在主页": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "timeout": 300000,
+        "rate_limit": 1500,
+        "on_error": "stopapp",
+        "next": [
+            "yq等待邀请请求",
+            "检测是否在主页0"
+        ]
+    },
+    "检测是否在主页0": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "inverse": true,
+        "next": "stopapp"
+    },
+    "yq等待邀请请求": {
+        "recognition": "TemplateMatch",
+        "template": "邀请请求.png",
+        "action": "Click",
+        "target": [
+            416,
+            617,
+            27,
+            23
+        ],
+        "rate_limit": 1500,
+        "timeout": 4000,
+        "on_error": "stopapp",
+        "next": "加入房间_准备"
+    }
+}

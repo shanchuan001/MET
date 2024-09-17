@@ -1,0 +1,189 @@
+{
+    "助战任务开始": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "next": "检测助战任务是否完成1",
+        "interrupt": [
+            "返回主页0"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "助战任务": {
+        "recognition": "TemplateMatch",
+        "template": "加入战斗_助战.png",
+        "action": "Click",
+        "next": "加入房间_助战",
+        "interrupt": "返回主页0",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "返回主页_助战1": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "action": "Click",
+        "next": "助战任务开始",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测助战任务是否完成1": {
+        "recognition": "TemplateMatch",
+        "template": "任务.png",
+        "action": "Click",
+        "roi": [
+            927,
+            639,
+            75,
+            45
+        ],
+        "next": [
+            "一键领取",
+            "返回主页_助战1"
+        ],
+        "pre_delay": 800,
+        "post_delay": 1200,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "一键领取": {
+        "recognition": "OCR",
+        "expected": "一键领取",
+        "roi": [
+            1151,
+            20,
+            92,
+            39
+        ],
+        "post_delay": 1000,
+        "next": [
+            "检测助战任务是否完成2",
+            "任务已完成"
+        ],
+        "interrupt": [
+            "点击空白处关闭",
+            "向下滑动"
+        ],
+        "on_error": "stopapp",
+        "action": "Click",
+        "timeout": 8000
+    },
+    "检测助战任务是否完成2": {
+        "recognition": "TemplateMatch",
+        "template": "助战金币.png",
+        "roi": [
+            757,
+            51,
+            102,
+            660
+        ],
+        "next": "退出_助战",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "向下滑动": {
+        "recognition": "OCR",
+        "expected": "一键领取",
+        "roi": [
+            1151,
+            20,
+            92,
+            39
+        ],
+        "action": "Swipe",
+        "begin": [
+            366,
+            686,
+            1,
+            1
+        ],
+        "end": [
+            366,
+            150,
+            1,
+            1
+        ],
+        "duration": 1000
+    },
+    "任务已完成": {
+        "recognition": "OCR",
+        "roi": [
+            1075,
+            91,
+            144,
+            586
+        ],
+        "expected": "已完成",
+        "next": "停止"
+    },
+    "退出_助战": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "action": "Click",
+        "next": "助战任务",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "加入房间_助战": {
+        "recognition": "TemplateMatch",
+        "template": "加入房间_助战.png",
+        "action": "Click",
+        "next": "识别进入",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "识别进入": {
+        "recognition": "OCR",
+        "expected": "选择支援",
+        "action": "Click",
+        "roi": [
+            562,
+            35,
+            230,
+            76
+        ],
+        "next": "属性选择",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "出击_助战": {
+        "recognition": "OCR",
+        "expected": "总战力",
+        "roi": [
+            189,
+            81,
+            76,
+            38
+        ],
+        "action": "Click",
+        "target": [
+            1136,
+            590,
+            71,
+            28
+        ],
+        "next": [
+            "识别进入房间(next为等待战斗完成)",
+            "助战房间不存在"
+        ],
+        "interrupt": [
+            "大蓝瓶",
+            "小蓝瓶"
+        ],
+        "timeout": 20000,
+        "on_error": "stopapp"
+    },
+    "助战房间不存在": {
+        "recognition": "TemplateMatch",
+        "template": "助战房间不存在.png",
+        "next": "关闭页面_助战",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "关闭页面_助战": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "timeout": 3000,
+        "action": "Click",
+        "next": "加入房间_助战"
+    }
+}

@@ -1,5 +1,7 @@
 {
     "主线扫荡开始": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
         "next": "zx识别是否在主页",
         "interrupt": "zx返回主页_主线",
         "timeout": 3000,

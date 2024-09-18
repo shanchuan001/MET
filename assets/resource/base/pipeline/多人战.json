@@ -1,7 +1,5 @@
 {
     "开始多人战": {
-        "recognition": "TemplateMatch",
-        "template": "主页出击.png",
         "next": "主页出击",
         "interrupt": [
             "返回主页0",

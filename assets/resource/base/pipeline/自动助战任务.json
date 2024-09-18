@@ -1,7 +1,5 @@
 {
     "助战任务开始": {
-        "recognition": "TemplateMatch",
-        "template": "主页出击.png",
         "next": "检测助战任务是否完成1",
         "interrupt": [
             "返回主页0"

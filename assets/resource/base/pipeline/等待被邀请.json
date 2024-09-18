@@ -1,7 +1,5 @@
 {
     "等待被邀请": {
-        "recognition": "TemplateMatch",
-        "template": "主页出击.png",
         "next": "yq检测是否在主页",
         "interrupt": [
             "返回主页0",

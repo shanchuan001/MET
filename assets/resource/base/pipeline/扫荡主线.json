@@ -252,7 +252,10 @@
     "zx叉": {
         "recognition": "TemplateMatch",
         "template": "x.png",
-        "next": "zx下一章",
+        "next": [
+            "zx识别结束",
+            "zx下一章"
+        ],
         "action": "Click",
         "timeout": 3000,
         "on_error": "stopapp"

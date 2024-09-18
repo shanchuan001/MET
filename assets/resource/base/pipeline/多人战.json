@@ -358,17 +358,15 @@
         "template": "加入房间_准备.png",
         "next": [
             "属性选择",
+            "cc大蓝瓶",
+            "cc小蓝瓶",
             "识别发车",
             "加入房间"
-        ],
-        "interrupt": [
-            "大蓝瓶",
-            "小蓝瓶"
         ],
         "action": "Click",
         "pre_delay": 300,
         "post_delay": 1200,
-        "timeout": 20000,
+        "timeout": 25000,
         "on_error": "识别准备_跳车"
     },
     "识别发车": {
@@ -820,7 +818,57 @@
         "next": "使用",
         "on_error": "stopapp"
     },
+    "cc大蓝瓶": {
+        "recognition": "TemplateMatch",
+        "template": "大蓝瓶.png",
+        "action": "Swipe",
+        "begin": [
+            613,
+            285,
+            1,
+            1
+        ],
+        "end": [
+            613,
+            285,
+            1,
+            1
+        ],
+        "duration": 3000,
+        "timeout": 5000,
+        "next": "cc使用",
+        "on_error": "stopapp"
+    },
+    "cc小蓝瓶": {
+        "recognition": "TemplateMatch",
+        "template": "小蓝瓶.png",
+        "action": "Swipe",
+        "begin": [
+            666,
+            275,
+            1,
+            1
+        ],
+        "end": [
+            666,
+            275,
+            1,
+            1
+        ],
+        "duration": 3000,
+        "timeout": 5000,
+        "next": "cc使用",
+        "on_error": "stopapp"
+    },
     "使用": {
+        "recognition": "OCR",
+        "expected": "使用",
+        "action": "Click",
+        "timeout": 4000,
+        "next": "点击",
+        "on_error": "stopapp"
+    },
+    "cc使用": {
         "recognition": "OCR",
         "expected": "使用",
         "action": "Click",
@@ -839,6 +887,22 @@
         ],
         "pre_delay": 700,
         "action": "Click",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "cc点击": {
+        "recognition": "TemplateMatch",
+        "template": "补体力点击.png",
+        "roi": [
+            617,
+            303,
+            60,
+            47
+        ],
+        "pre_delay": 200,
+        "action": "Click",
+        "post_delay": 500,
+        "next": "加入房间_准备",
         "timeout": 4000,
         "on_error": "stopapp"
     },

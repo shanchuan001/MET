@@ -113,29 +113,210 @@
             49
         ],
         "next": [
-            "检测补体1(使用)",
-            "检测补体2(超出)"
-        ],
-        "action": "Click",
-        "interrupt": [
+            "检测补体2(超出)",
             "大红瓶",
             "小红瓶"
         ],
+        "action": "Click",
         "timeout": 3000,
         "on_error": "停止"
     },
     "大红瓶": {
         "recognition": "TemplateMatch",
         "template": "大红瓶.png",
-        "action": "Click",
+        "next": "补体1",
         "timeout": 3000,
-        "on_error": "stopapp"
+        "on_error": "停止"
     },
     "小红瓶": {
         "recognition": "TemplateMatch",
         "template": "小红瓶.png",
-        "action": "Click",
+        "next": "补体1",
         "timeout": 3000,
+        "on_error": "停止"
+    },
+    "补体1": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体2",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体2": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体3",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体3": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体4",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体4": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体5",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体5": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体6",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体6": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体7",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体7": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 500,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "补体8",
+        "on_error": "检测补体1(使用)"
+    },
+    "补体8": {
+        "recognition": "OCR",
+        "expected": "8",
+        "roi": [
+            601,
+            403,
+            47,
+            44
+        ],
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "action": "Click",
+        "timeout": 2000,
+        "inverse": true,
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": "检测补体1(使用)",
         "on_error": "stopapp"
     },
     "检测补体1(使用)": {

@@ -1,0 +1,98 @@
+{
+    "stopapp": {
+        "action": "StopApp",
+        "package": "com.orlesh.yjzs",
+        "next": "start"
+    },
+    "start": {
+        "action": "StartApp",
+        "package": "com.orlesh.yjzs/com.orlesh.sdkdemo.PrivateActivity",
+        "post_delay": 15000,
+        "timeout": 50000,
+        "next": [
+            "进入",
+            "重试"
+        ],
+        "on_error": "stopapp"
+    },
+    "进入": {
+        "recognition": "TemplateMatch",
+        "template": "进入.png",
+        "pre_delay": 1500,
+        "action": "Click",
+        "timeout": 30000,
+        "post_delay": 500,
+        "next": "等待进入"
+    },
+    "等待进入": {
+        "recognition": "TemplateMatch",
+        "template": "标识.png",
+        "inverse": true,
+        "post_delay": 5000,
+        "next": "主页出击",
+        "interrupt": [
+            "取消",
+            "领取物资",
+            "关闭页面1",
+            "点击空白处关闭"
+        ]
+    },
+    "重试": {
+        "recognition": "TemplateMatch",
+        "template": "重试.png",
+        "roi": [
+            358,
+            350,
+            582,
+            270
+        ],
+        "next": "stopapp"
+    },
+    "领取物资": {
+        "recognition": "TemplateMatch",
+        "template": "获得物资.png",
+        "roi": [
+            468,
+            89,
+            354,
+            139
+        ],
+        "action": "Click"
+    },
+    "点击空白处关闭": {
+        "recognition": "OCR",
+        "expected": "点击空白处",
+        "action": "Click"
+    },
+    "取消": {
+        "recognition": "TemplateMatch",
+        "template": "取消.png",
+        "roi": [
+            389,
+            385,
+            521,
+            192
+        ],
+        "action": "Click",
+        "timeout": 3000
+    },
+    "关闭页面1": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "timeout": 3000,
+        "action": "Click"
+    },
+    "停止": {
+        "action": "DoNothing"
+    },
+    "主页检测": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ]
+    }
+}

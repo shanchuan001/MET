@@ -2,10 +2,9 @@
     "等待被邀请": {
         "next": "yq检测是否在主页",
         "interrupt": [
-            "返回主页0",
-            "退出"
+            "返回主页0"
         ],
-        "timeout": 3000,
+        "timeout": 4000,
         "on_error": "stopapp"
     },
     "yq检测是否在主页": {
@@ -50,6 +49,87 @@
         "rate_limit": 1500,
         "timeout": 4000,
         "on_error": "stopapp",
-        "next": "加入房间_准备"
+        "next": "byq等人到齐0"
+    },
+    "byq等人到齐0": {
+        "recognition": "OCR",
+        "expected": "准备",
+        "roi": [
+            1100,
+            637,
+            130,
+            57
+        ],
+        "timeout": 300000,
+        "next": [
+            "byq等人到齐1",
+            "房主丢失",
+            "等待被邀请"
+        ],
+        "on_error": "停止"
+    },
+    "byq等人到齐1": {
+        "recognition": "TemplateMatch",
+        "template": "邀请空位.png",
+        "roi": [
+            1080,
+            196,
+            116,
+            105
+        ],
+        "inverse": true,
+        "next": [
+            "加入房间_准备",
+            "房主丢失",
+            "等待被邀请"
+        ],
+        "on_error": "停止"
+    },
+    "房主丢失": {
+        "recognition": "OCR",
+        "expected": "出击",
+        "roi": [
+            1100,
+            637,
+            130,
+            57
+        ],
+        "post_delay": 500,
+        "next": "解散房间0",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "解散房间0": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "action": "Click",
+        "post_delay": 500,
+        "next": [
+            "解散房间1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "解散房间1": {
+        "recognition": "OCR",
+        "expected": "解散",
+        "action": "Click",
+        "post_delay": 700,
+        "next": "等待被邀请",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "结束检测": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "roi": [
+            7,
+            11,
+            169,
+            54
+        ],
+        "next": "等待被邀请",
+        "timeout": 2000,
+        "post_delay": 500
     }
 }

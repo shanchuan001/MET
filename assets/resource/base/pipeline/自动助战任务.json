@@ -24,6 +24,27 @@
         "timeout": 3000,
         "on_error": "stopapp"
     },
+    "退出页面_助战0": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "action": "Click",
+        "next": [
+            "返回主页_助战1",
+            "退出页面_助战1"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "退出页面_助战1": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "action": "Click",
+        "next": [
+            "返回主页_助战1"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
     "检测助战任务是否完成1": {
         "recognition": "TemplateMatch",
         "template": "任务.png",
@@ -132,7 +153,8 @@
     "识别进入": {
         "recognition": "OCR",
         "expected": "选择支援",
-        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 100,
         "roi": [
             562,
             35,
@@ -160,7 +182,7 @@
             28
         ],
         "next": [
-            "识别进入房间(next为等待战斗完成)",
+            "识别进入房间",
             "助战房间不存在"
         ],
         "interrupt": [

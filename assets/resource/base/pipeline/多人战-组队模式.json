@@ -1,0 +1,477 @@
+{
+    "邀请0": {
+        "recognition": "OCR",
+        "expected": "出击",
+        "action": "Click",
+        "roi": [
+            1033,
+            599,
+            246,
+            120
+        ],
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请0",
+        "on_error": "stopapp"
+    },
+    "一键邀请0": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉0",
+        "on_error": "stopapp"
+    },
+    "yq_叉0": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请1"
+    },
+    "邀请1": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请1",
+        "on_error": "stopapp"
+    },
+    "一键邀请1": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉1",
+        "on_error": "stopapp"
+    },
+    "yq_叉1": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请2"
+    },
+    "邀请2": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请2",
+        "on_error": "stopapp"
+    },
+    "一键邀请2": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉2",
+        "on_error": "stopapp"
+    },
+    "yq_叉2": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请3"
+    },
+    "邀请3": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请3",
+        "on_error": "stopapp"
+    },
+    "一键邀请3": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉3",
+        "on_error": "stopapp"
+    },
+    "yq_叉3": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请4"
+    },
+    "邀请4": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请4",
+        "on_error": "stopapp"
+    },
+    "一键邀请4": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉4",
+        "on_error": "stopapp"
+    },
+    "yq_叉4": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请5"
+    },
+    "邀请5": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请5",
+        "on_error": "stopapp"
+    },
+    "一键邀请5": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉5",
+        "on_error": "stopapp"
+    },
+    "yq_叉5": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请6"
+    },
+    "邀请6": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请6",
+        "on_error": "stopapp"
+    },
+    "一键邀请6": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉6",
+        "on_error": "stopapp"
+    },
+    "yq_叉6": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请7"
+    },
+    "邀请7": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请7",
+        "on_error": "stopapp"
+    },
+    "一键邀请7": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉7",
+        "on_error": "stopapp"
+    },
+    "yq_叉7": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请8"
+    },
+    "邀请8": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请8",
+        "on_error": "stopapp"
+    },
+    "一键邀请8": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉8",
+        "on_error": "stopapp"
+    },
+    "yq_叉8": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 30000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "邀请9"
+    },
+    "邀请9": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "target": [
+            1106,
+            529,
+            62,
+            52
+        ],
+        "timeout": 4000,
+        "next": "一键邀请9",
+        "on_error": "stopapp"
+    },
+    "一键邀请9": {
+        "recognition": "OCR",
+        "expected": "一键邀请",
+        "roi": [
+            1078,
+            638,
+            114,
+            42
+        ],
+        "action": "Click",
+        "timeout": 4000,
+        "next": "yq_叉9",
+        "on_error": "stopapp"
+    },
+    "yq_叉9": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 5000,
+        "timeout": 10000,
+        "next": [
+            "等人到齐"
+        ],
+        "on_error": "停止"
+    },
+    "等人到齐": {
+        "recognition": "TemplateMatch",
+        "template": "邀请空位.png",
+        "roi": [
+            1080,
+            196,
+            116,
+            105
+        ],
+        "inverse": true,
+        "next": [
+            "等待全部准备0",
+            "等待全部准备1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "等待全部准备0": {
+        "recognition": "ColorMatch",
+        "lower": [
+            104,
+            104,
+            104
+        ],
+        "upper": [
+            115,
+            115,
+            115
+        ],
+        "roi": [
+            1203,
+            652,
+            17,
+            40
+        ],
+        "timeout": 30000,
+        "next": [
+            "清点人数",
+            "等待全部准备1"
+        ],
+        "on_error": "stopapp"
+    },
+    "等待全部准备1": {
+        "recognition": "ColorMatch",
+        "upper": [
+            182,
+            188,
+            197
+        ],
+        "lower": [
+            163,
+            169,
+            180
+        ],
+        "roi": [
+            1203,
+            648,
+            18,
+            43
+        ],
+        "timeout": 4000,
+        "next": "出击",
+        "on_error": "stopapp"
+    },
+    "清点人数": {
+        "recognition": "TemplateMatch",
+        "template": "邀请空位.png",
+        "roi": [
+            1080,
+            196,
+            116,
+            105
+        ],
+        "next": [
+            "邀请0"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    }
+}

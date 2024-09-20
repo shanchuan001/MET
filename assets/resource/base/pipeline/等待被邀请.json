@@ -18,7 +18,7 @@
         ],
         "timeout": 300000,
         "rate_limit": 1500,
-        "on_error": "stopapp",
+        "on_error": "停止",
         "next": [
             "yq等待邀请请求",
             "检测是否在主页0"

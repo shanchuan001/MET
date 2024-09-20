@@ -182,28 +182,37 @@
             28
         ],
         "next": [
+            "助战房间不存在",
             "识别进入房间",
-            "助战房间不存在"
+            "战斗确认"
         ],
         "interrupt": [
             "大蓝瓶",
             "小蓝瓶"
         ],
+        "post_delay": 100,
         "timeout": 20000,
         "on_error": "stopapp"
     },
     "助战房间不存在": {
-        "recognition": "TemplateMatch",
-        "template": "助战房间不存在.png",
+        "recognition": "OCR",
+        "expected": "不存在",
         "next": "关闭页面_助战",
+        "roi": [
+            493,
+            320,
+            317,
+            90
+        ],
         "timeout": 4000,
         "on_error": "stopapp"
     },
     "关闭页面_助战": {
         "recognition": "TemplateMatch",
-        "template": "x.png",
-        "timeout": 3000,
+        "template": "x2.png",
+        "timeout": 4000,
         "action": "Click",
-        "next": "加入房间_助战"
+        "next": "加入房间_助战",
+        "on_error": "stopapp"
     }
 }

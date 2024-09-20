@@ -385,9 +385,13 @@
                                 "等待助战界面",
                                 "cc大蓝瓶",
                                 "cc小蓝瓶",
-                                "识别发车",
+                                "识别发车1",
                                 "房主丢失"
                             ],
+                            "action": "Click",
+                            "pre_delay": 500,
+                            "post_delay": 1200,
+                            "timeout": 25000,
                             "on_error": "stopapp"
                         }
                     }
@@ -427,9 +431,13 @@
                                 "等待助战界面",
                                 "cc大蓝瓶",
                                 "cc小蓝瓶",
-                                "识别发车",
+                                "识别发车1",
                                 "房主丢失"
                             ],
+                            "action": "Click",
+                            "pre_delay": 500,
+                            "post_delay": 1200,
+                            "timeout": 25000,
                             "on_error": "stopapp"
                         }
                     }

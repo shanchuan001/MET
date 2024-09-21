@@ -64,9 +64,31 @@
         "next": [
             "房主丢失",
             "byq等人到齐1",
-            "等待被邀请"
+            "yq检测是否在主页"
         ],
         "on_error": "停止"
+    },
+    "byq等人到齐0.5": {
+        "recognition": "TemplateMatch",
+        "template": "邀请空位.png",
+        "roi": [
+            1080,
+            196,
+            116,
+            105
+        ],
+        "pre_delay": 500,
+        "action": "Click",
+        "target": [
+            1149,
+            656,
+            39,
+            20
+        ],
+        "next": [
+            "房主丢失",
+            "byq等人到齐0"
+        ]
     },
     "byq等人到齐1": {
         "recognition": "TemplateMatch",
@@ -81,9 +103,10 @@
         "next": [
             "房主丢失",
             "加入房间_准备",
-            "等待被邀请"
+            "yq检测是否在主页"
         ],
-        "on_error": "停止"
+        "timeout": 15000,
+        "on_error": "stopapp"
     },
     "房主丢失": {
         "recognition": "OCR",
@@ -95,24 +118,24 @@
             57
         ],
         "post_delay": 500,
-        "next": "解散房间0",
+        "next": "byq退出房间",
         "timeout": 4000,
         "on_error": "stopapp"
     },
-    "解散房间0": {
+    "byq退出房间": {
         "recognition": "TemplateMatch",
         "template": "退出.png",
         "action": "Click",
         "post_delay": 500,
         "next": [
-            "解散房间1"
+            "byq退出房间1"
         ],
         "timeout": 4000,
         "on_error": "stopapp"
     },
-    "解散房间1": {
+    "byq退出房间1": {
         "recognition": "OCR",
-        "expected": "解散",
+        "expected": "退出",
         "action": "Click",
         "post_delay": 700,
         "next": "等待被邀请",

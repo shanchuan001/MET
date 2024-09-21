@@ -223,23 +223,8 @@
         "timeout": 10000,
         "next": [
             "识别进入房间",
-            "战斗完成",
+            "战斗确认",
             "阵亡"
-        ],
-        "on_error": "stopapp"
-    },
-    "战斗完成": {
-        "recognition": "TemplateMatch",
-        "template": "继续.png",
-        "roi": [
-            938,
-            621,
-            341,
-            98
-        ],
-        "timeout": 10000,
-        "next": [
-            "战斗确认"
         ],
         "on_error": "stopapp"
     },
@@ -276,14 +261,15 @@
             341,
             98
         ],
-        "timeout": 4000,
+        "timeout": 8000,
         "action": "Click",
-        "pre_delay": 1000,
-        "post_delay": 2000,
+        "pre_delay": 300,
+        "post_delay": 1000,
         "next": [
             "创建房间",
             "出击"
         ],
+        "interrupt": "战斗确认",
         "on_error": "stopapp"
     },
     "超时跳车0": {
@@ -464,11 +450,12 @@
             63
         ],
         "action": "Click",
-        "timeout": 4000,
+        "timeout": 8000,
         "pre_delay": 100,
         "post_delay": 200,
         "next": [
-            "出击"
+            "出击",
+            "识别进入房间"
         ],
         "on_error": "stopapp"
     },

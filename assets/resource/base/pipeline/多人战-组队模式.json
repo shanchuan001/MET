@@ -9,6 +9,7 @@
             246,
             120
         ],
+        "pre_delay": 500,
         "target": [
             1106,
             529,
@@ -23,10 +24,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -62,10 +63,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -101,10 +102,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -140,10 +141,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -179,10 +180,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -218,10 +219,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -257,10 +258,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -296,10 +297,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -335,10 +336,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -374,10 +375,10 @@
         "recognition": "OCR",
         "expected": "一键邀请",
         "roi": [
-            1078,
-            638,
-            114,
-            42
+            1031,
+            618,
+            180,
+            85
         ],
         "action": "Click",
         "timeout": 4000,
@@ -456,7 +457,10 @@
             43
         ],
         "timeout": 4000,
-        "next": "出击",
+        "next": [
+            "清点人数",
+            "出击"
+        ],
         "on_error": "stopapp"
     },
     "清点人数": {

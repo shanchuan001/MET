@@ -21,8 +21,9 @@
         "pre_delay": 1500,
         "action": "Click",
         "timeout": 30000,
-        "post_delay": 500,
-        "next": "等待进入"
+        "post_delay": 800,
+        "next": "等待进入",
+        "on_error": "stopapp"
     },
     "等待进入": {
         "recognition": "TemplateMatch",
@@ -30,6 +31,7 @@
         "inverse": true,
         "post_delay": 5000,
         "next": "主页出击",
+        "on_error": "stopapp",
         "interrupt": [
             "取消",
             "领取物资",

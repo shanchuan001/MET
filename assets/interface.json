@@ -345,6 +345,17 @@
                             "next": "停止"
                         }
                     }
+                },
+                {
+                    "name": "4分钟",
+                    "pipeline_override": {
+                        "阵亡": {
+                            "timeout": 240000
+                        },
+                        "超时跳车4": {
+                            "next": "停止"
+                        }
+                    }
                 }
             ]
         },
@@ -385,13 +396,13 @@
                                 "等待助战界面",
                                 "cc大蓝瓶",
                                 "cc小蓝瓶",
-                                "识别发车1",
+                                "识别进入房间",
                                 "房主丢失"
                             ],
                             "action": "Click",
                             "pre_delay": 500,
                             "post_delay": 1200,
-                            "timeout": 25000,
+                            "timeout": 32000,
                             "on_error": "stopapp"
                         }
                     }
@@ -431,13 +442,13 @@
                                 "等待助战界面",
                                 "cc大蓝瓶",
                                 "cc小蓝瓶",
-                                "识别发车1",
+                                "识别进入房间",
                                 "房主丢失"
                             ],
                             "action": "Click",
                             "pre_delay": 500,
                             "post_delay": 1200,
-                            "timeout": 25000,
+                            "timeout": 32000,
                             "on_error": "stopapp"
                         }
                     }

@@ -42,7 +42,6 @@
         "next": "主页出击1",
         "interrupt": "退出",
         "on_error": [
-            "主页出击",
             "stopapp"
         ]
     },
@@ -76,7 +75,7 @@
         ],
         "post_delay": 800,
         "timeout": 4000,
-        "on_error": "返回主页",
+        "on_error": "stopapp",
         "next": "多人2"
     },
     "多人1": {
@@ -109,7 +108,7 @@
     },
     "二级菜单": {
         "recognition": "TemplateMatch",
-        "template": "机偶.png",
+        "template": "特异点.png",
         "action": "Click",
         "post_delay": 1000,
         "roi": [
@@ -119,15 +118,21 @@
             121
         ],
         "timeout": 4000,
-        "on_error": "返回主页",
+        "on_error": "stopapp",
         "next": "三级菜单"
     },
     "三级菜单": {
         "recognition": "TemplateMatch",
-        "template": "光机.png",
+        "template": "光龙.png",
         "action": "Click",
+        "roi": [
+            8,
+            84,
+            231,
+            599
+        ],
         "timeout": 4000,
-        "on_error": "返回主页",
+        "on_error": "stopapp",
         "next": "四级菜单"
     },
     "四级菜单": {
@@ -141,7 +146,7 @@
         ],
         "action": "Click",
         "timeout": 4000,
-        "on_error": "返回主页",
+        "on_error": "stopapp",
         "next": "创建房间"
     },
     "创建房间": {
@@ -194,6 +199,22 @@
         "on_error": "stopapp"
     },
     "识别进入房间": {
+        "recognition": "TemplateMatch",
+        "template": "加载界面.png",
+        "roi": [
+            373,
+            155,
+            544,
+            413
+        ],
+        "timeout": 15000,
+        "next": [
+            "识别进入房间1"
+        ],
+        "rate_limit": 1000,
+        "on_error": "stopapp"
+    },
+    "识别进入房间1": {
         "recognition": "OCR",
         "expected": "回合",
         "roi": [
@@ -222,7 +243,7 @@
         "inverse": true,
         "timeout": 10000,
         "next": [
-            "识别进入房间",
+            "识别进入房间1",
             "战斗确认",
             "阵亡"
         ],
@@ -253,8 +274,8 @@
         "action": "Click"
     },
     "战斗确认": {
-        "recognition": "TemplateMatch",
-        "template": "继续.png",
+        "recognition": "OCR",
+        "expected": "继续",
         "roi": [
             938,
             621,

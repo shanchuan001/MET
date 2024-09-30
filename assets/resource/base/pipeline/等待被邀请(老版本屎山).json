@@ -136,6 +136,12 @@
     "byq退出房间1": {
         "recognition": "OCR",
         "expected": "退出",
+        "roi": [
+            371,
+            380,
+            535,
+            183
+        ],
         "action": "Click",
         "post_delay": 700,
         "next": "等待被邀请",

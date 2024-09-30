@@ -21,7 +21,14 @@
         "pre_delay": 1500,
         "action": "Click",
         "timeout": 30000,
-        "post_delay": 800,
+        "post_delay": 2000,
+        "next": "等待进入0",
+        "on_error": "stopapp"
+    },
+    "等待进入0": {
+        "recognition": "TemplateMatch",
+        "template": "标识.png",
+        "post_delay": 3000,
         "next": "等待进入",
         "on_error": "stopapp"
     },
@@ -29,10 +36,12 @@
         "recognition": "TemplateMatch",
         "template": "标识.png",
         "inverse": true,
-        "post_delay": 5000,
+        "post_delay": 1000,
+        "pre_delay": 1000,
         "next": "主页出击",
         "on_error": "stopapp",
         "interrupt": [
+            "等待进入0",
             "取消",
             "领取物资",
             "关闭页面1",
@@ -96,5 +105,18 @@
             119,
             54
         ]
+    },
+    "返回主页检测": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "action": "Click",
+        "roi": [
+            0,
+            0,
+            245,
+            74
+        ],
+        "next": "主页检测",
+        "on_error": "stopapp"
     }
 }

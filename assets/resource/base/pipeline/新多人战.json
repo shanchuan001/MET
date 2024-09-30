@@ -1,0 +1,1032 @@
+{
+    "开始多人战-9.25新版": {
+        "next": [
+            "加入战斗",
+            "返回主页检测"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "加入战斗": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "action": "Click",
+        "target": [
+            845,
+            285,
+            52,
+            54
+        ],
+        "next": [
+            "点击自动战斗",
+            "切换到中途模式"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "切换到中途模式": {
+        "recognition": "OCR",
+        "expected": "中途",
+        "roi": [
+            1130,
+            569,
+            88,
+            74
+        ],
+        "action": "Click",
+        "next": "加入战斗",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击自动战斗": {
+        "recognition": "TemplateMatch",
+        "template": "自动战斗.png",
+        "action": "Click",
+        "roi": [
+            22,
+            518,
+            248,
+            183
+        ],
+        "next": [
+            "点击启用筛选"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击启用筛选": {
+        "recognition": "TemplateMatch",
+        "template": "off.png",
+        "action": "Click",
+        "roi": [
+            164,
+            180,
+            292,
+            110
+        ],
+        "next": [
+            "点击启用建房"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击启用建房": {
+        "recognition": "TemplateMatch",
+        "template": "off.png",
+        "action": "Click",
+        "roi": [
+            206,
+            439,
+            312,
+            98
+        ],
+        "next": [
+            "点击连战设置"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击连战设置": {
+        "recognition": "TemplateMatch",
+        "template": "连战设置.png",
+        "action": "Click",
+        "roi": [
+            679,
+            448,
+            165,
+            75
+        ],
+        "next": [
+            "点击连战次数"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击连战次数": {
+        "recognition": "TemplateMatch",
+        "template": "连战次数界面.png",
+        "action": "Click",
+        "roi": [
+            521,
+            109,
+            255,
+            94
+        ],
+        "target": [
+            611,
+            218,
+            56,
+            34
+        ],
+        "next": [
+            "输入连战次数"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "输入连战次数": {
+        "action": "InputText",
+        "input_text": "300",
+        "next": [
+            "dr点击一次"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "dr点击一次": {
+        "action": "Click",
+        "roi": [
+            964,
+            150,
+            61,
+            45
+        ],
+        "next": [
+            "dr点击确定"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "dr点击确定": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "action": "Click",
+        "roi": [
+            619,
+            518,
+            341,
+            173
+        ],
+        "next": [
+            "检测已选中任务1-是",
+            "检测已选中任务1-否"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务1-是": {
+        "recognition": "TemplateMatch",
+        "template": "火幻.png",
+        "roi": [
+            205,
+            267,
+            149,
+            173
+        ],
+        "next": [
+            "检测已选中任务2-是",
+            "检测已选中任务2-否"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务1-否": {
+        "recognition": "TemplateMatch",
+        "template": "火幻.png",
+        "roi": [
+            205,
+            267,
+            149,
+            173
+        ],
+        "next": [
+            "筛选关卡"
+        ],
+        "inverse": true,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务2-是": {
+        "recognition": "TemplateMatch",
+        "template": "火龙.png",
+        "roi": [
+            348,
+            286,
+            153,
+            150
+        ],
+        "next": [
+            "检测已选中任务3-是",
+            "检测已选中任务3-否"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务2-否": {
+        "recognition": "TemplateMatch",
+        "template": "火龙.png",
+        "roi": [
+            348,
+            286,
+            153,
+            150
+        ],
+        "inverse": true,
+        "next": [
+            "筛选关卡"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务3-是": {
+        "recognition": "TemplateMatch",
+        "template": "火机.png",
+        "roi": [
+            493,
+            271,
+            151,
+            185
+        ],
+        "next": [
+            "检测已选中任务4-是",
+            "检测已选中任务4-否"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务3-否": {
+        "recognition": "TemplateMatch",
+        "template": "火机.png",
+        "roi": [
+            493,
+            271,
+            151,
+            185
+        ],
+        "inverse": true,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "next": [
+            "筛选关卡"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务4-是": {
+        "recognition": "TemplateMatch",
+        "template": "无设置.png",
+        "roi": [
+            635,
+            269,
+            155,
+            173
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "next": [
+            "点击开始自动战斗"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测已选中任务4-否": {
+        "recognition": "TemplateMatch",
+        "template": "无设置.png",
+        "roi": [
+            635,
+            269,
+            155,
+            173
+        ],
+        "inverse": true,
+        "next": [
+            "筛选关卡"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "筛选关卡": {
+        "recognition": "OCR",
+        "expected": "关卡",
+        "roi": [
+            140,
+            53,
+            662,
+            268
+        ],
+        "action": "Click",
+        "target": [
+            958,
+            321,
+            75,
+            62
+        ],
+        "next": [
+            "清空当前选择",
+            "找完检测"
+        ],
+        "interrupt": "dr向下滑动",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "dr向下滑动": {
+        "recognition": "OCR",
+        "expected": "关卡",
+        "roi": [
+            525,
+            47,
+            237,
+            103
+        ],
+        "action": "Swipe",
+        "begin": [
+            1015,
+            434,
+            1,
+            1
+        ],
+        "end": [
+            1015,
+            188,
+            1,
+            1
+        ],
+        "post_delay": 100,
+        "pre_delay": 10,
+        "duration": 1200
+    },
+    "dr向上滑动": {
+        "recognition": "OCR",
+        "expected": "关卡",
+        "roi": [
+            525,
+            47,
+            237,
+            103
+        ],
+        "action": "Swipe",
+        "end": [
+            1015,
+            434,
+            1,
+            1
+        ],
+        "begin": [
+            1015,
+            188,
+            1,
+            1
+        ],
+        "post_delay": 100,
+        "pre_delay": 10,
+        "duration": 1200
+    },
+    "清空当前选择": {
+        "recognition": "TemplateMatch",
+        "template": [
+            "1.png",
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png",
+            "6.png"
+        ],
+        "roi": [
+            155,
+            150,
+            830,
+            401
+        ],
+        "threshold": 0.85,
+        "post_delay": 150,
+        "pre_delay": 10,
+        "action": "Click",
+        "next": [
+            "清空当前选择",
+            "找完检测"
+        ],
+        "interrupt": "dr向下滑动",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "找完检测": {
+        "recognition": "TemplateMatch",
+        "template": "当期活动.png",
+        "roi": [
+            150,
+            184,
+            145,
+            218
+        ],
+        "next": [
+            "选择关卡1_0"
+        ],
+        "post_delay": 10,
+        "interrupt": "dr向上滑动",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡1_0": {
+        "recognition": "FeatureMatch",
+        "template": "幻象征伐战.png",
+        "roi": [
+            141,
+            152,
+            491,
+            346
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "post_delay": 10,
+        "pre_delay": 10,
+        "timeout": 3000,
+        "next": "选择关卡1_1",
+        "on_error": "stopapp"
+    },
+    "选择关卡1_1": {
+        "recognition": "TemplateMatch",
+        "template": "新多人_火幻.png",
+        "roi": "选择关卡1_0",
+        "roi_offset": [
+            -100,
+            -20,
+            900,
+            214
+        ],
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "next": "选择关卡2_-2",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_-2": {
+        "next": "选择关卡2_-1",
+        "timeout": 300,
+        "on_error": "选择关卡2_0_上滑0"
+    },
+    "选择关卡2_-1": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "虚数体幻想战.png",
+            "虚数体幻想战[真源].png",
+            "幻象征伐战.png",
+            "英杰击退战.png",
+            "特异点讨伐战[真源].png",
+            "特异点讨伐战.png",
+            "机偶试炼战.png"
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "next": [
+            "选择关卡2_0_下滑0"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_0_下滑0": {
+        "next": [
+            "选择关卡2_0_下滑"
+        ],
+        "interrupt": "dr向下滑动",
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_0_上滑0": {
+        "next": [
+            "选择关卡2_0_上滑"
+        ],
+        "interrupt": "dr向上滑动",
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_0_上滑": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "机偶试炼战.png"
+        ],
+        "next": [
+            "选择关卡2_1_上滑"
+        ],
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_0_下滑": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "机偶试炼战.png"
+        ],
+        "next": [
+            "选择关卡2_1_下滑"
+        ],
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_1_上滑": {
+        "recognition": "TemplateMatch",
+        "template": "新多人_火机.png",
+        "roi": "选择关卡2_0_上滑",
+        "roi_offset": [
+            -100,
+            -20,
+            900,
+            214
+        ],
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "next": "选择关卡3_-2",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡2_1_下滑": {
+        "recognition": "TemplateMatch",
+        "template": "新多人_火机.png",
+        "roi": "选择关卡2_0_下滑",
+        "roi_offset": [
+            -100,
+            -20,
+            900,
+            214
+        ],
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "next": "选择关卡3_-2",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_-2": {
+        "next": "选择关卡3_-1",
+        "timeout": 300,
+        "on_error": "选择关卡3_0_上滑0"
+    },
+    "选择关卡3_-1": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "虚数体幻想战.png",
+            "虚数体幻想战[真源].png",
+            "幻象征伐战.png",
+            "英杰击退战.png",
+            "特异点讨伐战[真源].png",
+            "特异点讨伐战.png"
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "next": [
+            "选择关卡3_0_下滑0"
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_0_下滑0": {
+        "next": [
+            "选择关卡3_0_下滑"
+        ],
+        "interrupt": "dr向下滑动",
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_0_上滑0": {
+        "next": [
+            "选择关卡3_0_上滑"
+        ],
+        "interrupt": "dr向上滑动",
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_0_上滑": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "特异点讨伐战.png"
+        ],
+        "next": [
+            "选择关卡3_1_上滑"
+        ],
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_0_下滑": {
+        "recognition": "FeatureMatch",
+        "template": [
+            "特异点讨伐战.png"
+        ],
+        "next": [
+            "选择关卡3_1_下滑"
+        ],
+        "roi": [
+            148,
+            163,
+            351,
+            224
+        ],
+        "count": 15,
+        "ratio": 0.8,
+        "pre_delay": 10,
+        "post_delay": 10,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择关卡3_1_上滑": {
+        "recognition": "TemplateMatch",
+        "template": "新多人_火龙.png",
+        "roi": "选择关卡3_0_上滑",
+        "roi_offset": [
+            -100,
+            -20,
+            900,
+            214
+        ],
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "timeout": 3000,
+        "next": "dr确定_开始前",
+        "on_error": "stopapp"
+    },
+    "选择关卡3_1_下滑": {
+        "recognition": "TemplateMatch",
+        "template": "新多人_火龙.png",
+        "roi": "选择关卡3_0_下滑",
+        "roi_offset": [
+            -100,
+            -20,
+            900,
+            214
+        ],
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "next": "dr确定_开始前",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "dr确定_开始前": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "next": "点击开始自动战斗",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击开始自动战斗": {
+        "recognition": "TemplateMatch",
+        "template": "开始自动战斗.png",
+        "action": "Click",
+        "threshold": 0.87,
+        "post_delay": 200,
+        "pre_delay": 200,
+        "timeout": 3000,
+        "next": [
+            "xdr识别进入房间",
+            "xdr识别进入房间1",
+            "搜索中"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr识别进入房间": {
+        "recognition": "TemplateMatch",
+        "template": "加载界面.png",
+        "roi": [
+            373,
+            155,
+            544,
+            413
+        ],
+        "timeout": 25000,
+        "next": [
+            "xdr识别进入房间1",
+            "xdr识别进入房间",
+            "搜索中",
+            "战斗胜利"
+        ],
+        "rate_limit": 1000,
+        "on_error": "stopapp"
+    },
+    "xdr识别进入房间1": {
+        "recognition": "TemplateMatch",
+        "template": "停止连战.png",
+        "roi": [
+            412,
+            7,
+            154,
+            84
+        ],
+        "timeout": 300000,
+        "next": [
+            "xdr离开战斗界面",
+            "xdr阵亡",
+            "搜索中"
+        ],
+        "rate_limit": 2000,
+        "on_error": "xdr战斗超时综合识别"
+    },
+    "xdr离开战斗界面": {
+        "recognition": "TemplateMatch",
+        "template": "停止连战.png",
+        "roi": [
+            412,
+            7,
+            154,
+            84
+        ],
+        "inverse": true,
+        "rate_limit": 600,
+        "timeout": 20000,
+        "next": [
+            "战斗胜利",
+            "xdr战斗确认",
+            "xdr识别进入房间1",
+            "xdr阵亡",
+            "xdr超时跳车4",
+            "搜索中"
+        ],
+        "on_error": "stopapp"
+    },
+    "战斗胜利": {
+        "recognition": "TemplateMatch",
+        "template": "战斗胜利.png",
+        "roi": [
+            230,
+            145,
+            828,
+            419
+        ],
+        "rate_limit": 500,
+        "timeout": 20000,
+        "next": [
+            "xdr战斗确认",
+            "xdr识别进入房间",
+            "xdr识别进入房间1",
+            "战斗未找到",
+            "搜索中"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr战斗超时综合识别": {
+        "timeout": 10000,
+        "next": [
+            "xdr超时跳车0",
+            "xdr识别进入房间1",
+            "xdr战斗确认",
+            "战斗未找到",
+            "搜索中"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr阵亡": {
+        "recognition": "TemplateMatch",
+        "template": "取消.png",
+        "timeout": 60000,
+        "rate_limit": 800,
+        "action": "Click",
+        "next": [
+            "战斗胜利",
+            "战斗未找到",
+            "搜索中"
+        ],
+        "on_error": "xdr战斗超时综合识别"
+    },
+    "xdr阵亡0": {
+        "recognition": "TemplateMatch",
+        "template": "取消.png",
+        "timeout": 4000,
+        "action": "Click"
+    },
+    "xdr战斗确认": {
+        "recognition": "TemplateMatch",
+        "template": "继续.png",
+        "roi": [
+            938,
+            621,
+            341,
+            98
+        ],
+        "timeout": 10000,
+        "action": "Click",
+        "pre_delay": 300,
+        "post_delay": 5000,
+        "next": [
+            "搜索中",
+            "xdr识别进入房间",
+            "xdr识别进入房间1",
+            "返回主页检测"
+        ],
+        "interrupt": "xdr战斗确认",
+        "on_error": "stopapp"
+    },
+    "返回主页检测_次数限制专用": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "action": "Click",
+        "roi": [
+            0,
+            0,
+            245,
+            74
+        ],
+        "next": "停止",
+        "on_error": "stopapp"
+    },
+    "搜索中": {
+        "recognition": "TemplateMatch",
+        "template": "快速加入房间.png",
+        "roi": [
+            529,
+            374,
+            215,
+            111
+        ],
+        "next": [
+            "搜索中",
+            "xdr战斗确认",
+            "xdr识别进入房间",
+            "xdr识别进入房间1",
+            "战斗胜利",
+            "战斗未找到"
+        ],
+        "timeout": 35000,
+        "on_error": "stopapp"
+    },
+    "战斗未找到": {
+        "recognition": "TemplateMatch",
+        "template": "战斗未找到.png",
+        "roi": [
+            418,
+            249,
+            467,
+            211
+        ],
+        "action": "Click",
+        "next": [
+            "搜索中",
+            "xdr识别进入房间1"
+        ],
+        "timeout": 35000,
+        "on_error": "stopapp"
+    },
+    "xdr超时跳车0": {
+        "recognition": "TemplateMatch",
+        "template": "AUTO.png",
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "timeout": 15000,
+        "action": "Click",
+        "next": [
+            "xdr战斗确认"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr超时跳车1": {
+        "recognition": "TemplateMatch",
+        "template": "设置.png",
+        "timeout": 4000,
+        "roi": [
+            1141,
+            0,
+            138,
+            104
+        ],
+        "action": "Click",
+        "next": [
+            "xdr超时跳车2",
+            "xdr超时跳车0"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr超时跳车2": {
+        "recognition": "TemplateMatch",
+        "template": "战斗撤退.png",
+        "roi": [
+            399,
+            419,
+            508,
+            116
+        ],
+        "timeout": 4000,
+        "action": "Click",
+        "next": [
+            "xdr超时跳车3",
+            "xdr超时跳车0"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr超时跳车3": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "timeout": 4000,
+        "roi": [
+            380,
+            441,
+            500,
+            81
+        ],
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "xdr超时跳车4",
+            "xdr超时跳车0",
+            "搜索中",
+            "xdr识别进入房间1",
+            "xdr战斗确认",
+            "战斗胜利",
+            "战斗未找到"
+        ],
+        "on_error": "stopapp"
+    },
+    "xdr超时跳车4": {
+        "recognition": "OCR",
+        "expected": "点击",
+        "roi": [
+            521,
+            606,
+            238,
+            105
+        ],
+        "timeout": 4000,
+        "post_delay": 2500,
+        "action": "Click",
+        "next": [
+            "搜索中",
+            "xdr识别进入房间",
+            "xdr识别进入房间1",
+            "战斗未找到",
+            "战斗胜利"
+        ],
+        "on_error": "开始多人战-9.25新版"
+    }
+}

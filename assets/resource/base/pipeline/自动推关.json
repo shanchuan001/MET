@@ -1,0 +1,276 @@
+{
+    "开始自动推图": {
+        "recognition": "TemplateMatch",
+        "template": "返回主页.png",
+        "action": "Click",
+        "target": [
+            274,
+            19,
+            161,
+            62
+        ],
+        "next": [
+            "寻找关卡-右滑"
+        ]
+    },
+    "寻找关卡-右滑": {
+        "end": [
+            61,
+            466,
+            1,
+            1
+        ],
+        "begin": [
+            1167,
+            466,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "duration": 500,
+        "action": "Swipe",
+        "next": [
+            "检测推图结束",
+            "战斗胜利-点击返回",
+            "跳过剧情",
+            "推图-关闭页面",
+            "推图-下一条",
+            "开始自动推图-寻找关卡"
+        ]
+    },
+    "检测推图结束": {
+        "recognition": "TemplateMatch",
+        "template": "推图结束.png",
+        "roi": [
+            609,
+            80,
+            641,
+            543
+        ],
+        "next": [
+            "停止"
+        ]
+    },
+    "开始自动推图-寻找关卡": {
+        "recognition": "TemplateMatch",
+        "template": "未通关的关卡.png",
+        "threshold": 0.88,
+        "action": "Click",
+        "roi": [
+            442,
+            75,
+            837,
+            554
+        ],
+        "target": true,
+        "target_offset": [
+            20,
+            -20,
+            5,
+            5
+        ],
+        "order_by": "Score",
+        "next": [
+            "剧情关卡",
+            "战斗关卡",
+            "推图-关闭页面",
+            "开始自动推图-寻找关卡"
+        ]
+    },
+    "剧情关卡": {
+        "recognition": "TemplateMatch",
+        "template": "播放.png",
+        "action": "Click",
+        "roi": [
+            1170,
+            303,
+            109,
+            123
+        ],
+        "next": "跳过剧情"
+    },
+    "跳过剧情": {
+        "recognition": "TemplateMatch",
+        "template": "跳过.png",
+        "action": "Click",
+        "roi": [
+            1124,
+            5,
+            155,
+            92
+        ],
+        "next": [
+            "跳过剧情-确定",
+            "推图领奖-点击"
+        ],
+        "pre_delay": 400
+    },
+    "跳过剧情-确定": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "action": "Click",
+        "roi": [
+            650,
+            410,
+            265,
+            148
+        ],
+        "next": [
+            "推图领奖-点击",
+            "跳过剧情"
+        ]
+    },
+    "推图领奖-点击": {
+        "recognition": "OCR",
+        "expected": "点击",
+        "action": "Click",
+        "pre_delay": 400,
+        "post_delay": 800,
+        "next": [
+            "战斗胜利-点击返回",
+            "开始自动推图"
+        ]
+    },
+    "战斗关卡": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "roi": [
+            960,
+            577,
+            319,
+            142
+        ],
+        "post_delay": 200,
+        "pre_delay": 500,
+        "next": "推图-选择支援"
+    },
+    "推图-选择支援": {
+        "recognition": "TemplateMatch",
+        "template": "选择支援虚数体.png",
+        "action": "Click",
+        "target": [
+            227,
+            320,
+            98,
+            88
+        ],
+        "roi": [
+            426,
+            1,
+            529,
+            141
+        ],
+        "post_delay": 500,
+        "pre_delay": 500,
+        "next": "推图-出击"
+    },
+    "推图-出击": {
+        "recognition": "TemplateMatch",
+        "template": "出击.png",
+        "action": "Click",
+        "roi": [
+            960,
+            577,
+            319,
+            142
+        ],
+        "rate_limit": 1000,
+        "timeout": 120000,
+        "next": [
+            "推图-等待战斗胜利",
+            "推图-阵亡",
+            "战斗关卡-跳过剧情"
+        ]
+    },
+    "推图-等待战斗胜利": {
+        "recognition": "TemplateMatch",
+        "template": "战斗胜利.png",
+        "roi": [
+            230,
+            145,
+            828,
+            419
+        ],
+        "next": [
+            "战斗胜利-点击返回",
+            "推图领奖-点击"
+        ]
+    },
+    "战斗胜利-点击返回": {
+        "recognition": "TemplateMatch",
+        "template": "返回.png",
+        "action": "Click",
+        "roi": [
+            1025,
+            583,
+            254,
+            136
+        ],
+        "pre_delay": 700,
+        "post_delay": 2500,
+        "next": [
+            "战斗关卡-跳过剧情",
+            "推图-关闭页面",
+            "开始自动推图"
+        ]
+    },
+    "战斗关卡-跳过剧情": {
+        "recognition": "TemplateMatch",
+        "template": "跳过.png",
+        "action": "Click",
+        "roi": [
+            1124,
+            5,
+            155,
+            92
+        ],
+        "next": [
+            "战斗关卡-跳过剧情-确定",
+            "推图领奖-点击"
+        ],
+        "pre_delay": 400
+    },
+    "战斗关卡-跳过剧情-确定": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "action": "Click",
+        "roi": [
+            650,
+            410,
+            265,
+            148
+        ],
+        "next": [
+            "推图-等待战斗胜利",
+            "推图-阵亡",
+            "战斗关卡-跳过剧情"
+        ]
+    },
+    "推图-阵亡": {
+        "recognition": "TemplateMatch",
+        "template": "取消.png",
+        "next": "停止"
+    },
+    "推图-关闭页面": {
+        "recognition": "TemplateMatch",
+        "template": "x.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": [
+            "推图-关闭页面",
+            "开始自动推图"
+        ]
+    },
+    "推图-下一条": {
+        "recognition": "TemplateMatch",
+        "template": "下一条.png",
+        "action": "Click",
+        "post_delay": 100,
+        "next": [
+            "推图-下一条",
+            "推图-关闭页面",
+            "开始自动推图"
+        ]
+    }
+}

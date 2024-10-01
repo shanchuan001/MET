@@ -67,7 +67,7 @@ jobs:
           latest: true
           out-file-path: gui
           extract: true
-      ##在下面更改项目名称和项目地址
+      
       - name: gui resources
         shell: bash
         run: |

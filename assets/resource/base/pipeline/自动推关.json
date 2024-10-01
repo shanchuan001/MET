@@ -249,7 +249,7 @@
     },
     "推图-阵亡": {
         "recognition": "TemplateMatch",
-        "template": "取消.png",
+        "template": "全员重伤.png",
         "next": "停止"
     },
     "推图-关闭页面": {

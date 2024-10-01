@@ -97,7 +97,7 @@ jobs:
         run: |  
            rm -f ./gui/*.zip
            cp -r ./assets/resource/* ./gui/Resource/
-           jq --arg version_name "MET" --arg url "https://api.github.com/repos/shanchuan001/MET/releases/latest" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./gui/interface.json
+           jq --arg version_name "MET" --arg url "https://github.com/shanchuan001/MET/" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./gui/interface.json
 
       - uses: actions/upload-artifact@v4
         with:

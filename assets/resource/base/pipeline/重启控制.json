@@ -39,13 +39,15 @@
         "post_delay": 1000,
         "pre_delay": 1000,
         "next": "主页出击",
-        "on_error": "stopapp",
+        "on_error": [
+            "stopapp",
+            "等待进入0"
+        ],
         "interrupt": [
-            "等待进入0",
             "取消",
+            "点击空白处关闭",
             "领取物资",
-            "关闭页面1",
-            "点击空白处关闭"
+            "关闭页面1"
         ]
     },
     "重试": {
@@ -68,12 +70,14 @@
             354,
             139
         ],
-        "action": "Click"
+        "action": "Click",
+        "post_delay": 800
     },
     "点击空白处关闭": {
         "recognition": "OCR",
         "expected": "点击空白处",
-        "action": "Click"
+        "action": "Click",
+        "post_delay": 800
     },
     "取消": {
         "recognition": "TemplateMatch",
@@ -85,13 +89,15 @@
             192
         ],
         "action": "Click",
-        "timeout": 3000
+        "timeout": 3000,
+        "post_delay": 800
     },
     "关闭页面1": {
         "recognition": "TemplateMatch",
         "template": "x.png",
         "timeout": 3000,
-        "action": "Click"
+        "action": "Click",
+        "post_delay": 800
     },
     "停止": {
         "action": "DoNothing"
@@ -104,7 +110,14 @@
             325,
             119,
             54
-        ]
+        ],
+        "interrupt": [
+            "取消",
+            "点击空白处关闭",
+            "领取物资",
+            "关闭页面1"
+        ],
+        "on_error": "stopapp"
     },
     "返回主页检测": {
         "recognition": "TemplateMatch",

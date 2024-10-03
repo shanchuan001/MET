@@ -1097,7 +1097,6 @@
         "next": "停止",
         "pre_delay": 100,
         "timeout": 3000,
-        "on_error": "停止",
         "post_delay": 500
     },
     "检测是否清空_高阶奥秘_停止2": {
@@ -1113,7 +1112,6 @@
         "next": "停止",
         "pre_delay": 100,
         "timeout": 3000,
-        "on_error": "停止",
         "post_delay": 500
     },
     "点击常规奥秘炼成": {

@@ -251,8 +251,7 @@
         "recognition": "TemplateMatch",
         "template": "全员重伤.png",
         "next": "停止",
-        "focus_tip": "已全员阵亡",
-        "focus_tip_color": "red"
+        "focus_tip": "已全员阵亡"
     },
     "推图-关闭页面": {
         "recognition": "TemplateMatch",

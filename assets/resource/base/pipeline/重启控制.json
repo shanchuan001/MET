@@ -2,9 +2,7 @@
     "stopapp": {
         "action": "StopApp",
         "package": "com.orlesh.yjzs",
-        "next": "start",
-        "focus_tip": "出现错误,已自动重启",
-        "focus_tip_color": "red"
+        "next": "start"
     },
     "start": {
         "action": "StartApp",

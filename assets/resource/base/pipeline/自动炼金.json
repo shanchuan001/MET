@@ -1094,7 +1094,6 @@
             137
         ],
         "focus_tip": "已炼完",
-        "focus_tip_color": "blue",
         "inverse": true,
         "next": "停止",
         "pre_delay": 100,
@@ -1113,7 +1112,6 @@
             86
         ],
         "focus_tip": "已炼完",
-        "focus_tip_color": "blue",
         "next": "停止",
         "pre_delay": 100,
         "timeout": 3000,

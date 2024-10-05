@@ -154,8 +154,8 @@
         "on_error": "stopapp"
     },
     "dr点击确定": {
-        "recognition": "TemplateMatch",
-        "template": "确定.png",
+        "recognition": "OCR",
+        "expected": "确定",
         "action": "Click",
         "roi": [
             619,
@@ -729,8 +729,8 @@
         "on_error": "stopapp"
     },
     "dr确定_开始前": {
-        "recognition": "TemplateMatch",
-        "template": "确定.png",
+        "recognition": "OCR",
+        "expected": "确定",
         "action": "Click",
         "threshold": 0.87,
         "post_delay": 200,

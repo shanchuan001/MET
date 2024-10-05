@@ -106,8 +106,8 @@
         "pre_delay": 400
     },
     "跳过剧情-确定": {
-        "recognition": "TemplateMatch",
-        "template": "确定.png",
+        "recognition": "OCR",
+        "expected": "确定",
         "action": "Click",
         "roi": [
             650,
@@ -232,8 +232,8 @@
         "pre_delay": 400
     },
     "战斗关卡-跳过剧情-确定": {
-        "recognition": "TemplateMatch",
-        "template": "确定.png",
+        "recognition": "OCR",
+        "expected": "确定",
         "action": "Click",
         "roi": [
             650,

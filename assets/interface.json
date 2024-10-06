@@ -34,6 +34,15 @@
             "entry": "停止"
         },
         {
+            "name": "启动游戏",
+            "entry": "start",
+            "pipeline_override": {
+                "等待进入": {
+                    "next": "主页检测"
+                }
+            }
+        },
+        {
             "name": "自动主线扫荡(确保剩余足够的体力药)",
             "entry": "主线扫荡开始",
             "option": [

@@ -55,38 +55,24 @@
             183
         ],
         "next": [
-            "点击启用筛选"
+            "打开off",
+            "点击连战设置"
         ],
         "timeout": 3000,
         "on_error": "stopapp"
     },
-    "点击启用筛选": {
+    "打开off": {
         "recognition": "TemplateMatch",
         "template": "off.png",
         "action": "Click",
         "roi": [
-            164,
-            180,
-            292,
-            110
+            296,
+            208,
+            525,
+            315
         ],
         "next": [
-            "点击启用建房"
-        ],
-        "timeout": 3000,
-        "on_error": "stopapp"
-    },
-    "点击启用建房": {
-        "recognition": "TemplateMatch",
-        "template": "off.png",
-        "action": "Click",
-        "roi": [
-            206,
-            439,
-            312,
-            98
-        ],
-        "next": [
+            "打开off",
             "点击连战设置"
         ],
         "timeout": 3000,
@@ -134,12 +120,12 @@
         "action": "InputText",
         "input_text": "300",
         "next": [
-            "dr点击一次"
+            "点击一次"
         ],
         "timeout": 3000,
         "on_error": "stopapp"
     },
-    "dr点击一次": {
+    "点击一次": {
         "action": "Click",
         "roi": [
             964,
@@ -148,12 +134,27 @@
             45
         ],
         "next": [
-            "dr点击确定"
+            "打开自动再战",
+            "点击确定"
         ],
         "timeout": 3000,
         "on_error": "stopapp"
     },
-    "dr点击确定": {
+    "打开自动再战": {
+        "recognition": "TemplateMatch",
+        "template": "未自动再战.png",
+        "roi": [
+            472,
+            356,
+            69,
+            60
+        ],
+        "action": "Click",
+        "next": [
+            "点击确定"
+        ]
+    },
+    "点击确定": {
         "recognition": "OCR",
         "expected": "确定",
         "action": "Click",

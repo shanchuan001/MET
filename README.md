@@ -78,6 +78,8 @@ MET功能:
 
   **欢迎提pr**
 
+如果你觉得好用,就点个**star**吧
+
 ## 鸣谢
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！

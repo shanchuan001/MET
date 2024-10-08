@@ -32,7 +32,7 @@
     },
     "切换到中途模式": {
         "recognition": "OCR",
-        "expected": "中途",
+        "expected": "常规",
         "roi": [
             1130,
             569,

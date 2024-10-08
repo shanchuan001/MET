@@ -1,0 +1,112 @@
+{
+    "开始领取邮件": {
+        "next": "确认是否在主页_邮件",
+        "interrupt": [
+            "返回主页检测",
+            "退出"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "确认是否在主页_邮件": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "next": [
+            "判断是否需领取",
+            "停止"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "判断是否需领取": {
+        "recognition": "TemplateMatch",
+        "template": "红点.png",
+        "roi": [
+            282,
+            1,
+            42,
+            49
+        ],
+        "post_delay": 10,
+        "pre_delay": 10,
+        "next": "点击邮件",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击邮件": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "action": "Click",
+        "pre_delay": 10,
+        "post_delay": 10,
+        "target": [
+            287,
+            33,
+            12,
+            16
+        ],
+        "next": [
+            "一键领取_邮件"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "一键领取_邮件": {
+        "recognition": "TemplateMatch",
+        "template": "一键领取.png",
+        "roi": [
+            1081,
+            0,
+            198,
+            81
+        ],
+        "action": "Click",
+        "next": [
+            "点击空白_邮件",
+            "暂无可收取的附件"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "暂无可收取的附件": {
+        "recognition": "OCR",
+        "expected": "暂无可收取的",
+        "roi": [
+            508,
+            329,
+            258,
+            59
+        ],
+        "next": "停止"
+    },
+    "点击空白_邮件": {
+        "recognition": "OCR",
+        "expected": "点击空白处",
+        "action": "Click",
+        "roi": [
+            381,
+            464,
+            496,
+            250
+        ],
+        "next": [
+            "点击空白_邮件",
+            "停止"
+        ],
+        "post_delay": 400
+    }
+}

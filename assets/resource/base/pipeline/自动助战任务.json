@@ -18,12 +18,34 @@
             45
         ],
         "next": [
-            "一键领取"
+            "检查是否需领取",
+            "检测助战任务是否完成2",
+            "任务已完成"
+        ],
+        "interrupt": [
+            "向下滑动"
         ],
         "pre_delay": 800,
         "post_delay": 1200,
         "timeout": 3000,
         "on_error": "stopapp"
+    },
+    "检查是否需领取": {
+        "recognition": "OCR",
+        "expected": "领取",
+        "roi": [
+            1074,
+            97,
+            139,
+            582
+        ],
+        "post_delay": 10,
+        "pre_delay": 10,
+        "next": [
+            "一键领取"
+        ],
+        "on_error": "stopapp",
+        "timeout": 8000
     },
     "一键领取": {
         "recognition": "OCR",
@@ -36,27 +58,7 @@
         ],
         "post_delay": 1000,
         "next": [
-            "一键领取_再点一次"
-        ],
-        "interrupt": [
-            "点击空白处关闭",
-            "向下滑动"
-        ],
-        "on_error": "stopapp",
-        "action": "Click",
-        "timeout": 8000
-    },
-    "一键领取_再点一次": {
-        "recognition": "OCR",
-        "expected": "一键领取",
-        "roi": [
-            1151,
-            20,
-            92,
-            39
-        ],
-        "post_delay": 1000,
-        "next": [
+            "检查是否需领取",
             "检测助战任务是否完成2",
             "任务已完成"
         ],
@@ -120,23 +122,23 @@
         "recognition": "TemplateMatch",
         "template": "退出.png",
         "action": "Click",
-        "next": "加入战斗_助战",
+        "next": "加入战斗",
         "timeout": 4000,
         "on_error": "stopapp"
     },
-    "加入战斗_助战": {
+    "点击启用建房": {
         "recognition": "TemplateMatch",
-        "template": "主页出击.png",
+        "template": "off.png",
         "action": "Click",
-        "target": [
-            845,
-            285,
-            52,
-            54
+        "roi": [
+            346,
+            442,
+            523,
+            90
         ],
         "next": [
-            "点击自动战斗",
-            "切换到中途模式"
+            "点击启用建房",
+            "点击连战设置"
         ],
         "timeout": 3000,
         "on_error": "stopapp"

@@ -115,8 +115,7 @@
             144,
             586
         ],
-        "expected": "已完成",
-        "next": "停止"
+        "expected": "已完成"
     },
     "退出_助战": {
         "recognition": "TemplateMatch",

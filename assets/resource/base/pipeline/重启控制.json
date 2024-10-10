@@ -18,6 +18,7 @@
         "timeout": 50000,
         "next": [
             "进入",
+            "进入_确定",
             "重试"
         ],
         "on_error": "stopapp"
@@ -108,6 +109,17 @@
     },
     "停止": {
         "action": "DoNothing"
+    },
+    "进入_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "action": "Click",
+        "roi": [
+            619,
+            518,
+            341,
+            173
+        ]
     },
     "主页检测": {
         "recognition": "TemplateMatch",

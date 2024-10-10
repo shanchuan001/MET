@@ -783,12 +783,63 @@
         ],
         "timeout": 300000,
         "next": [
+            "识别是否到达限定次数",
             "xdr离开战斗界面",
             "xdr阵亡",
             "搜索中"
         ],
-        "rate_limit": 2000,
+        "rate_limit": 1500,
         "on_error": "stopapp"
+    },
+    "识别是否到达限定次数": {
+        "recognition": "OCR",
+        "expected": "300",
+        "enabled": false,
+        "roi": [
+            579,
+            29,
+            121,
+            57
+        ],
+        "next": [
+            "限次_战斗确认",
+            "限次_战斗胜利"
+        ],
+        "timeout": 120000,
+        "on_error": "停止"
+    },
+    "限次_战斗胜利": {
+        "recognition": "TemplateMatch",
+        "template": "战斗胜利.png",
+        "roi": [
+            230,
+            145,
+            828,
+            419
+        ],
+        "rate_limit": 600,
+        "timeout": 10000,
+        "next": [
+            "xdr战斗确认"
+        ],
+        "on_error": "停止"
+    },
+    "限次_战斗确认": {
+        "recognition": "TemplateMatch",
+        "template": "继续.png",
+        "roi": [
+            938,
+            621,
+            341,
+            98
+        ],
+        "action": "Click",
+        "pre_delay": 800,
+        "post_delay": 5000,
+        "next": [
+            "限次_战斗确认",
+            "停止"
+        ]
     },
     "xdr离开战斗界面": {
         "recognition": "TemplateMatch",
@@ -828,17 +879,19 @@
             "xdr识别进入房间",
             "xdr识别进入房间1",
             "战斗未找到",
+            "房间已满",
             "搜索中"
         ],
         "on_error": "stopapp"
     },
-    "xdr战斗超时综合识别(暂时弃用)": {
+    "xdr战斗超时综合识别": {
         "timeout": 10000,
         "next": [
             "xdr超时跳车0",
             "xdr识别进入房间1",
             "xdr战斗确认",
             "战斗未找到",
+            "房间已满",
             "搜索中"
         ],
         "on_error": "stopapp"
@@ -852,12 +905,13 @@
         "next": [
             "战斗胜利",
             "战斗未找到",
+            "房间已满",
             "xdr识别进入房间",
             "战斗确认",
             "搜索中",
             "xdr超时跳车4"
         ],
-        "on_error": "stopapp"
+        "on_error": "xdr战斗超时综合识别"
     },
     "xdr阵亡0": {
         "recognition": "TemplateMatch",
@@ -916,7 +970,8 @@
             "xdr识别进入房间",
             "xdr识别进入房间1",
             "战斗胜利",
-            "战斗未找到"
+            "战斗未找到",
+            "房间已满"
         ],
         "timeout": 35000,
         "on_error": "stopapp"
@@ -924,6 +979,24 @@
     "战斗未找到": {
         "recognition": "TemplateMatch",
         "template": "战斗未找到.png",
+        "roi": [
+            418,
+            249,
+            467,
+            211
+        ],
+        "rate_limit": 800,
+        "action": "Click",
+        "next": [
+            "搜索中",
+            "xdr识别进入房间1"
+        ],
+        "timeout": 35000,
+        "on_error": "stopapp"
+    },
+    "房间已满": {
+        "recognition": "OCR",
+        "expected": "已满",
         "roi": [
             418,
             249,
@@ -968,7 +1041,7 @@
         "action": "Click",
         "next": [
             "xdr超时跳车2",
-            "xdr超时跳车0"
+            "xdr超时跳车1"
         ],
         "on_error": "stopapp"
     },
@@ -985,14 +1058,15 @@
         "action": "Click",
         "next": [
             "xdr超时跳车3",
-            "xdr超时跳车0"
+            "xdr超时跳车2",
+            "xdr超时跳车1"
         ],
         "on_error": "stopapp"
     },
     "xdr超时跳车3": {
         "recognition": "OCR",
         "expected": "确定",
-        "timeout": 4000,
+        "timeout": 5000,
         "roi": [
             380,
             441,
@@ -1003,12 +1077,15 @@
         "action": "Click",
         "next": [
             "xdr超时跳车4",
-            "xdr超时跳车0",
             "搜索中",
             "xdr识别进入房间1",
             "xdr战斗确认",
             "战斗胜利",
-            "战斗未找到"
+            "战斗未找到",
+            "房间已满",
+            "xdr超时跳车3",
+            "xdr超时跳车2",
+            "xdr超时跳车1"
         ],
         "on_error": "stopapp"
     },
@@ -1021,14 +1098,15 @@
             238,
             105
         ],
-        "timeout": 4000,
-        "post_delay": 2500,
+        "timeout": 20000,
+        "post_delay": 800,
         "action": "Click",
         "next": [
             "搜索中",
             "xdr识别进入房间",
             "xdr识别进入房间1",
             "战斗未找到",
+            "房间已满",
             "战斗胜利"
         ],
         "on_error": "开始多人战-9.25新版"

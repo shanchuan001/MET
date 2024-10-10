@@ -86,7 +86,7 @@ jobs:
       - name: Download Latest MFAWPF  
         uses: robinraju/release-downloader@v1  
         with:  
-             repository: SweetSmellFox/MFAWPF  
+             repository: shanchuan001/MFAWPF  
              filename: MFAWPF*
              latest: true  
              out-file-path: gui  

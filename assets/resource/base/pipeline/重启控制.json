@@ -2,7 +2,10 @@
     "stopapp": {
         "action": "StopApp",
         "package": "com.orlesh.yjzs",
-        "next": "start"
+        "next": "start",
+        "focus": true,
+        "focus_tip": "出现这个说明识别超时自动重启了,如果一直出现这个并且只重启请联系作者",
+        "focus_tip_color": "Red"
     },
     "启动游戏": {
         "next": [

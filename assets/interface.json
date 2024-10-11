@@ -1,7 +1,7 @@
 {
     "controller": [
         {
-            "name": "安卓端(模拟器选这个)",
+            "name": "安卓端(模拟器选这个)此项目在GitHub上免费开源,如果你是付费购买,请立刻退款",
             "type": "Adb"
         },
         {
@@ -30,8 +30,12 @@
     ],
     "task": [
         {
-            "name": "模拟器请用1280*720(dpi240)分辨率!!!",
-            "entry": "停止"
+            "name": "模拟器请用1280*720(dpi240)分辨率!!!  |  此项目在GitHub上免费开源,如果你是付费购买,请立刻退款",
+            "entry": "停止",
+            "option": [],
+            "repeatable": true,
+            "repeat_count": 1,
+            "doc": "[color:red][size:30]此项目在GitHub上免费开源,如果你是付费购买,请立刻退款[/size][/color][color:blue][size:20]模拟器请用1280*720(dpi240)分辨率!!![/size][/color]"
         },
         {
             "name": "启动游戏",
@@ -70,7 +74,7 @@
             "option": [
                 "你打的最快的属性是"
             ],
-            "doc": "[color:blue][size:20]此任务有不知名bug,如果紧接在'自动主线扫荡'后会导致一直重复此任务[/size][/color][color:red][size:20]暂时修不好,请不要把这两个任务放一块[/size][/color]",
+            "doc": "[color:blue][size:20]此任务有不知名bug,如果紧接在[/size][/color][color:blue][size:20][u]自动主线扫荡[/u][/size][/color][color:blue][size:20]后会导致一直重复此任务[/size][/color][color:red][size:20]暂时修不好,请不要把这两个任务放一块[/size][/color]",
             "repeatable": false
         },
         {

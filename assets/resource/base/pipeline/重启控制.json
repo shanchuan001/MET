@@ -90,6 +90,17 @@
         "action": "Click",
         "post_delay": 800
     },
+    "退出": {
+        "recognition": "TemplateMatch",
+        "template": "退出.png",
+        "roi": [
+            0,
+            0,
+            231,
+            106
+        ],
+        "action": "Click"
+    },
     "取消": {
         "recognition": "TemplateMatch",
         "template": "取消.png",

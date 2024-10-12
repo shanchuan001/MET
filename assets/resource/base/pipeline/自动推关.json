@@ -54,7 +54,6 @@
     "开始自动推图-寻找关卡": {
         "recognition": "TemplateMatch",
         "template": "未通关的关卡.png",
-        "threshold": 0.85,
         "action": "Click",
         "roi": [
             442,
@@ -62,6 +61,7 @@
             837,
             554
         ],
+        "threshold": 0.85,
         "target": true,
         "target_offset": [
             20,

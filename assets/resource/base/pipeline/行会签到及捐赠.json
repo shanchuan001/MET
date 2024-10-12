@@ -1,0 +1,233 @@
+{
+    "开始行会签到及捐赠": {
+        "next": "确认是否在主页_捐赠",
+        "interrupt": [
+            "返回主页检测",
+            "退出"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "确认是否在主页_捐赠": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "next": [
+            "判断是否需捐赠",
+            "停止"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "判断是否需捐赠": {
+        "recognition": "TemplateMatch",
+        "template": "红点.png",
+        "roi": [
+            49,
+            376,
+            36,
+            32
+        ],
+        "post_delay": 10,
+        "pre_delay": 10,
+        "next": "点击行会",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击行会": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 800,
+        "target": [
+            38,
+            401,
+            17,
+            13
+        ],
+        "next": [
+            "等待进入行会"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "等待进入行会": {
+        "recognition": "TemplateMatch",
+        "template": "行会页面.png",
+        "roi": [
+            607,
+            192,
+            672,
+            527
+        ],
+        "threshold": 0.9,
+        "next": [
+            "判断是否需签到_行会页面内",
+            "判断是否需捐赠_行会页面内",
+            "停止"
+        ]
+    },
+    "判断是否需签到_行会页面内": {
+        "recognition": "TemplateMatch",
+        "template": "红点_捐赠.png",
+        "roi": [
+            91,
+            567,
+            70,
+            65
+        ],
+        "threshold": 0.9,
+        "action": "Click",
+        "target_offset": [
+            -20,
+            20,
+            5,
+            5
+        ],
+        "next": [
+            "等待进入行会"
+        ],
+        "interrupt": [
+            "点击空白处关闭"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "判断是否需捐赠_行会页面内": {
+        "recognition": "TemplateMatch",
+        "template": "红点_捐赠.png",
+        "roi": [
+            219,
+            577,
+            92,
+            52
+        ],
+        "threshold": 0.9,
+        "action": "Click",
+        "target_offset": [
+            -20,
+            20,
+            5,
+            5
+        ],
+        "next": [
+            "点击捐赠_捐赠页面"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击捐赠_捐赠页面": {
+        "recognition": "OCR",
+        "expected": "捐赠",
+        "roi": [
+            556,
+            500,
+            151,
+            90
+        ],
+        "action": "Click",
+        "next": "点两次加_1",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点两次加_1": {
+        "recognition": "OCR",
+        "expected": "今日剩余",
+        "roi": [
+            521,
+            456,
+            248,
+            62
+        ],
+        "action": "Click",
+        "target": [
+            714,
+            432,
+            14,
+            19
+        ],
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "点两次加_2",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点两次加_2": {
+        "recognition": "OCR",
+        "expected": "今日剩余",
+        "roi": [
+            521,
+            456,
+            248,
+            62
+        ],
+        "action": "Click",
+        "target": [
+            714,
+            432,
+            14,
+            19
+        ],
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "点两次加_3",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点两次加_3": {
+        "recognition": "OCR",
+        "expected": "今日剩余",
+        "roi": [
+            521,
+            456,
+            248,
+            62
+        ],
+        "action": "Click",
+        "target": [
+            714,
+            432,
+            14,
+            19
+        ],
+        "pre_delay": 100,
+        "post_delay": 100,
+        "next": "点击确定_捐赠",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击确定_捐赠": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            630,
+            425,
+            393,
+            294
+        ],
+        "action": "Click",
+        "next": [
+            "点击确定_捐赠",
+            "退出"
+        ],
+        "interrupt": [
+            "点击空白处关闭"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    }
+}

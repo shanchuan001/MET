@@ -58,11 +58,6 @@
         "timeout": 2000,
         "post_delay": 500
     },
-    "退出": {
-        "recognition": "TemplateMatch",
-        "template": "退出.png",
-        "action": "Click"
-    },
     "排除干扰_导览": {
         "recognition": "OCR",
         "expected": "导览",

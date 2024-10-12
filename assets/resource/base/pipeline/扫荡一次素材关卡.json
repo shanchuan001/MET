@@ -1,0 +1,149 @@
+{
+    "开始扫荡一次素材关卡": {
+        "next": "确认是否在主页_扫荡一次素材关卡",
+        "interrupt": [
+            "返回主页检测",
+            "退出"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "确认是否在主页_扫荡一次素材关卡": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "action": "Click",
+        "next": [
+            "点击素材"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击素材": {
+        "recognition": "OCR",
+        "expected": "素材",
+        "roi": [
+            301,
+            73,
+            120,
+            84
+        ],
+        "action": "Click",
+        "next": "点击经验素材本",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击经验素材本": {
+        "recognition": "TemplateMatch",
+        "template": "经验素材本.png",
+        "action": "Click",
+        "next": [
+            "点击训练特级"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击训练特级": {
+        "recognition": "TemplateMatch",
+        "template": "训练特级.png",
+        "roi": [
+            0,
+            430,
+            1279,
+            135
+        ],
+        "action": "Click",
+        "threshold": 0.85,
+        "order_by": "Score",
+        "next": "点击扫荡_扫荡一次素材关卡",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击扫荡_扫荡一次素材关卡": {
+        "recognition": "OCR",
+        "expected": "扫荡",
+        "roi": [
+            865,
+            600,
+            343,
+            96
+        ],
+        "pre_delay": 700,
+        "post_delay": 500,
+        "action": "Click",
+        "next": [
+            "是否为1次_扫荡一次素材关卡",
+            "点击MIN"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "是否为1次_扫荡一次素材关卡": {
+        "recognition": "TemplateMatch",
+        "template": "1次.png",
+        "roi": [
+            609,
+            317,
+            65,
+            46
+        ],
+        "threshold": 0.9,
+        "next": [
+            "点击确定_扫荡一次素材关卡"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击确定_扫荡一次素材关卡": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            495,
+            397,
+            287,
+            150
+        ],
+        "action": "Click",
+        "next": [
+            "等待扫荡结束"
+        ],
+        "timeout": 8000,
+        "on_error": "stopapp"
+    },
+    "点击MIN": {
+        "recognition": "OCR",
+        "expected": "MIN",
+        "roi": [
+            415,
+            306,
+            115,
+            64
+        ],
+        "action": "Click",
+        "next": [
+            "点击确定_扫荡一次素材关卡"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "等待扫荡结束": {
+        "recognition": "OCR",
+        "expected": "确",
+        "roi": [
+            773,
+            614,
+            248,
+            105
+        ],
+        "action": "Click",
+        "next": [
+            "等待扫荡结束",
+            "停止"
+        ]
+    }
+}

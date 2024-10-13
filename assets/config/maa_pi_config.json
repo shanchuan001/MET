@@ -1,10 +1,28 @@
 {
     "controller": {
-        "name": "安卓端",
-        "type": "Adb"
+        "name": "安卓端(模拟器选这个)此项目在GitHub上免费开源,如果你是付费购买,请立刻退款"
     },
-    "resource": "B 服",
-    "task": [],
+    "resource": "B服",
+    "task": [
+        {
+            "name": "自动主线扫荡(确保剩余足够的体力药)",
+            "option": [
+                {
+                    "name": "扫荡关卡",
+                    "value": "极难"
+                }
+            ]
+        },
+        {
+            "name": "自动助战任务(+领取每日奖励)",
+            "option": [
+                {
+                    "name": "你打的最快的属性是",
+                    "value": "不筛选"
+                }
+            ]
+        }
+    ],
     "adb": {
         "adb_path": "D:/MuMuPlayer-12.0/shell/adb.exe",
         "address": "127.0.0.1:16768",

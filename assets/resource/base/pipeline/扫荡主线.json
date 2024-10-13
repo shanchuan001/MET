@@ -132,7 +132,6 @@
             "检测体力是否为两位数_否",
             "检测体力是否为两位数_是"
         ],
-        "action": "Click",
         "timeout": 3000,
         "on_error": "stopapp"
     },

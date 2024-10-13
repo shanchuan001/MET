@@ -72,19 +72,6 @@
             "repeatable": false
         },
         {
-            "name": "行会签到及捐赠",
-            "entry": "开始行会签到及捐赠",
-            "pipeline_override": {
-                "等待进入": {
-                    "next": "主页检测"
-                },
-                "主页检测": {
-                    "next": "开始行会签到及捐赠"
-                }
-            },
-            "repeatable": false
-        },
-        {
             "name": "扫荡一次素材关卡",
             "entry": "开始扫荡一次素材关卡",
             "pipeline_override": {
@@ -93,6 +80,19 @@
                 },
                 "主页检测": {
                     "next": "开始扫荡一次素材关卡"
+                }
+            },
+            "repeatable": false
+        },
+        {
+            "name": "行会签到及捐赠",
+            "entry": "开始行会签到及捐赠",
+            "pipeline_override": {
+                "等待进入": {
+                    "next": "主页检测"
+                },
+                "主页检测": {
+                    "next": "开始行会签到及捐赠"
                 }
             },
             "repeatable": false

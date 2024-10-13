@@ -113,18 +113,103 @@
             49
         ],
         "next": [
+            "zx进入补体页面"
+        ],
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "停止_扫荡主线"
+    },
+    "zx进入补体页面": {
+        "recognition": "OCR",
+        "expected": "回复",
+        "roi": [
+            482,
+            571,
+            145,
+            62
+        ],
+        "next": [
+            "检测体力是否为两位数_否",
+            "检测体力是否为两位数_是"
+        ],
+        "action": "Click",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测体力是否为两位数_是": {
+        "recognition": "OCR",
+        "expected": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "roi": [
+            654,
+            401,
+            26,
+            44
+        ],
+        "action": "Click",
+        "target": [
+            609,
+            281,
+            10,
+            16
+        ],
+        "inverse": true,
+        "next": [
+            "大红瓶",
+            "小红瓶"
+        ],
+        "post_delay": 200,
+        "timeout": 3000,
+        "on_error": "停止_扫荡主线"
+    },
+    "检测体力是否为两位数_否": {
+        "recognition": "OCR",
+        "expected": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+        ],
+        "roi": [
+            654,
+            401,
+            26,
+            44
+        ],
+        "next": [
             "检测补体1(使用)",
             "检测补体2(超出)",
             "大红瓶",
             "小红瓶"
         ],
-        "action": "Click",
+        "pre_delay": 10,
+        "post_delay": 10,
         "timeout": 3000,
-        "on_error": "停止"
+        "on_error": "停止_扫荡主线"
     },
     "大红瓶": {
         "recognition": "TemplateMatch",
         "template": "大红瓶.png",
+        "roi": [
+            383,
+            140,
+            486,
+            245
+        ],
         "next": "补体1",
         "timeout": 3000,
         "on_error": "停止"
@@ -132,6 +217,12 @@
     "小红瓶": {
         "recognition": "TemplateMatch",
         "template": "小红瓶.png",
+        "roi": [
+            383,
+            140,
+            486,
+            245
+        ],
         "next": "补体1",
         "timeout": 3000,
         "on_error": "停止"
@@ -313,11 +404,24 @@
             16
         ],
         "action": "Click",
-        "timeout": 2000,
+        "timeout": 800,
         "inverse": true,
         "pre_delay": 100,
         "post_delay": 300,
         "next": "检测补体1(使用)",
+        "on_error": "检测补体(未达)"
+    },
+    "检测补体(未达)": {
+        "next": "补体力后的点击",
+        "action": "Click",
+        "target": [
+            781,
+            408,
+            40,
+            28
+        ],
+        "post_delay": 200,
+        "timeout": 3000,
         "on_error": "stopapp"
     },
     "检测补体1(使用)": {
@@ -481,5 +585,11 @@
         "post_delay": 500,
         "timeout": 3000,
         "on_error": "stopapp"
+    },
+    "停止_扫荡主线": {
+        "action": "DoNothing",
+        "focus": true,
+        "focus_tip_color": "Blue",
+        "focus_tip": "未找到体力药"
     }
 }

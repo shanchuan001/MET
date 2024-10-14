@@ -36,6 +36,7 @@
             84
         ],
         "action": "Click",
+        "post_delay": 300,
         "next": "点击经验素材本",
         "timeout": 3000,
         "on_error": "stopapp"
@@ -43,6 +44,12 @@
     "点击经验素材本": {
         "recognition": "TemplateMatch",
         "template": "经验素材本.png",
+        "roi": [
+            59,
+            178,
+            268,
+            394
+        ],
         "action": "Click",
         "next": [
             "点击训练特级"

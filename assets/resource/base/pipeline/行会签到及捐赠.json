@@ -70,12 +70,6 @@
     "等待进入行会": {
         "recognition": "TemplateMatch",
         "template": "行会页面.png",
-        "roi": [
-            607,
-            192,
-            672,
-            527
-        ],
         "threshold": 0.9,
         "next": [
             "判断是否需签到_行会页面内",

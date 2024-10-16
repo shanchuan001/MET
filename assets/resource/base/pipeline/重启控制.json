@@ -18,7 +18,8 @@
     "start": {
         "action": "StartApp",
         "package": "com.orlesh.yjzs/com.orlesh.sdkdemo.PrivateActivity",
-        "post_delay": 15000,
+        "post_delay": 3000,
+        "rate_limit": 600,
         "timeout": 50000,
         "next": [
             "进入",
@@ -26,6 +27,13 @@
             "重试"
         ],
         "on_error": "stopapp"
+    },
+    "进入_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "action": "Click",
+        "next": "start",
+        "post_delay": 5000
     },
     "进入": {
         "recognition": "TemplateMatch",
@@ -124,17 +132,6 @@
     },
     "停止": {
         "action": "DoNothing"
-    },
-    "进入_确定": {
-        "recognition": "OCR",
-        "expected": "确定",
-        "action": "Click",
-        "roi": [
-            619,
-            518,
-            341,
-            173
-        ]
     },
     "主页检测": {
         "recognition": "TemplateMatch",

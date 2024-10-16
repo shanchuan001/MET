@@ -133,6 +133,13 @@
         {
             "name": "自动推图(请前往能看到未通关关卡的地方再开始运行)",
             "entry": "开始自动推图",
+            "pipeline_override": {
+                "补体力后的点击": {
+                    "next": [
+                        "战斗关卡"
+                    ]
+                }
+            },
             "repeatable": true,
             "repeat_count": 1
         },

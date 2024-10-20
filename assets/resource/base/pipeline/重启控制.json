@@ -133,6 +133,28 @@
     "停止": {
         "action": "DoNothing"
     },
+    "网络连接断开": {
+        "recognition": "OCR",
+        "expected": [
+            "连接失败",
+            "网络已断开"
+        ],
+        "roi": [
+            490,
+            303,
+            309,
+            78
+        ],
+        "next": "stopapp_断网",
+        "focus": true,
+        "focus_tip": "网络连接断开,正在重新尝试",
+        "focus_tip_color": "Red"
+    },
+    "stopapp_断网": {
+        "action": "StopApp",
+        "package": "com.orlesh.yjzs",
+        "next": "start"
+    },
     "主页检测": {
         "recognition": "TemplateMatch",
         "template": "主页出击.png",

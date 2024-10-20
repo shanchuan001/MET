@@ -32,7 +32,6 @@
         {
             "name": "模拟器请用1280*720(dpi240)分辨率!!!  |  此项目在GitHub上免费开源,如果你是付费购买,请立刻退款",
             "entry": "停止",
-            "option": [],
             "repeatable": true,
             "repeat_count": 1,
             "doc": "[color:red][size:30]此项目在GitHub上免费开源[/size][/color]\n\n[color:red][size:30]如果你是付费购买,请立刻退款[/size][/color]\n\n[color:blue][size:20]模拟器请用1280*720(dpi240)分辨率!!![/size][/color]"
@@ -115,6 +114,31 @@
                 "连战次数(因为树bug太多,所以有时会有没有到指定次数就重启的情况)"
             ],
             "doc": "[color:blue][size:20][u]高级设置[/u]中可以设置所有任务运行完成后重启电脑[/size][/color]\n[size:20][color:red]通过此设置可以缓解长时间运行容易出错的问题[/color][/size]",
+            "repeatable": true,
+            "repeat_count": 1
+        },
+        {
+            "name": "自动神眠",
+            "entry": "开始自动神眠",
+            "option": [
+                "要打的属性",
+                "要打的等级",
+                "出战队伍属性",
+                "出战队伍序号",
+                "助战虚数体(请通过好友星标把要借的虚数体恒定在助战页面的前四位)"
+            ],
+            "pipeline_override": {
+                "等待进入": {
+                    "next": "主页检测"
+                },
+                "主页检测": {
+                    "next": "开始自动神眠"
+                },
+                "编队选择后的识别(差分任务用)": {
+                    "next": "编队选择后的识别_神眠_打开off"
+                }
+            },
+            "doc": "[color:blue][size:20]扫荡[/size][/color][color:blue][size:20][u]神眠90[/u][/size][/color][color:blue][size:20]时sap不足会自动补充sap(请确保金币足够)[/size][/color]",
             "repeatable": true,
             "repeat_count": 1
         },
@@ -203,6 +227,215 @@
         }
     ],
     "option": {
+        "要打的等级": {
+            "cases": [
+                {
+                    "name": "神眠90(可扫荡关)",
+                    "pipeline_override": {
+                        "开始自动神眠": {
+                            "next": [
+                                "懊悔的新生",
+                                "确认是否在主页_自动神眠",
+                                "返回主页检测"
+                            ]
+                        },
+                        "懊悔的新生": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "神眠150",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "罪人",
+                            "roi": [
+                                591,
+                                334,
+                                219,
+                                222
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                806,
+                                353,
+                                25,
+                                36
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "神眠160",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "罪人",
+                            "roi": [
+                                591,
+                                334,
+                                219,
+                                222
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                808,
+                                462,
+                                20,
+                                34
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "神眠200",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "罪人",
+                            "roi": [
+                                797,
+                                347,
+                                218,
+                                189
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                807,
+                                134,
+                                23,
+                                33
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "神眠245",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "罪人",
+                            "roi": [
+                                797,
+                                347,
+                                218,
+                                189
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                805,
+                                243,
+                                26,
+                                37
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "神眠260",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "天使",
+                            "target": [
+                                807,
+                                134,
+                                23,
+                                33
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                805,
+                                243,
+                                26,
+                                37
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "神眠275",
+                    "pipeline_override": {
+                        "罪人_天使": {
+                            "expected": "天使",
+                            "roi": [
+                                797,
+                                347,
+                                218,
+                                189
+                            ],
+                            "enabled": true
+                        },
+                        "选择难度": {
+                            "target": [
+                                805,
+                                243,
+                                26,
+                                37
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "要打的属性": {
+            "cases": [
+                {
+                    "name": "火",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "熔岩"
+                        }
+                    }
+                },
+                {
+                    "name": "水",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "礼赞"
+                        }
+                    }
+                },
+                {
+                    "name": "土",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "巨灵"
+                        }
+                    }
+                },
+                {
+                    "name": "风",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "迷雾"
+                        }
+                    }
+                },
+                {
+                    "name": "光",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "浊光"
+                        }
+                    }
+                },
+                {
+                    "name": "暗",
+                    "pipeline_override": {
+                        "选择要打的属性_神眠": {
+                            "expected": "歧路"
+                        }
+                    }
+                }
+            ]
+        },
         "要炼的属性": {
             "cases": [
                 {

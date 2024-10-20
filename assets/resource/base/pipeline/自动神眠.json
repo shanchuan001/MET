@@ -1,0 +1,606 @@
+{
+    "开始自动神眠": {
+        "next": [
+            "确认是否在主页_自动神眠",
+            "返回主页检测"
+        ],
+        "interrupt": [
+            "退出"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "确认是否在主页_自动神眠": {
+        "recognition": "TemplateMatch",
+        "template": "主页出击.png",
+        "roi": [
+            1031,
+            325,
+            119,
+            54
+        ],
+        "action": "Click",
+        "next": [
+            "点击神眠之地",
+            "点击挑战"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击挑战": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "roi": [
+            434,
+            84,
+            146,
+            60
+        ],
+        "action": "Click",
+        "post_delay": 300,
+        "next": "点击神眠之地",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击神眠之地": {
+        "recognition": "TemplateMatch",
+        "template": "神眠之地.png",
+        "roi": [
+            18,
+            215,
+            1250,
+            454
+        ],
+        "action": "Click",
+        "next": [
+            "选择要打的属性_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择要打的属性_神眠": {
+        "recognition": "OCR",
+        "expected": "歧路",
+        "roi": [
+            440,
+            11,
+            806,
+            667
+        ],
+        "action": "Click",
+        "target_offset": [
+            -40,
+            -40,
+            1,
+            1
+        ],
+        "pre_delay": 300,
+        "post_delay": 300,
+        "next": "左滑_神眠之地",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "左滑_神眠之地": {
+        "recognition": "OCR",
+        "expected": "新生",
+        "roi": [
+            4,
+            333,
+            706,
+            205
+        ],
+        "pre_delay": 300,
+        "action": "Swipe",
+        "begin": [
+            129,
+            247,
+            1,
+            1
+        ],
+        "end": [
+            1089,
+            247,
+            1,
+            1
+        ],
+        "post_delay": 600,
+        "next": [
+            "懊悔的新生",
+            "罪人_天使"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "懊悔的新生": {
+        "recognition": "OCR",
+        "expected": "新生",
+        "roi": [
+            4,
+            364,
+            977,
+            174
+        ],
+        "action": "Click",
+        "target_offset": [
+            -40,
+            -40,
+            1,
+            1
+        ],
+        "enabled": false,
+        "post_delay": 500,
+        "next": "选择难度90级_新生",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择难度90级_新生": {
+        "recognition": "OCR",
+        "expected": "扫荡",
+        "roi": [
+            866,
+            592,
+            171,
+            114
+        ],
+        "action": "Click",
+        "target": [
+            807,
+            354,
+            24,
+            34
+        ],
+        "post_delay": 300,
+        "next": "扫荡_神眠",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "扫荡_神眠": {
+        "recognition": "OCR",
+        "expected": "扫荡",
+        "roi": [
+            866,
+            592,
+            171,
+            114
+        ],
+        "action": "Click",
+        "post_delay": 300,
+        "next": [
+            "扫荡_神眠_确定",
+            "所需材料不足"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "所需材料不足": {
+        "recognition": "OCR",
+        "expected": "所需材料",
+        "roi": [
+            508,
+            319,
+            259,
+            76
+        ],
+        "next": "补充sap_点加号",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "补充sap_点加号": {
+        "recognition": "TemplateMatch",
+        "template": "补体力按钮.png",
+        "roi": [
+            722,
+            3,
+            191,
+            86
+        ],
+        "action": "Click",
+        "next": "补充sap_进入补充界面",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "补充sap_进入补充界面": {
+        "recognition": "OCR",
+        "expected": "回复",
+        "roi": [
+            513,
+            104,
+            240,
+            119
+        ],
+        "pre_delay": 20,
+        "post_delay": 20,
+        "next": "补充sap_补充60",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "补充sap_补充60": {
+        "recognition": "OCR",
+        "expected": "60",
+        "inverse": true,
+        "roi": [
+            579,
+            295,
+            115,
+            71
+        ],
+        "target": [
+            747,
+            316,
+            41,
+            20
+        ],
+        "pre_delay": 100,
+        "post_delay": 100,
+        "action": "Click",
+        "next": [
+            "补充sap_补充60",
+            "补充sap_兑换"
+        ]
+    },
+    "补充sap_兑换": {
+        "recognition": "OCR",
+        "expected": "兑换",
+        "roi": [
+            553,
+            416,
+            183,
+            85
+        ],
+        "action": "Click",
+        "next": [
+            "扫荡_神眠"
+        ]
+    },
+    "扫荡_神眠_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            535,
+            423,
+            207,
+            109
+        ],
+        "action": "Click",
+        "post_delay": 300,
+        "next": "扫荡_神眠_等待完成",
+        "timeout": 80000,
+        "on_error": "stopapp"
+    },
+    "扫荡_神眠_等待完成": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "roi": [
+            791,
+            612,
+            224,
+            107
+        ],
+        "action": "Click",
+        "pre_delay": 400,
+        "post_delay": 1000,
+        "next": "停止",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "罪人_天使": {
+        "recognition": "OCR",
+        "expected": "罪人",
+        "roi": [
+            591,
+            334,
+            219,
+            222
+        ],
+        "action": "Click",
+        "target_offset": [
+            -40,
+            -40,
+            1,
+            1
+        ],
+        "enabled": false,
+        "post_delay": 500,
+        "next": "选择难度",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "选择难度": {
+        "recognition": "OCR",
+        "expected": "出击",
+        "roi": [
+            1034,
+            605,
+            227,
+            92
+        ],
+        "action": "Click",
+        "target": [
+            808,
+            462,
+            20,
+            34
+        ],
+        "post_delay": 300,
+        "next": "出击_神眠",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "出击_神眠": {
+        "recognition": "OCR",
+        "expected": "出击",
+        "action": "Click",
+        "roi": [
+            859,
+            453,
+            420,
+            266
+        ],
+        "timeout": 8000,
+        "post_delay": 200,
+        "next": [
+            "等待助战界面",
+            "识别进入房间_神眠"
+        ],
+        "on_error": "stopapp"
+    },
+    "编队选择后的识别_神眠_打开off": {
+        "recognition": "TemplateMatch",
+        "template": "off.png",
+        "action": "Click",
+        "roi": [
+            427,
+            559,
+            479,
+            116
+        ],
+        "next": [
+            "编队选择后的识别_神眠_打开off",
+            "点击连战设置_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击连战设置_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "连战设置.png",
+        "action": "Click",
+        "roi": [
+            761,
+            568,
+            161,
+            93
+        ],
+        "next": [
+            "点击连战次数_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击连战次数_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "连战次数界面.png",
+        "action": "Click",
+        "roi": [
+            521,
+            109,
+            255,
+            94
+        ],
+        "target": [
+            611,
+            218,
+            56,
+            34
+        ],
+        "next": [
+            "输入连战次数_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "输入连战次数_神眠": {
+        "action": "InputText",
+        "input_text": "300",
+        "next": [
+            "点击一次_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "点击一次_神眠": {
+        "action": "Click",
+        "roi": [
+            964,
+            150,
+            61,
+            45
+        ],
+        "next": [
+            "关闭自动再战_神眠",
+            "点击确定_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "关闭自动再战_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "已自动再战.png",
+        "roi": [
+            472,
+            356,
+            69,
+            60
+        ],
+        "action": "Click",
+        "next": [
+            "点击确定_神眠"
+        ]
+    },
+    "点击确定_神眠": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "action": "Click",
+        "roi": [
+            619,
+            518,
+            341,
+            173
+        ],
+        "next": [
+            "出击_神眠",
+            "点击确定_神眠"
+        ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "识别进入房间_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "加载界面.png",
+        "roi": [
+            373,
+            155,
+            544,
+            413
+        ],
+        "timeout": 15000,
+        "next": [
+            "识别进入房间1_神眠"
+        ],
+        "rate_limit": 1000,
+        "on_error": "stopapp"
+    },
+    "识别进入房间1_神眠": {
+        "recognition": "OCR",
+        "expected": "回合",
+        "roi": [
+            0,
+            6,
+            237,
+            44
+        ],
+        "rate_limit": 1500,
+        "timeout": 600000,
+        "next": [
+            "战斗胜利_神眠",
+            "阵亡_神眠",
+            "战斗撤退_神眠",
+            "网络连接断开"
+        ]
+    },
+    "阵亡_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "确定.png",
+        "roi": [
+            544,
+            525,
+            197,
+            82
+        ],
+        "action": "Click",
+        "next": [
+            "战斗撤退_神眠",
+            "阵亡_神眠"
+        ],
+        "focus": true,
+        "focus_tip_color": "Red",
+        "focus_tip": "已全员阵亡"
+    },
+    "战斗撤退_神眠": {
+        "recognition": "OCR",
+        "expected": "点击",
+        "roi": [
+            521,
+            606,
+            238,
+            105
+        ],
+        "post_delay": 1000,
+        "action": "Click",
+        "next": "停止"
+    },
+    "战斗胜利_神眠": {
+        "recognition": "TemplateMatch",
+        "template": "战斗胜利.png",
+        "roi": [
+            230,
+            145,
+            828,
+            419
+        ],
+        "post_delay": 10,
+        "next": "识别是否在关卡中",
+        "timeout": 20000,
+        "on_error": "stopapp"
+    },
+    "识别是否在关卡中": {
+        "recognition": "OCR",
+        "expected": "返回",
+        "roi": [
+            1053,
+            613,
+            226,
+            106
+        ],
+        "pre_delay": 10,
+        "post_delay": 10,
+        "next": [
+            "识别是否在连战中",
+            "已完成连战目标_神眠",
+            "识别进入房间_神眠",
+            "识别进入房间1_神眠"
+        ],
+        "timeout": 5000,
+        "on_error": "stopapp"
+    },
+    "识别是否在连战中": {
+        "recognition": "OCR",
+        "expected": "倒计时",
+        "roi": [
+            459,
+            267,
+            380,
+            196
+        ],
+        "next": [
+            "识别是否在连战中",
+            "识别进入房间_神眠",
+            "识别进入房间1_神眠"
+        ],
+        "timeout": 8000,
+        "on_error": "stopapp"
+    },
+    "已完成连战目标_神眠": {
+        "recognition": "OCR",
+        "expected": "已完成",
+        "roi": [
+            485,
+            273,
+            292,
+            145
+        ],
+        "next": [
+            "识别到返回__神眠_结束"
+        ],
+        "interrupt": "关闭页面1",
+        "post_delay": 500,
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "识别到返回__神眠_结束": {
+        "recognition": "OCR",
+        "expected": "返回",
+        "roi": [
+            1053,
+            613,
+            226,
+            106
+        ],
+        "post_delay": 1000,
+        "action": "Click",
+        "next": [
+            "识别到返回__神眠_结束",
+            "停止"
+        ]
+    }
+}

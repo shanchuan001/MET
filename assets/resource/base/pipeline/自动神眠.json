@@ -489,15 +489,21 @@
         ]
     },
     "阵亡_神眠": {
-        "recognition": "TemplateMatch",
-        "template": "确定.png",
+        "recognition": "OCR",
+        "expected": "全员重伤",
         "roi": [
-            544,
-            525,
-            197,
-            82
+            543,
+            88,
+            189,
+            75
         ],
         "action": "Click",
+        "target": [
+            611,
+            549,
+            52,
+            30
+        ],
         "next": [
             "战斗撤退_神眠",
             "阵亡_神眠"

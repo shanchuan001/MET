@@ -340,9 +340,17 @@
         "post_delay": 200,
         "next": [
             "等待助战界面",
-            "识别进入房间_神眠"
+            "识别进入房间_神眠",
+            "邀请函不足"
         ],
         "on_error": "stopapp"
+    },
+    "邀请函不足": {
+        "recognition": "OCR",
+        "expected": "不足",
+        "focus": true,
+        "focus_tip_color": "Blue",
+        "focus_tip": "邀请函不足"
     },
     "编队选择后的识别_神眠_打开off": {
         "recognition": "TemplateMatch",

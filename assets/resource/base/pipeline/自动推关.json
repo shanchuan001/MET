@@ -56,9 +56,9 @@
         "template": "未通关的关卡.png",
         "action": "Click",
         "roi": [
-            442,
+            200,
             75,
-            837,
+            960,
             554
         ],
         "threshold": 0.78,

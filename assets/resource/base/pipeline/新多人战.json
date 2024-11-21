@@ -111,10 +111,31 @@
             34
         ],
         "next": [
-            "输入连战次数"
+            "删除前连战次数1"
         ],
         "timeout": 3000,
         "on_error": "stopapp"
+    },
+    "删除前连战次数1": {
+        "action": "Key",
+        "key": 67,
+        "post_delay": 50,
+        "pre_delay": 10,
+        "next": "删除前连战次数2"
+    },
+    "删除前连战次数2": {
+        "action": "Key",
+        "key": 67,
+        "post_delay": 50,
+        "pre_delay": 10,
+        "next": "删除前连战次数3"
+    },
+    "删除前连战次数3": {
+        "action": "Key",
+        "key": 67,
+        "post_delay": 50,
+        "pre_delay": 10,
+        "next": "输入连战次数"
     },
     "输入连战次数": {
         "action": "InputText",

@@ -61,7 +61,8 @@
             960,
             554
         ],
-        "threshold": 0.78,
+        "threshold": 0.45,
+        "green_mask": true,
         "target": true,
         "target_offset": [
             20,
@@ -121,7 +122,8 @@
         ],
         "next": [
             "推图领奖-点击",
-            "跳过剧情"
+            "跳过剧情",
+            "寻找关卡-右滑"
         ]
     },
     "推图领奖-点击": {

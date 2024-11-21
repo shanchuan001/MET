@@ -199,7 +199,7 @@
             173
         ],
         "next": [
-            "筛选关卡"
+            "清空关卡选择"
         ],
         "inverse": true,
         "pre_delay": 10,
@@ -236,7 +236,7 @@
         ],
         "inverse": true,
         "next": [
-            "筛选关卡"
+            "清空关卡选择"
         ],
         "pre_delay": 10,
         "post_delay": 10,
@@ -274,7 +274,7 @@
         "pre_delay": 10,
         "post_delay": 10,
         "next": [
-            "筛选关卡"
+            "清空关卡选择"
         ],
         "timeout": 3000,
         "on_error": "stopapp"
@@ -307,33 +307,49 @@
         ],
         "inverse": true,
         "next": [
-            "筛选关卡"
+            "清空关卡选择"
         ],
         "pre_delay": 10,
         "post_delay": 10,
         "timeout": 3000,
         "on_error": "stopapp"
     },
-    "筛选关卡": {
+    "清空关卡选择": {
         "recognition": "OCR",
         "expected": "关卡",
         "roi": [
-            140,
-            53,
-            662,
-            268
+            190,
+            234,
+            159,
+            98
         ],
         "action": "Click",
         "target": [
-            958,
-            321,
-            75,
-            62
+            828,
+            478,
+            40,
+            14
         ],
         "next": [
-            "清空当前选择",
-            "找完检测"
+            "检测是否清空关卡选择"
         ],
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "检测是否清空关卡选择": {
+        "recognition": "TemplateMatch",
+        "template": "无设置.png",
+        "roi": [
+            205,
+            267,
+            149,
+            173
+        ],
+        "action": "Click",
+        "next": [
+            "选择关卡1_0"
+        ],
+        "post_delay": 1000,
         "interrupt": "dr向下滑动",
         "timeout": 3000,
         "on_error": "stopapp"
@@ -342,107 +358,62 @@
         "recognition": "OCR",
         "expected": "关卡",
         "roi": [
-            525,
-            47,
-            237,
-            103
+            1052,
+            11,
+            177,
+            65
         ],
         "action": "Swipe",
         "begin": [
-            1015,
-            434,
+            915,
+            534,
             1,
             1
         ],
         "end": [
-            1015,
+            915,
             188,
             1,
             1
         ],
         "post_delay": 100,
         "pre_delay": 10,
-        "duration": 1200
+        "duration": 1700
     },
     "dr向上滑动": {
         "recognition": "OCR",
         "expected": "关卡",
         "roi": [
-            525,
-            47,
-            237,
-            103
+            1052,
+            11,
+            177,
+            65
         ],
         "action": "Swipe",
         "end": [
-            1015,
-            434,
+            915,
+            534,
             1,
             1
         ],
         "begin": [
-            1015,
+            915,
             188,
             1,
             1
         ],
         "post_delay": 100,
         "pre_delay": 10,
-        "duration": 1200
-    },
-    "清空当前选择": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "1.png",
-            "2.png",
-            "3.png",
-            "4.png",
-            "5.png",
-            "6.png"
-        ],
-        "roi": [
-            155,
-            150,
-            830,
-            401
-        ],
-        "threshold": 0.85,
-        "post_delay": 150,
-        "pre_delay": 10,
-        "action": "Click",
-        "next": [
-            "清空当前选择",
-            "找完检测"
-        ],
-        "interrupt": "dr向下滑动",
-        "timeout": 3000,
-        "on_error": "stopapp"
-    },
-    "找完检测": {
-        "recognition": "TemplateMatch",
-        "template": "当期活动.png",
-        "roi": [
-            150,
-            184,
-            145,
-            218
-        ],
-        "next": [
-            "选择关卡1_0"
-        ],
-        "post_delay": 10,
-        "interrupt": "dr向上滑动",
-        "timeout": 3000,
-        "on_error": "stopapp"
+        "duration": 1700
     },
     "选择关卡1_0": {
         "recognition": "FeatureMatch",
         "template": "幻象征伐战.png",
         "roi": [
-            141,
-            152,
-            491,
-            346
+            10,
+            13,
+            324,
+            699
         ],
         "count": 15,
         "ratio": 0.8,
@@ -489,10 +460,10 @@
         "count": 15,
         "ratio": 0.8,
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "next": [
             "选择关卡2_0_下滑0"
@@ -531,10 +502,10 @@
             "选择关卡2_1_上滑"
         ],
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "count": 15,
         "ratio": 0.8,
@@ -552,10 +523,10 @@
             "选择关卡2_1_下滑"
         ],
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "count": 15,
         "ratio": 0.8,
@@ -618,10 +589,10 @@
         "count": 15,
         "ratio": 0.8,
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "next": [
             "选择关卡3_0_下滑0"
@@ -660,10 +631,10 @@
             "选择关卡3_1_上滑"
         ],
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "count": 15,
         "ratio": 0.8,
@@ -681,10 +652,10 @@
             "选择关卡3_1_下滑"
         ],
         "roi": [
-            148,
-            163,
-            351,
-            224
+            10,
+            13,
+            324,
+            699
         ],
         "count": 15,
         "ratio": 0.8,

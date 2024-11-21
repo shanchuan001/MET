@@ -2,22 +2,40 @@
     "controller": {
         "name": "安卓端(模拟器选这个)此项目在GitHub上免费开源,如果你是付费购买,请立刻退款"
     },
-    "resource": "B服",
+    "resource": "官服",
     "task": [
         {
-            "name": "自动推图(请前往能看到未通关关卡的地方再开始运行)",
-            "option": []
+            "name": "9.25新版自动多人战",
+            "option": [
+                {
+                    "name": "第一优先级关卡",
+                    "value": "光机"
+                },
+                {
+                    "name": "第二优先级关卡(不要重复)",
+                    "value": "光龙"
+                },
+                {
+                    "name": "第三优先级关卡",
+                    "value": "暗幻"
+                },
+                {
+                    "name": "连战次数(因为树bug太多,所以有时会有没有到指定次数就重启的情况)",
+                    "value": "300次"
+                }
+            ]
         }
     ],
     "adb": {
-        "adb_path": "D:/MuMuPlayer-12.0/shell/adb.exe",
-        "address": "127.0.0.1:16768",
+        "adb_path": "D:/leidian/LDPlayer9/adb.exe",
+        "address": "emulator-5554",
         "config": {
             "extras": {
-                "mumu": {
+                "ld": {
                     "enable": true,
-                    "index": 12,
-                    "path": "D:/MuMuPlayer-12.0"
+                    "index": 0,
+                    "path": "D:/leidian/LDPlayer9",
+                    "pid": 14208
                 }
             }
         }

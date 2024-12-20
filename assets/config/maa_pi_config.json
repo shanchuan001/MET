@@ -5,37 +5,19 @@
     "resource": "官服",
     "task": [
         {
-            "name": "9.25新版自动多人战",
-            "option": [
-                {
-                    "name": "第一优先级关卡",
-                    "value": "光机"
-                },
-                {
-                    "name": "第二优先级关卡(不要重复)",
-                    "value": "光龙"
-                },
-                {
-                    "name": "第三优先级关卡",
-                    "value": "暗幻"
-                },
-                {
-                    "name": "连战次数(因为树bug太多,所以有时会有没有到指定次数就重启的情况)",
-                    "value": "300次"
-                }
-            ]
+            "name": "扫荡一次素材关卡",
+            "option": []
         }
     ],
     "adb": {
-        "adb_path": "D:/leidian/LDPlayer9/adb.exe",
-        "address": "emulator-5554",
+        "adb_path": "D:/MuMuPlayer-12.0/shell/adb.exe",
+        "address": "127.0.0.1:16768",
         "config": {
             "extras": {
-                "ld": {
+                "mumu": {
                     "enable": true,
-                    "index": 0,
-                    "path": "D:/leidian/LDPlayer9",
-                    "pid": 14208
+                    "index": 12,
+                    "path": "D:/MuMuPlayer-12.0"
                 }
             }
         }

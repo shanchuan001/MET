@@ -36,7 +36,7 @@
             84
         ],
         "action": "Click",
-        "post_delay": 300,
+        "post_delay": 800,
         "next": "点击经验素材本",
         "timeout": 3000,
         "on_error": "stopapp"
@@ -50,6 +50,7 @@
             268,
             394
         ],
+        "pre_delay": 1500,
         "action": "Click",
         "next": [
             "点击训练特级"
@@ -68,6 +69,7 @@
         ],
         "action": "Click",
         "threshold": 0.85,
+        "post_delay": 500,
         "order_by": "Score",
         "next": "点击扫荡_扫荡一次素材关卡",
         "timeout": 3000,
@@ -79,10 +81,9 @@
         "roi": [
             865,
             600,
-            343,
+            150,
             96
         ],
-        "pre_delay": 700,
         "post_delay": 500,
         "action": "Click",
         "next": [

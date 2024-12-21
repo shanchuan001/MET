@@ -49,7 +49,7 @@
     },
     "一键领取": {
         "recognition": "OCR",
-        "expected": "一键领取",
+        "expected": "键领",
         "roi": [
             1151,
             20,
@@ -85,7 +85,7 @@
     },
     "向下滑动": {
         "recognition": "OCR",
-        "expected": "一键领取",
+        "expected": "键领",
         "roi": [
             1151,
             20,

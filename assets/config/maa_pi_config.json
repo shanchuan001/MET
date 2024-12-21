@@ -5,8 +5,9 @@
     "resource": "官服",
     "task": [
         {
-            "name": "扫荡一次素材关卡",
-            "option": []
+            "name": "自动助战任务(+领取每日奖励)",
+            "option": [],
+            "__vscExpand": true
         }
     ],
     "adb": {

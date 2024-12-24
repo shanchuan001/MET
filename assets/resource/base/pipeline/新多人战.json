@@ -428,16 +428,14 @@
         "duration": 1700
     },
     "选择关卡1_0": {
-        "recognition": "FeatureMatch",
-        "template": "幻象征伐战.png",
+        "recognition": "OCR",
+        "expected": "幻象征伐战",
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
-        "count": 15,
-        "ratio": 0.8,
         "post_delay": 10,
         "pre_delay": 10,
         "timeout": 3000,
@@ -468,23 +466,23 @@
         "on_error": "选择关卡2_0_上滑0"
     },
     "选择关卡2_-1": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "虚数体幻想战.png",
-            "虚数体幻想战[真源].png",
-            "幻象征伐战.png",
-            "英杰击退战.png",
-            "特异点讨伐战[真源].png",
-            "特异点讨伐战.png",
-            "机偶试炼战.png"
+        "recognition": "OCR",
+        "expected": [
+            "虚数体幻想战",
+            "虚数体幻想战[真源]",
+            "幻象征伐战",
+            "英杰击退战",
+            "特异点讨伐战[真源]",
+            "特异点讨伐战",
+            "机偶试炼战"
         ],
         "count": 15,
         "ratio": 0.8,
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "next": [
             "选择关卡2_0_下滑0"
@@ -515,18 +513,18 @@
         "on_error": "stopapp"
     },
     "选择关卡2_0_上滑": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "机偶试炼战.png"
+        "recognition": "OCR",
+        "expected": [
+            "机偶试炼战"
         ],
         "next": [
             "选择关卡2_1_上滑"
         ],
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "count": 15,
         "ratio": 0.8,
@@ -536,18 +534,18 @@
         "on_error": "stopapp"
     },
     "选择关卡2_0_下滑": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "机偶试炼战.png"
+        "recognition": "OCR",
+        "expected": [
+            "机偶试炼战"
         ],
         "next": [
             "选择关卡2_1_下滑"
         ],
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "count": 15,
         "ratio": 0.8,
@@ -598,22 +596,22 @@
         "on_error": "选择关卡3_0_上滑0"
     },
     "选择关卡3_-1": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "虚数体幻想战.png",
-            "虚数体幻想战[真源].png",
-            "幻象征伐战.png",
-            "英杰击退战.png",
-            "特异点讨伐战[真源].png",
-            "特异点讨伐战.png"
+        "recognition": "OCR",
+        "expected": [
+            "虚数体幻想战",
+            "虚数体幻想战[真源]",
+            "幻象征伐战",
+            "英杰击退战",
+            "特异点讨伐战[真源]",
+            "特异点讨伐战"
         ],
         "count": 15,
         "ratio": 0.8,
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "next": [
             "选择关卡3_0_下滑0"
@@ -644,18 +642,18 @@
         "on_error": "stopapp"
     },
     "选择关卡3_0_上滑": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "特异点讨伐战.png"
+        "recognition": "OCR",
+        "expected": [
+            "特异点讨伐战"
         ],
         "next": [
             "选择关卡3_1_上滑"
         ],
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "count": 15,
         "ratio": 0.8,
@@ -665,18 +663,18 @@
         "on_error": "stopapp"
     },
     "选择关卡3_0_下滑": {
-        "recognition": "FeatureMatch",
-        "template": [
-            "特异点讨伐战.png"
+        "recognition": "OCR",
+        "expected": [
+            "特异点讨伐战"
         ],
         "next": [
             "选择关卡3_1_下滑"
         ],
         "roi": [
+            9,
             10,
-            13,
-            324,
-            699
+            279,
+            539
         ],
         "count": 15,
         "ratio": 0.8,

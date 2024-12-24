@@ -88,7 +88,8 @@
         "action": "Click",
         "next": [
             "是否为1次_扫荡一次素材关卡",
-            "点击MIN"
+            "点击MIN",
+            "点击扫荡_扫荡一次素材关卡"
         ],
         "timeout": 3000,
         "on_error": "stopapp"

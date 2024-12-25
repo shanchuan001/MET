@@ -796,8 +796,8 @@
         "post_delay": 200,
         "on_error": "stopapp",
         "next": [
-            "检测是否清空_常规熔炼_一键炼成",
-            "一键炼成_常规熔炼"
+            "一键炼成_常规熔炼",
+            "检测是否清空_常规熔炼_一键炼成"
         ],
         "interrupt": [
             "lc确认"
@@ -805,7 +805,7 @@
     },
     "检测是否清空_常规熔炼_一键炼成": {
         "recognition": "TemplateMatch",
-        "template": "炼成材料.png",
+        "template": "炼成结果.png",
         "threshold": 0.85,
         "roi": [
             79,
@@ -926,8 +926,8 @@
         "post_delay": 200,
         "on_error": "stopapp",
         "next": [
-            "检测是否清空_珍品熔炼",
-            "一键炼成_珍品熔炼"
+            "一键炼成_珍品熔炼",
+            "检测是否清空_珍品熔炼"
         ],
         "interrupt": [
             "lc确认"
@@ -935,7 +935,7 @@
     },
     "检测是否清空_珍品熔炼": {
         "recognition": "TemplateMatch",
-        "template": "炼成材料.png",
+        "template": "炼成结果.png",
         "threshold": 0.85,
         "roi": [
             79,
@@ -1044,8 +1044,8 @@
         "post_delay": 200,
         "on_error": "stopapp",
         "next": [
-            "检测是否清空_高阶奥秘",
-            "一键炼成_高阶奥秘"
+            "一键炼成_高阶奥秘",
+            "检测是否清空_高阶奥秘"
         ],
         "interrupt": [
             "lc确认"
@@ -1066,7 +1066,7 @@
     },
     "检测是否清空_高阶奥秘": {
         "recognition": "TemplateMatch",
-        "template": "炼成材料.png",
+        "template": "炼成结果.png",
         "threshold": 0.85,
         "roi": [
             79,
@@ -1186,8 +1186,8 @@
         "post_delay": 200,
         "on_error": "stopapp",
         "next": [
-            "检测是否清空_常规奥秘",
-            "一键炼成_常规奥秘"
+            "一键炼成_常规奥秘",
+            "检测是否清空_常规奥秘"
         ],
         "interrupt": [
             "lc确认"
@@ -1195,7 +1195,7 @@
     },
     "检测是否清空_常规奥秘": {
         "recognition": "TemplateMatch",
-        "template": "炼成材料.png",
+        "template": "炼成结果.png",
         "threshold": 0.85,
         "roi": [
             79,

@@ -429,7 +429,7 @@
     },
     "选择关卡1_0": {
         "recognition": "OCR",
-        "expected": "幻象征伐战",
+        "expected": "虚数体幻想战[真源",
         "roi": [
             9,
             10,

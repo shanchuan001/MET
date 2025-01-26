@@ -182,6 +182,7 @@
             245,
             74
         ],
+        "timeout": 8000,
         "next": "主页检测",
         "on_error": "stopapp"
     }

@@ -1,4 +1,64 @@
 {
+    "lc点击一次": {
+        "action": "Click"
+    },
+    "lc点击空白处": {
+        "recognition": "OCR",
+        "expected": "空白",
+        "action": "Click",
+        "roi": [
+            406,
+            418,
+            461,
+            301
+        ]
+    },
+    "lc点击确定/确认": {
+        "recognition": "OCR",
+        "expected": [
+            "确定",
+            "确认"
+        ],
+        "action": "Click",
+        "roi": [
+            373,
+            357,
+            587,
+            357
+        ]
+    },
+    "lc向右滑动": {
+        "recognition": "OCR",
+        "expected": "常规熔炼",
+        "action": "Swipe",
+        "begin": [
+            1064,
+            427,
+            1,
+            1
+        ],
+        "end": [
+            546,
+            327,
+            1,
+            1
+        ],
+        "post_delay": 400,
+        "duration": 500
+    },
+    "lc选择炼成属性": {
+        "recognition": "OCR",
+        "expected": "光",
+        "roi": [
+            0,
+            563,
+            1280,
+            99
+        ],
+        "action": "Click",
+        "pre_delay": 300,
+        "post_delay": 300
+    },
     "开始自动炼金": {
         "next": [
             "点击工坊",
@@ -56,47 +116,13 @@
         "timeout": 3000,
         "post_delay": 300,
         "on_error": "stopapp",
-        "next": "选择炼成属性",
-        "interrupt": "lc向右滑动"
-    },
-    "lc向右滑动": {
-        "recognition": "OCR",
-        "expected": "常规熔炼",
-        "action": "Swipe",
-        "begin": [
-            1064,
-            427,
-            1,
-            1
-        ],
-        "end": [
-            546,
-            327,
-            1,
-            1
-        ],
-        "post_delay": 400,
-        "duration": 500
-    },
-    "选择炼成属性": {
-        "recognition": "OCR",
-        "expected": "光",
-        "roi": [
-            0,
-            563,
-            1280,
-            99
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 300,
-        "on_error": "stopapp",
         "next": [
-            "点击筛选",
-            "选择炼成属性"
+            "点击筛选"
         ],
-        "interrupt": "lc向右滑动"
+        "interrupt": [
+            "lc选择炼成属性",
+            "lc向右滑动"
+        ]
     },
     "点击筛选": {
         "recognition": "OCR",
@@ -130,1091 +156,1028 @@
         "pre_delay": 100,
         "post_delay": 300,
         "next": [
-            "选择材料_龙0",
-            "选择材料_幻象0",
-            "选择材料_龙勋章0",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ]
-    },
-    "选择材料_龙0": {
-        "next": [
-            "选择材料_龙",
-            "选择材料_幻象0",
-            "选择材料_龙勋章0",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
+            "一键炼成_常规熔炼"
         ],
-        "timeout": 3000,
-        "on_error": "stopapp",
-        "pre_delay": 10,
-        "post_delay": 10
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "选择材料_幻象0": {
-        "next": [
-            "选择材料_幻象",
-            "选择材料_龙勋章0",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ],
-        "timeout": 3000,
-        "on_error": "stopapp",
-        "pre_delay": 10,
-        "post_delay": 10
-    },
-    "选择材料_龙勋章0": {
-        "next": [
-            "选择材料_龙勋章",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ],
-        "timeout": 3000,
-        "on_error": "stopapp",
-        "pre_delay": 10,
-        "post_delay": 10
-    },
-    "选择材料_强振石0": {
-        "next": [
-            "选择材料_强振石",
-            "点击筛选_常规熔炼"
-        ],
-        "timeout": 3000,
-        "on_error": "stopapp",
-        "pre_delay": 10,
-        "post_delay": 10
-    },
-    "lc点击确定": {
+    "一键炼成_常规熔炼": {
         "recognition": "OCR",
-        "expected": "确定",
+        "expected": "一键",
         "roi": [
-            325,
-            364,
-            629,
-            355
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "post_delay": 300
-    },
-    "选择材料_龙": {
-        "recognition": "TemplateMatch",
-        "template": [
-            "光龙材料.png"
-        ],
-        "roi": [
-            45,
-            83,
-            560,
-            628
-        ],
-        "threshold": 0.85,
-        "pre_delay": 20,
-        "timeout": 3000,
-        "post_delay": 20,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中",
-            "炼成_已选中"
-        ]
-    },
-    "炼成_选中": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
-        "roi": [
-            1108,
-            111,
-            13,
-            16
-        ],
-        "action": "Click",
-        "target": "选择材料_龙",
-        "pre_delay": 10,
-        "timeout": 5000,
-        "post_delay": 10,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中",
-            "炼成"
-        ]
-    },
-    "炼成_已选中": {
-        "recognition": "ColorMatch",
-        "upper": [
-            249,
-            241,
-            226
-        ],
-        "lower": [
-            242,
-            233,
-            208
-        ],
-        "roi": [
-            1108,
-            112,
-            14,
-            13
-        ],
-        "timeout": 5000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "next": [
-            "炼成"
-        ]
-    },
-    "炼成": {
-        "recognition": "TemplateMatch",
-        "template": "炼成.png",
-        "roi": [
-            841,
-            623,
-            163,
-            84
+            1075,
+            617,
+            145,
+            93
         ],
         "action": "Click",
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
+        "post_delay": 300,
         "next": [
-            "炼成结束",
-            "炼成"
-        ]
+            "一键炼成_常规熔炼_添加材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成结束": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
+    "一键炼成_常规熔炼_添加材料": {
+        "recognition": "TemplateMatch",
+        "template": "炼成_可放入.png",
+        "action": "Click",
         "roi": [
-            840,
-            112,
-            15,
-            16
+            655,
+            149,
+            558,
+            277
         ],
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
+        "post_delay": 1000,
         "next": [
-            "选择材料_幻象0",
-            "选择材料_龙勋章0",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ]
+            "一键炼成_常规熔炼_选择材料_幻象照片1",
+            "一键炼成_常规熔炼_选择材料_龙照片1",
+            "一键炼成_常规熔炼_选择材料_龙勋章2",
+            "一键炼成_常规熔炼_选择材料_强振石2",
+            "一键炼成_常规熔炼_已选完_炼成次数"
+        ],
+        "interrupt": "退出",
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "选择材料_幻象": {
+    "一键炼成_常规熔炼_选择材料_幻象照片1": {
+        "next": "一键炼成_常规熔炼_选择材料_幻象照片2",
+        "enabled": true
+    },
+    "一键炼成_常规熔炼_选择材料_幻象照片2": {
         "recognition": "TemplateMatch",
         "template": [
             "光幻材料.png"
         ],
-        "roi": [
-            45,
-            83,
-            560,
-            628
-        ],
-        "threshold": 0.85,
-        "pre_delay": 20,
-        "timeout": 3000,
-        "post_delay": 20,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中2",
-            "炼成_已选中2"
-        ]
-    },
-    "炼成_选中2": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
-        "roi": [
-            1108,
-            111,
-            13,
-            16
-        ],
         "action": "Click",
-        "target": "选择材料_幻象",
-        "pre_delay": 10,
-        "timeout": 5000,
-        "post_delay": 10,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中2",
-            "炼成2"
-        ]
-    },
-    "炼成_已选中2": {
-        "recognition": "ColorMatch",
-        "upper": [
-            249,
-            241,
-            226
-        ],
-        "lower": [
-            242,
-            233,
-            208
-        ],
         "roi": [
-            1108,
-            112,
-            14,
-            13
+            66,
+            74,
+            528,
+            627
         ],
-        "timeout": 5000,
-        "post_delay": 100,
-        "on_error": "stopapp",
+        "pre_delay": 100,
+        "post_delay": 300,
         "next": [
-            "炼成2"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成2": {
+    "一键炼成_常规熔炼_选择材料_龙照片1": {
+        "next": "一键炼成_常规熔炼_选择材料_龙照片2",
+        "enabled": true
+    },
+    "一键炼成_常规熔炼_选择材料_龙照片2": {
         "recognition": "TemplateMatch",
-        "template": "炼成.png",
-        "roi": [
-            841,
-            623,
-            163,
-            84
+        "template": [
+            "光龙材料.png"
         ],
         "action": "Click",
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
-        "next": [
-            "炼成结束2",
-            "炼成2"
-        ]
-    },
-    "炼成结束2": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
         "roi": [
-            840,
-            112,
-            15,
-            16
+            66,
+            74,
+            528,
+            627
         ],
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
+        "post_delay": 300,
         "next": [
-            "选择材料_龙勋章0",
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "选择材料_龙勋章": {
+    "一键炼成_常规熔炼_选择材料_龙勋章2": {
         "recognition": "TemplateMatch",
         "template": [
             "龙勋章.png"
         ],
-        "roi": [
-            45,
-            83,
-            560,
-            628
-        ],
-        "threshold": 0.85,
-        "pre_delay": 20,
-        "timeout": 3000,
-        "post_delay": 20,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中3",
-            "炼成_已选中3"
-        ]
-    },
-    "炼成_选中3": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
-        "roi": [
-            1108,
-            111,
-            13,
-            16
-        ],
         "action": "Click",
-        "target": "选择材料_龙勋章",
-        "pre_delay": 10,
-        "timeout": 5000,
-        "post_delay": 10,
-        "on_error": "stopapp",
-        "next": [
-            "炼成_选中3",
-            "炼成3"
-        ]
-    },
-    "炼成_已选中3": {
-        "recognition": "ColorMatch",
-        "upper": [
-            249,
-            241,
-            226
-        ],
-        "lower": [
-            242,
-            233,
-            208
-        ],
         "roi": [
-            1108,
-            112,
-            14,
-            13
+            66,
+            74,
+            528,
+            627
         ],
-        "timeout": 5000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "next": [
-            "炼成3"
-        ]
-    },
-    "炼成3": {
-        "recognition": "TemplateMatch",
-        "template": "炼成.png",
-        "roi": [
-            841,
-            623,
-            163,
-            84
-        ],
-        "action": "Click",
+        "enabled": true,
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
+        "post_delay": 300,
         "next": [
-            "炼成结束3",
-            "炼成3"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成结束3": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
-        "roi": [
-            840,
-            112,
-            15,
-            16
-        ],
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
-        "next": [
-            "选择材料_强振石0",
-            "点击筛选_常规熔炼"
-        ]
-    },
-    "选择材料_强振石": {
+    "一键炼成_常规熔炼_选择材料_强振石2": {
         "recognition": "TemplateMatch",
         "template": [
             "强振石.png"
         ],
+        "action": "Click",
         "roi": [
-            45,
-            83,
-            560,
-            628
+            66,
+            74,
+            528,
+            627
         ],
-        "threshold": 0.85,
-        "pre_delay": 20,
-        "timeout": 3000,
-        "post_delay": 20,
-        "on_error": "stopapp",
+        "enabled": true,
+        "pre_delay": 100,
+        "post_delay": 300,
         "next": [
-            "炼成_选中4",
-            "炼成_已选中4"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成_选中4": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
+    "一键炼成_常规熔炼_选择数量_材料": {
+        "recognition": "OCR",
+        "expected": "数量",
         "roi": [
-            1108,
-            111,
-            13,
-            16
+            962,
+            627,
+            190,
+            80
         ],
         "action": "Click",
-        "target": "选择材料_强振石",
-        "pre_delay": 10,
-        "timeout": 5000,
-        "post_delay": 10,
-        "on_error": "stopapp",
+        "pre_delay": 100,
+        "post_delay": 300,
         "next": [
-            "炼成_选中4",
-            "炼成4"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料_MAX"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成_已选中4": {
-        "recognition": "ColorMatch",
-        "upper": [
-            249,
-            241,
-            226
-        ],
-        "lower": [
-            242,
-            233,
-            208
-        ],
+    "一键炼成_常规熔炼_选择数量_材料_MAX": {
+        "recognition": "OCR",
+        "expected": "MAX",
         "roi": [
-            1108,
-            112,
-            14,
-            13
+            758,
+            279,
+            144,
+            106
         ],
-        "timeout": 5000,
-        "post_delay": 100,
-        "on_error": "stopapp",
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
         "next": [
-            "炼成4"
-        ]
+            "一键炼成_常规熔炼_选择数量_材料_MAX_确定"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成4": {
-        "recognition": "TemplateMatch",
-        "template": "炼成.png",
+    "一键炼成_常规熔炼_选择数量_材料_MAX_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
         "roi": [
-            841,
-            623,
-            163,
+            570,
+            444,
+            135,
             84
         ],
         "action": "Click",
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
+        "post_delay": 300,
         "next": [
-            "炼成结束4",
-            "炼成4"
-        ]
+            "一键炼成_常规熔炼_添加材料"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "炼成结束4": {
-        "recognition": "ColorMatch",
-        "upper": [
-            149,
-            149,
-            157
-        ],
-        "lower": [
-            149,
-            149,
-            157
-        ],
-        "roi": [
-            840,
-            112,
-            15,
-            16
-        ],
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100,
-        "on_error": "stopapp",
-        "interrupt": [
-            "lc点击确定",
-            "lc点击空白处"
-        ],
-        "next": [
-            "点击筛选_常规熔炼"
-        ]
-    },
-    "lc点击空白处": {
+    "一键炼成_常规熔炼_已选完_炼成次数": {
         "recognition": "OCR",
-        "expected": "点击",
+        "expected": "成次",
         "roi": [
-            555,
-            605,
-            159,
+            698,
+            37,
+            210,
+            124
+        ],
+        "target": [
+            1037,
+            95,
+            31,
+            25
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_常规熔炼_炼成次数_输入"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规熔炼_炼成次数_输入": {
+        "action": "InputText",
+        "input_text": "500",
+        "next": [
+            "一键炼成_常规熔炼_委托炼成"
+        ],
+        "interrupt": "lc点击一次",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规熔炼_委托炼成": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            967,
+            610,
+            185,
+            107
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_常规熔炼_等待结束"
+        ],
+        "timeout": 2000,
+        "on_error": "一键炼成_常规熔炼_无材料"
+    },
+    "一键炼成_常规熔炼_无材料": {
+        "post_delay": 1000,
+        "next": [
+            "一键炼成_常规熔炼_低级奥秘"
+        ],
+        "interrupt": [
+            "退出"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规熔炼_等待结束": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            393,
+            281,
+            514,
+            187
+        ],
+        "post_delay": 1000,
+        "rate_limit": 2000,
+        "next": [
+            "一键炼成_常规熔炼_等待结束",
+            "一键炼成_常规熔炼_低级奥秘"
+        ],
+        "interrupt": [
+            "lc点击空白处",
+            "退出"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规熔炼_低级奥秘": {
+        "recognition": "OCR",
+        "expected": "低级",
+        "roi": [
+            976,
+            8,
+            207,
             68
         ],
         "action": "Click",
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 100
-    },
-    "点击筛选_常规熔炼": {
-        "recognition": "OCR",
-        "expected": "筛选",
-        "roi": [
-            488,
-            13,
-            171,
-            59
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 300,
-        "on_error": "stopapp",
-        "next": "点击奥秘_常规熔炼"
-    },
-    "点击奥秘_常规熔炼": {
-        "recognition": "OCR",
-        "expected": "奥秘",
-        "roi": [
-            358,
-            157,
-            125,
-            62
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 1000,
-        "on_error": "stopapp",
-        "interrupt": "lc点击确定",
         "next": [
-            "一键炼成_常规熔炼"
-        ]
-    },
-    "一键炼成_常规熔炼": {
-        "recognition": "TemplateMatch",
-        "template": "一键炼成.png",
-        "roi": [
-            1075,
-            642,
-            143,
-            56
+            "常规熔炼_低级奥秘_等待结束",
+            "一键炼成_常规熔炼_低级奥秘"
         ],
-        "action": "Click",
-        "pre_delay": 300,
-        "rate_limit": 600,
-        "timeout": 30000,
-        "post_delay": 1000,
-        "on_error": "stopapp",
-        "next": [
-            "等待炼成完成_常规熔炼"
-        ]
+        "timeout": 60000,
+        "on_error": "stopapp"
     },
-    "等待炼成完成_常规熔炼": {
-        "recognition": "TemplateMatch",
-        "template": "确认.png",
-        "roi": [
-            800,
-            635,
-            195,
-            82
-        ],
-        "pre_delay": 10,
-        "timeout": 3000,
-        "post_delay": 200,
-        "on_error": "stopapp",
-        "next": [
-            "一键炼成_常规熔炼",
-            "检测是否清空_常规熔炼_一键炼成"
-        ],
-        "interrupt": [
-            "lc确认"
-        ]
-    },
-    "检测是否清空_常规熔炼_一键炼成": {
+    "常规熔炼_低级奥秘_未炼完": {
         "recognition": "TemplateMatch",
         "template": "炼成结果.png",
-        "threshold": 0.85,
         "roi": [
-            79,
-            186,
-            379,
-            217
+            276,
+            70,
+            344,
+            512
         ],
-        "inverse": true,
+        "next": "常规熔炼_低级奥秘_未炼完",
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "常规熔炼_低级奥秘_等待结束": {
+        "recognition": "OCR",
+        "expected": "确认",
+        "roi": [
+            820,
+            621,
+            151,
+            93
+        ],
+        "next": [
+            "常规熔炼_低级奥秘_未炼完",
+            "点击珍品熔炼_-1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "点击珍品熔炼_-1": {
         "next": "点击珍品熔炼",
+        "post_delay": 1000,
         "interrupt": [
-            "lc退出",
-            "lc确认"
-        ],
-        "pre_delay": 100,
-        "on_error": "stopapp",
-        "timeout": 3000,
-        "post_delay": 500
+            "lc点击确定/确认",
+            "退出"
+        ]
     },
     "点击珍品熔炼": {
         "recognition": "OCR",
-        "expected": "珍品熔炼",
+        "expected": "珍品",
         "roi": [
-            143,
-            109,
-            723,
-            77
+            289,
+            115,
+            150,
+            65
         ],
         "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 600,
-        "on_error": "stopapp",
-        "next": "选择炼成属性_珍品熔炼",
-        "interrupt": "lc向右滑动"
-    },
-    "选择炼成属性_珍品熔炼": {
-        "recognition": "OCR",
-        "expected": "光",
-        "roi": [
-            0,
-            563,
-            1280,
-            99
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 300,
-        "on_error": "stopapp",
         "next": [
-            "点击筛选_珍品熔炼",
-            "选择炼成属性_珍品熔炼"
-        ]
+            "一键炼成_珍品熔炼_筛选"
+        ],
+        "interrupt": [
+            "lc选择炼成属性",
+            "lc向右滑动"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "点击筛选_珍品熔炼": {
+    "一键炼成_珍品熔炼_筛选": {
         "recognition": "OCR",
         "expected": "筛选",
         "roi": [
-            488,
-            13,
-            171,
-            59
+            435,
+            2,
+            420,
+            110
         ],
         "action": "Click",
         "pre_delay": 300,
         "timeout": 3000,
         "post_delay": 300,
         "on_error": "stopapp",
-        "next": "点击奥秘_珍品熔炼"
+        "next": [
+            "珍品熔炼_筛选_奥秘",
+            "一键炼成_珍品熔炼_筛选"
+        ]
     },
-    "点击奥秘_珍品熔炼": {
+    "珍品熔炼_筛选_奥秘": {
         "recognition": "OCR",
         "expected": "奥秘",
         "roi": [
-            358,
-            157,
-            125,
-            62
+            354,
+            156,
+            128,
+            60
         ],
         "action": "Click",
         "pre_delay": 300,
         "timeout": 3000,
         "post_delay": 300,
-        "on_error": "炼成结束",
-        "interrupt": "lc点击确定",
-        "next": "一键炼成_珍品熔炼"
-    },
-    "一键炼成_珍品熔炼": {
-        "recognition": "TemplateMatch",
-        "template": "一键炼成.png",
-        "roi": [
-            1075,
-            642,
-            143,
-            56
-        ],
-        "rate_limit": 600,
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 30000,
-        "post_delay": 1000,
         "on_error": "stopapp",
         "next": [
-            "等待炼成完成_珍品熔炼"
+            "珍品熔炼_筛选_等级"
         ]
     },
-    "等待炼成完成_珍品熔炼": {
+    "珍品熔炼_筛选_等级": {
         "recognition": "TemplateMatch",
-        "template": "确认.png",
+        "template": "炼金筛选.png",
         "roi": [
-            800,
-            635,
-            195,
-            82
+            256,
+            363,
+            867,
+            49
         ],
-        "pre_delay": 10,
+        "action": "Click",
+        "pre_delay": 50,
+        "timeout": 3000,
+        "post_delay": 100,
+        "on_error": "stopapp",
+        "next": [
+            "珍品熔炼_筛选_等级",
+            "一键炼成_珍品熔炼_一键选择"
+        ],
+        "interrupt": "lc点击确定/确认"
+    },
+    "一键炼成_珍品熔炼_一键选择": {
+        "recognition": "OCR",
+        "expected": "键选",
+        "roi": [
+            821,
+            13,
+            125,
+            58
+        ],
+        "action": "Click",
+        "pre_delay": 200,
         "timeout": 3000,
         "post_delay": 200,
         "on_error": "stopapp",
         "next": [
-            "一键炼成_珍品熔炼",
-            "检测是否清空_珍品熔炼"
+            "一键炼成_珍品熔炼_全部炼完",
+            "一键炼成_珍品熔炼_炼成"
         ],
-        "interrupt": [
-            "lc确认"
-        ]
+        "interrupt": "lc点击空白处"
     },
-    "检测是否清空_珍品熔炼": {
-        "recognition": "TemplateMatch",
-        "template": "炼成结果.png",
-        "threshold": 0.85,
+    "一键炼成_珍品熔炼_炼成": {
+        "recognition": "OCR",
+        "expected": "炼成",
         "roi": [
-            79,
-            186,
-            379,
-            217
+            841,
+            620,
+            173,
+            91
         ],
-        "inverse": true,
+        "action": "Click",
+        "pre_delay": 50,
+        "timeout": 3000,
+        "post_delay": 1500,
+        "on_error": "stopapp",
+        "next": [
+            "一键炼成_珍品熔炼_一键选择"
+        ],
+        "interrupt": "lc点击空白处"
+    },
+    "一键炼成_珍品熔炼_全部炼完": {
+        "recognition": "ColorMatch",
+        "upper": [
+            150,
+            150,
+            150
+        ],
+        "lower": [
+            110,
+            110,
+            110
+        ],
+        "roi": [
+            974,
+            659,
+            16,
+            19
+        ],
+        "count": 100,
+        "pre_delay": 300,
+        "timeout": 3000,
+        "post_delay": 1000,
+        "on_error": "stopapp",
         "next": [
             "点击高阶奥秘炼成"
         ],
-        "interrupt": [
-            "lc确认",
-            "lc退出"
-        ],
-        "on_error": "stopapp",
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 500
-    },
-    "lc退出": {
-        "recognition": "TemplateMatch",
-        "template": "退出.png",
-        "action": "Click",
-        "roi": [
-            0,
-            0,
-            226,
-            83
-        ],
-        "pre_delay": 200,
-        "timeout": 3000,
-        "post_delay": 500
+        "interrupt": "退出"
     },
     "点击高阶奥秘炼成": {
         "recognition": "OCR",
-        "expected": "高阶奥秘",
+        "expected": "高阶",
         "roi": [
-            143,
-            109,
-            723,
-            77
+            567,
+            122,
+            139,
+            52
         ],
         "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 600,
-        "on_error": "stopapp",
-        "next": "选择炼成属性_高阶奥秘",
-        "interrupt": "lc向右滑动"
-    },
-    "选择炼成属性_高阶奥秘": {
-        "recognition": "OCR",
-        "expected": "光",
-        "roi": [
-            0,
-            563,
-            1280,
-            99
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 1000,
-        "on_error": "stopapp",
         "next": [
-            "选择炼成属性_高阶奥秘",
-            "检测是否清空_高阶奥秘_停止",
-            "检测是否清空_高阶奥秘_停止2",
             "一键炼成_高阶奥秘"
         ],
         "interrupt": [
-            "lc确认"
-        ]
-    },
-    "一键炼成_高阶奥秘": {
-        "recognition": "TemplateMatch",
-        "template": "一键炼成.png",
-        "roi": [
-            1075,
-            642,
-            143,
-            56
+            "lc选择炼成属性",
+            "lc向右滑动"
         ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 30000,
-        "post_delay": 1000,
-        "rate_limit": 800,
-        "on_error": "stopapp",
-        "next": [
-            "等待炼成完成_高阶奥秘"
-        ]
-    },
-    "等待炼成完成_高阶奥秘": {
-        "recognition": "TemplateMatch",
-        "template": "确认.png",
-        "roi": [
-            800,
-            635,
-            195,
-            82
-        ],
-        "pre_delay": 10,
-        "timeout": 3000,
-        "post_delay": 200,
-        "on_error": "stopapp",
-        "next": [
-            "一键炼成_高阶奥秘",
-            "检测是否清空_高阶奥秘"
-        ],
-        "interrupt": [
-            "lc确认"
-        ]
-    },
-    "lc确认": {
-        "recognition": "TemplateMatch",
-        "template": "确认.png",
-        "roi": [
-            799,
-            650,
-            195,
-            54
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "post_delay": 400
-    },
-    "检测是否清空_高阶奥秘": {
-        "recognition": "TemplateMatch",
-        "template": "炼成结果.png",
-        "threshold": 0.85,
-        "roi": [
-            79,
-            186,
-            379,
-            217
-        ],
-        "inverse": true,
-        "next": "点击常规奥秘炼成",
-        "interrupt": [
-            "lc退出",
-            "lc确认"
-        ],
-        "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 500,
+        "timeout": 4000,
         "on_error": "stopapp"
     },
-    "检测是否清空_高阶奥秘_停止": {
-        "recognition": "TemplateMatch",
-        "template": "炼成材料.png",
-        "threshold": 0.85,
+    "一键炼成_高阶奥秘": {
+        "recognition": "OCR",
+        "expected": "一键",
         "roi": [
-            55,
-            92,
-            276,
-            137
+            1075,
+            617,
+            145,
+            93
         ],
-        "inverse": true,
-        "next": "停止",
+        "action": "Click",
         "pre_delay": 100,
-        "timeout": 3000,
-        "post_delay": 500
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_添加材料1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "检测是否清空_高阶奥秘_停止2": {
+    "一键炼成_高阶奥秘_添加材料1": {
         "recognition": "TemplateMatch",
-        "template": "炼成材料只剩一个.png",
-        "threshold": 0.85,
+        "template": "炼成_可放入.png",
+        "action": "Click",
         "roi": [
-            65,
-            161,
-            127,
-            86
+            655,
+            149,
+            558,
+            277
         ],
-        "next": "停止",
         "pre_delay": 100,
+        "post_delay": 800,
+        "next": [
+            "一键炼成结束",
+            "一键炼成_高阶奥秘_选择数量_材料1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_选择数量_材料1": {
+        "recognition": "OCR",
+        "expected": "数量",
+        "roi": [
+            962,
+            627,
+            190,
+            80
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_选择数量_材料1_MAX"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_选择数量_材料1_MAX": {
+        "recognition": "OCR",
+        "expected": "MAX",
+        "roi": [
+            758,
+            279,
+            144,
+            106
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_选择数量_材料1_MAX_确定"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_选择数量_材料1_MAX_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            570,
+            444,
+            135,
+            84
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_添加材料2"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_添加材料2": {
+        "recognition": "TemplateMatch",
+        "template": "炼成_可放入.png",
+        "action": "Click",
+        "roi": [
+            655,
+            149,
+            558,
+            277
+        ],
+        "pre_delay": 100,
+        "post_delay": 800,
+        "next": [
+            "一键炼成_高阶奥秘_添加材料2_无材料",
+            "一键炼成_高阶奥秘_选择数量_材料2"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_添加材料2_无材料": {
+        "recognition": "OCR",
+        "expected": "没有",
+        "roi": [
+            218,
+            341,
+            404,
+            93
+        ],
+        "action": "Click",
+        "target": [
+            38,
+            30,
+            15,
+            14
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp",
+        "next": [
+            "一键炼成_高阶奥秘_已选完_炼成次数"
+        ]
+    },
+    "一键炼成_高阶奥秘_选择数量_材料2": {
+        "recognition": "OCR",
+        "expected": "数量",
+        "roi": [
+            962,
+            627,
+            190,
+            80
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_选择数量_材料2_MAX"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_选择数量_材料2_MAX": {
+        "recognition": "OCR",
+        "expected": "MAX",
+        "roi": [
+            758,
+            279,
+            144,
+            106
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_选择数量_材料2_MAX_确定"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_选择数量_材料2_MAX_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            570,
+            444,
+            135,
+            84
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_高阶奥秘_已选完_炼成次数"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_已选完_炼成次数": {
+        "recognition": "OCR",
+        "expected": "成次",
+        "roi": [
+            698,
+            37,
+            210,
+            124
+        ],
+        "target": [
+            1037,
+            95,
+            31,
+            25
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_高阶奥秘_炼成次数_输入"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_炼成次数_输入": {
+        "action": "InputText",
+        "input_text": "500",
+        "next": [
+            "一键炼成_高阶奥秘_委托炼成"
+        ],
+        "interrupt": "lc点击一次",
         "timeout": 3000,
-        "post_delay": 500
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_委托炼成": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            967,
+            610,
+            185,
+            107
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_高阶奥秘_等待结束"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_高阶奥秘_等待结束": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            393,
+            281,
+            514,
+            187
+        ],
+        "post_delay": 1000,
+        "rate_limit": 2000,
+        "next": [
+            "一键炼成_高阶奥秘_等待结束",
+            "点击常规奥秘炼成"
+        ],
+        "interrupt": [
+            "lc点击空白处",
+            "退出"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
     "点击常规奥秘炼成": {
         "recognition": "OCR",
-        "expected": "常规奥秘",
+        "expected": "常规",
         "roi": [
-            143,
-            109,
-            723,
-            77
+            420,
+            117,
+            150,
+            65
         ],
         "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 600,
-        "on_error": "stopapp",
-        "next": "选择炼成属性_常规奥秘",
-        "interrupt": "lc向右滑动"
-    },
-    "选择炼成属性_常规奥秘": {
-        "recognition": "OCR",
-        "expected": "光",
-        "roi": [
-            0,
-            563,
-            1280,
-            99
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
-        "post_delay": 1000,
-        "on_error": "stopapp",
         "next": [
-            "一键炼成_常规奥秘",
-            "选择炼成属性_常规奥秘"
+            "一键炼成_常规奥秘"
         ],
-        "interrupt": "lc向右滑动"
+        "interrupt": [
+            "lc选择炼成属性",
+            "lc向右滑动"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
     "一键炼成_常规奥秘": {
-        "recognition": "TemplateMatch",
-        "template": "一键炼成.png",
+        "recognition": "OCR",
+        "expected": "键炼",
         "roi": [
             1075,
-            642,
-            143,
-            56
+            617,
+            145,
+            93
         ],
         "action": "Click",
-        "rate_limit": 600,
-        "pre_delay": 300,
-        "timeout": 30000,
-        "post_delay": 500,
-        "on_error": "stopapp",
+        "pre_delay": 100,
+        "post_delay": 300,
         "next": [
-            "等待炼成完成_常规奥秘"
-        ]
+            "一键炼成_常规奥秘_添加材料1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "等待炼成完成_常规奥秘": {
+    "一键炼成_常规奥秘_添加材料1": {
         "recognition": "TemplateMatch",
-        "template": "确认.png",
+        "template": "炼成_可放入.png",
+        "action": "Click",
         "roi": [
-            800,
-            635,
-            195,
-            82
-        ],
-        "pre_delay": 10,
-        "timeout": 3000,
-        "post_delay": 200,
-        "on_error": "stopapp",
-        "next": [
-            "一键炼成_常规奥秘",
-            "检测是否清空_常规奥秘"
-        ],
-        "interrupt": [
-            "lc确认"
-        ]
-    },
-    "检测是否清空_常规奥秘": {
-        "recognition": "TemplateMatch",
-        "template": "炼成结果.png",
-        "threshold": 0.85,
-        "roi": [
-            79,
-            186,
-            379,
-            217
-        ],
-        "inverse": true,
-        "next": "点击常规熔炼_接常规奥秘",
-        "interrupt": [
-            "lc退出",
-            "lc确认"
+            655,
+            149,
+            558,
+            277
         ],
         "pre_delay": 100,
-        "on_error": "stopapp",
-        "timeout": 3000,
-        "post_delay": 500
+        "post_delay": 800,
+        "next": [
+            "一键炼成结束",
+            "一键炼成_常规奥秘_选择数量_材料1"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
     },
-    "点击常规熔炼_接常规奥秘": {
+    "一键炼成_常规奥秘_选择数量_材料1": {
+        "recognition": "OCR",
+        "expected": "数量",
+        "roi": [
+            962,
+            627,
+            190,
+            80
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_选择数量_材料1_MAX"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_选择数量_材料1_MAX": {
+        "recognition": "OCR",
+        "expected": "MAX",
+        "roi": [
+            758,
+            279,
+            144,
+            106
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_选择数量_材料1_MAX_确定"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_选择数量_材料1_MAX_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            570,
+            444,
+            135,
+            84
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_添加材料2"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_添加材料2": {
+        "recognition": "TemplateMatch",
+        "template": "炼成_可放入.png",
+        "action": "Click",
+        "roi": [
+            655,
+            149,
+            558,
+            277
+        ],
+        "pre_delay": 100,
+        "post_delay": 800,
+        "next": [
+            "一键炼成_常规奥秘_添加材料2_无材料",
+            "一键炼成_常规奥秘_选择数量_材料2"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_添加材料2_无材料": {
+        "recognition": "OCR",
+        "expected": "没有",
+        "roi": [
+            218,
+            341,
+            404,
+            93
+        ],
+        "action": "Click",
+        "target": [
+            38,
+            30,
+            15,
+            14
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp",
+        "next": [
+            "一键炼成_常规奥秘_已选完_炼成次数"
+        ]
+    },
+    "一键炼成_常规奥秘_选择数量_材料2": {
+        "recognition": "OCR",
+        "expected": "数量",
+        "roi": [
+            962,
+            627,
+            190,
+            80
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_选择数量_材料2_MAX"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_选择数量_材料2_MAX": {
+        "recognition": "OCR",
+        "expected": "MAX",
+        "roi": [
+            758,
+            279,
+            144,
+            106
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_选择数量_材料2_MAX_确定"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_选择数量_材料2_MAX_确定": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            570,
+            444,
+            135,
+            84
+        ],
+        "action": "Click",
+        "pre_delay": 100,
+        "post_delay": 300,
+        "next": [
+            "一键炼成_常规奥秘_已选完_炼成次数"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_已选完_炼成次数": {
+        "recognition": "OCR",
+        "expected": "成次",
+        "roi": [
+            698,
+            37,
+            210,
+            124
+        ],
+        "target": [
+            1037,
+            95,
+            31,
+            25
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_常规奥秘_炼成次数_输入"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_炼成次数_输入": {
+        "action": "InputText",
+        "input_text": "500",
+        "next": [
+            "一键炼成_常规奥秘_委托炼成"
+        ],
+        "interrupt": "lc点击一次",
+        "timeout": 3000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_委托炼成": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            967,
+            610,
+            185,
+            107
+        ],
+        "action": "Click",
+        "next": [
+            "一键炼成_常规奥秘_等待结束"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "一键炼成_常规奥秘_等待结束": {
+        "recognition": "OCR",
+        "expected": "炼成",
+        "roi": [
+            393,
+            281,
+            514,
+            187
+        ],
+        "rate_limit": 2000,
+        "post_delay": 1000,
+        "next": [
+            "一键炼成_常规奥秘_等待结束",
+            "点击常规熔炼_循环"
+        ],
+        "interrupt": [
+            "lc点击空白处",
+            "退出"
+        ],
+        "timeout": 4000,
+        "on_error": "stopapp"
+    },
+    "点击常规熔炼_循环": {
         "recognition": "OCR",
         "expected": "常规熔炼",
         "roi": [
@@ -1226,28 +1189,24 @@
         "action": "Click",
         "pre_delay": 300,
         "timeout": 3000,
-        "post_delay": 600,
-        "on_error": "stopapp",
-        "next": "选择炼成属性_接常规奥秘",
-        "interrupt": "lc向右滑动"
-    },
-    "选择炼成属性_接常规奥秘": {
-        "recognition": "OCR",
-        "expected": "光",
-        "roi": [
-            0,
-            563,
-            1280,
-            99
-        ],
-        "action": "Click",
-        "pre_delay": 300,
-        "timeout": 3000,
         "post_delay": 300,
         "on_error": "stopapp",
         "next": [
-            "点击筛选_常规熔炼",
-            "选择炼成属性_接常规奥秘"
+            "一键炼成_常规熔炼_低级奥秘"
+        ],
+        "interrupt": [
+            "lc选择炼成属性",
+            "lc向右滑动"
+        ]
+    },
+    "一键炼成结束": {
+        "recognition": "OCR",
+        "expected": "没有",
+        "roi": [
+            218,
+            341,
+            404,
+            93
         ]
     }
 }

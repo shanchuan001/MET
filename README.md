@@ -42,7 +42,7 @@ MET功能:
 
  - 支持`图形化界面`(使用[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)通用图形化界面)
 
- **如果觉得好用,就点个star吧**
+ **如果觉得好用,就[点个star](https://github.com/shanchuan001/MET/stargazers)吧**
 
 # 使用方法
 >[!NOTE]

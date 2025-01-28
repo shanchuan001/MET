@@ -1,4 +1,23 @@
 {
+    "sm向右滑动": {
+        "recognition": "OCR",
+        "expected": "挑战",
+        "action": "Swipe",
+        "begin": [
+            1228,
+            206,
+            1,
+            1
+        ],
+        "end": [
+            367,
+            206,
+            1,
+            1
+        ],
+        "post_delay": 700,
+        "duration": 500
+    },
     "开始自动神眠": {
         "next": [
             "确认是否在主页_自动神眠",
@@ -39,6 +58,7 @@
         "action": "Click",
         "post_delay": 300,
         "next": "点击神眠之地",
+        "interrupt": "sm向右滑动",
         "timeout": 3000,
         "on_error": "stopapp"
     },
@@ -46,11 +66,13 @@
         "recognition": "TemplateMatch",
         "template": "神眠之地.png",
         "roi": [
-            18,
-            215,
-            1250,
-            454
+            4,
+            190,
+            404,
+            475
         ],
+        "pre_delay": 600,
+        "post_delay": 2000,
         "action": "Click",
         "next": [
             "选择要打的属性_神眠"
